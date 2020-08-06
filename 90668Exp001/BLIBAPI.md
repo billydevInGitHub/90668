@@ -15,6 +15,14 @@ Tomcat 8 API (https://tomcat.apache.org/tomcat-8.0-doc/api/index.html?org/apache
 
 Tomcat 7 API (https://tomcat.apache.org/tomcat-7.0-doc/api/index.html)
 
+## 10800 Linux
+
+### Linux setup
+
+Linux Setup folder names (https://www.howtogeek.com/117435/htg-explains-the-linux-directory-structure-explained/)
+
+### Linux Bash 
+
 ## 11008 IntelliJ IDEA
 
 Idea icons (https://www.jetbrains.com/help/idea/symbols.html#common-icons)
@@ -28,10 +36,6 @@ Markdown format (https://guides.github.com/features/mastering-markdown/)
 API reference (https://docs.gradle.org/current/dsl/index.html)
 
 ## 30000 Java 
-
-
-
-### Java Core API 
 
 Java Core API class diagram - very good (http://www.falkhausen.de/Java-8/index.html)
 
@@ -70,6 +74,8 @@ Maven central (user interface) (https://mvnrepository.com/repos/central)
 
 Reflection Official Tutorial (https://docs.oracle.com/javase/tutorial/reflect/TOC.html)
 
+Reflection Discover Class Members (API) (https://docs.oracle.com/javase/tutorial/reflect/class/classMembers.html)
+
 ## 33804 JEE
 
 JEE API (https://docs.oracle.com/javaee/6/api/index.html?javax/servlet/http/HttpServletRequest.html)
@@ -80,34 +86,25 @@ JEE JPA API (https://docs.oracle.com/javaee/7/api/index.html?javax/persistence/p
 
 ## 33808 Spring
 
+Spring all projects (https://spring.io/projects/spring-boot#learn)
 
 ### Spring Boot
 
-#### Spring Boot Reference Doc
+Spring Boot API (https://docs.spring.io/spring-boot/docs/current/api/)
+
 (1) Spring boot reference doc (overall) (https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/reference/html/)
 
-(2) Spring boot reference doc (entry point,overall project, will reach (1))  (https://spring.io/projects/spring-boot#learn)
-
-(3) Spring MVC reference doc ( similar to my first read,enter from Spring framework) (https://docs.spring.io/spring/docs/5.2.8.BUILD-SNAPSHOT/spring-framework-reference/web.html#spring-web)
-
-   Spring WebFlux (https://docs.spring.io/spring/docs/5.2.8.BUILD-SNAPSHOT/spring-framework-reference/web-reactive.html#spring-web-reactive)
-    
-    
-(4) Spring boot build ( used by U020) (https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/reference/html/using-spring-boot.html#using-boot-build-systems)
+(2) Spring boot build ( used by U020) (https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/reference/html/using-spring-boot.html#using-boot-build-systems)
   
-(5)  * Spring boot feature (******my second read enter from sprig boot U021******) (https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/reference/html/spring-boot-features.html#boot-features-external-config) 
+(3) Spring boot feature (******my second read enter from sprig boot U021******) (https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/reference/html/spring-boot-features.html#boot-features-external-config) 
   
-(6) Spring boot how to (like FQA with details, very useful when doing examples) (https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/reference/html/howto.html#howto-spring-boot-application)
+(4) Spring boot how to (like FQA with details, very useful when doing examples) (https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/reference/html/howto.html#howto-spring-boot-application)
 
 (7) All Spring projects -Boot,Data,Session etc.(https://spring.io/projects/spring-data-jdbc)
 
-#### Spring Boot API
-
-Spring Boot API (https://docs.spring.io/spring-boot/docs/current/api/)
-
 #### Spring Boot Actuator 
 
-API document (https://docs.spring.io/spring-boot/docs/current/actuator-api/html/#overview)
+Spring Boot Actuator API document (https://docs.spring.io/spring-boot/docs/current/actuator-api/html/#overview)
 
 ### Spring Data 
 
@@ -115,12 +112,11 @@ API document (https://docs.spring.io/spring-boot/docs/current/actuator-api/html/
 
 Spring Data Common API (https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html)
 
-
 #### Spring Data JPA
 
 Spring Data JPA API (https://docs.spring.io/spring-data/jpa/docs/2.3.1.RELEASE/api/)
 
-Spring Data JPA query method name convention (https://www.javaguides.net/2018/11/spring-data-jpa-query-creation-from-method-names.html)
+Spring Data JPA query method name convention (see also Exp122) (https://www.javaguides.net/2018/11/spring-data-jpa-query-creation-from-method-names.html)
 
 Spring Data JPA repository class diagram (https://www.javaguides.net/2018/11/spring-data-jpa-tutorial-getting-started.html)
 
@@ -132,28 +128,27 @@ Spring Data MongoDB API (https://docs.spring.io/spring-data/data-mongodb/docs/cu
 
 ### Spring Framework
 
-#### Spring Framework Class Diagram
-
-Spring main class diagram (https://blog.csdn.net/strivezxq/article/details/44560771)
-
-#### Spring Framework API 
-
 Spring Framework API (https://docs.spring.io/spring-framework/docs/current/javadoc-api/index.html?org/springframework/web/servlet/config/annotation/EnableWebMvc.html)
+
+Spring Framework class diagram (https://blog.csdn.net/strivezxq/article/details/44560771)
 
 #### Spring Framework AOP from Core
 
+Spring Framework AOP API (https://javadoc.io/doc/org.springframework/spring-aop/latest/index.html)
 
-Spring AOP API (https://javadoc.io/doc/org.springframework/spring-aop/latest/index.html)
+Spring Framework AOP AspectJ API (https://javadoc.io/doc/org.aspectj/aspectjrt/latest/index.html)
 
-AspectJ API (https://javadoc.io/doc/org.aspectj/aspectjrt/latest/index.html)
+### Spring Framework WebFlux/Reactor
 
-#### Spring Framework MVC 
+Spring Framework WebFlux/Reactor API (https://projectreactor.io/docs/core/3.0.3.RELEASE/api/index.html?reactor/core/publisher/Mono.html)
 
-Spring MVC reference doc(if dig into should be the most detailed stuff) (https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html)
+Spring Framework WebFlux reference doc(https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html)
 
-### Spring Framework Reactor
+#### Spring Framework WebMVC 
 
-Reactor API (https://projectreactor.io/docs/core/3.0.3.RELEASE/api/index.html?reactor/core/publisher/Mono.html)
+Spring Framework WebMVC reference doc() (https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html)
+
+
 
 ## 33845 Hibernate
 
@@ -161,6 +156,12 @@ Hibernate API (https://docs.jboss.org/hibernate/orm/5.0/javadocs/)
 
 Hibernate Validator API (https://docs.jboss.org/hibernate/stable/validator/api/index.html?org/hibernate/validator/constraints/Email.html)
 
+
+## 38000 MySQL 
+
+MySQL Doc (https://dev.mysql.com/doc/)
+
+MySQL Doc reference manual(https://dev.mysql.com/doc/refman/8.0/en/)
 
 ## 50216 Authentication and authorization
 
