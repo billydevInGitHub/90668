@@ -1,4 +1,4 @@
-# BLIB GitHub
+# _BLIB GitHub
 
 BillyDev Git Hub (https://github.com/billydevInGitHub)
 
@@ -6,6 +6,7 @@ BillyDev Git Hub (https://github.com/billydevInGitHub)
 Important resource will be *emphasized* or _another way_.
 Also we can use **bold** or __another way__. 
 
+# API
 
 ## 10200 Windows
 
@@ -19,6 +20,11 @@ Tomcat 9 API (http://tomcat.apache.org/tomcat-9.0-doc/api/index.html?org/apache/
 Tomcat 8 API (https://tomcat.apache.org/tomcat-8.0-doc/api/index.html?org/apache/catalina/startup/Tomcat.html)
 
 Tomcat 7 API (https://tomcat.apache.org/tomcat-7.0-doc/api/index.html)
+
+## 10700 Netty
+
+10700 Netty API~ 4.1 (https://netty.io/4.1/api/index.html)
+10700 Netty API~ 4.0 (https://netty.io/4.0/api/index.html?io/netty/channel/ChannelPipeline.html)
 
 ## 10800 Linux
 
@@ -158,7 +164,9 @@ server.port:8090
             <--from 33808Exp094
 spring.mvc
             <--WebMvcProperties @ConfigurationProperties use this prefix
-            
+spring.resources
+            <--ResourceProperties @ConfigurationProperties use this prefix
+                        
 ### Spring Data 
 
 #### Spring Data Common 
@@ -184,6 +192,7 @@ Spring Data MongoDB API (https://docs.spring.io/spring-data/data-mongodb/docs/cu
 Spring Framework~ API (https://docs.spring.io/spring-framework/docs/current/javadoc-api/index.html?org/springframework/web/servlet/config/annotation/EnableWebMvc.html)
                   <---WebFlux: ClientResponse, WebClient, 
                   <---WebMVC:   RestTemplate,
+                  <---MockMVC
                   <---shared: MediaType,
                   
 Spring Framework~ class diagram (https://blog.csdn.net/strivezxq/article/details/44560771)
@@ -201,12 +210,12 @@ Spring Framework AOP Concepts (https://www.edureka.co/blog/spring-aop-tutorial/)
 Spring Framework WebFlux/Reactor Reactive Stream API (https://www.reactive-streams.org/reactive-streams-1.0.0-javadoc/index.html?org/reactivestreams/Publisher.html)
                                  <---seems another project 
                    
-Spring Framework WebFlux/Reactor API (new, not part of spring) (https://projectreactor.io/docs/core/release/api/index.html?reactor/core/publisher/Mono.html)
+Spring Framework WebFlux/Reactor core API (new, not part of spring) (https://projectreactor.io/docs/core/release/api/index.html?reactor/core/publisher/Mono.html)
                                  <---Mono, Flux etc. 
                                  <---Spring implmentation class API still within Spring Framework API doc
 
-Spring Framework WebFlux/Reactor API (old) (https://projectreactor.io/docs/core/3.0.3.RELEASE/api/index.html?reactor/core/publisher/Mono.html)
-      
+Spring Framework WebFlux/Reactor core API (old) (https://projectreactor.io/docs/core/3.0.3.RELEASE/api/index.html?reactor/core/publisher/Mono.html)
+Spring Framework WebFlux/Reactor netty API(https://projectreactor.io/docs/netty/snapshot/api/index.html?reactor/netty/channel/ChannelOperations.html)
      
 Spring Framework WebFlux reference doc(https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html)
 
@@ -352,7 +361,12 @@ http protocol headers entity header content-type  media types (https://developer
                                                    <---media type should be the actual value of content-type which is a header
                                                    <---application/JSON是一种通用的MIME类型，具有实用、精简、易读的特点 
                                                    <---33808exp144 use github special mime type
-
+http protocol headers entity header content-type  media types from Spring MimeMapping
+                                                   <---33808Exp069 MimeMappings there is static block
+http protocol headers entity header content-type  media types for post (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/POST)
+                                                   <---could be: application/x-www-form-urlencoded (see 33808exp144 BodyInserters line501)
+                                                                 multipart/form-data
+                                                                 text/plain
 http protocol headers general header (https://developer.mozilla.org/zh-CN/docs/Glossary/%E9%80%9A%E7%94%A8%E9%A6%96%E9%83%A8)
                                       <--could be used both request and response
 http protocol headers general header cache control (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control)
