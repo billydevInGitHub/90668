@@ -385,6 +385,20 @@ IntalliJ IDEA Reference doc Chinese How to create real time template (https://ww
 
 ### 11021 Collection
 
+#### Git __Team work
+
+​      branch
+
+​      merge    <--do it by yourself 
+
+​      patch      <--create patch and let others do this 
+
+​      rebase    <--to catch up others in master branch
+
+​      squash   <--squash my multiple commits in my branch 
+
+​      stash      <--temp stash my current working on
+
 #### Git branch
 
  git branch   <--- ctrl+shift+~ in IDEA list all branches menus 
@@ -432,6 +446,8 @@ git format-patch <target_branch> -o <directory>
 
 ​           <--from: https://devconnected.com/how-to-create-and-apply-git-patch-files/
 
+​           <---there are still many stuff to do like patch trouble shooting etc. from the above link
+
 ​           <--sitting in current branch and compare with target_branch , output to a directory
 
 git format-patch master
@@ -443,6 +459,48 @@ git format-patch master -o patches
 patches/0001-add-a.patch
 
 ​           <--- output to the patches directory,  directory is created automatically
+
+​          <---201010:  **better to have output folder out of the git tracking folder !!** 
+
+
+
+git format-patch -1 <commit_sha>
+
+​           <---patch for a specific commit  <--need test
+
+
+
+git log master..feature
+
+​          <---need test 
+
+git checkout feature
+
+​          <---need check out target branch before apply
+
+git am patches/0001-My-feature-commit-1.patch
+
+​          <---apply patch
+
+git am patches\0001-add-a.patch
+
+​         <--this is real one
+
+```
+Applying: add a
+error: patch failed: 11021Exp020/src/main/java/billydev/App.java:6
+error: 11021Exp020/src/main/java/billydev/App.java: patch does not apply
+Patch failed at 0001 add a
+The copy of the patch that failed is found in: .git/rebase-apply/patch
+When you have resolved this problem, run "git am --continue".
+If you prefer to skip this patch, run "git am --skip" instead.
+To restore the original branch and stop patching, run "git am --abort".
+        <----this is the msg when patch apply has conflict, need manully merge first 
+```
+
+git log --oneline --graph
+
+​           <----check log after patch
 
 #### Git Rebase
 
