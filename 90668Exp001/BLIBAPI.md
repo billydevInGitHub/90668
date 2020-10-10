@@ -2,7 +2,7 @@
   ^^^  <--means good points !!
 
 # _Markdown format 
-  
+
 Markdown format (https://guides.github.com/features/mastering-markdown/)
 
 # _BLIB GitHub
@@ -375,49 +375,241 @@ IntalliJ IDEA Reference doc Chinese How to create real time template (https://ww
 
 ## 11021
 
+### 11021 Doc
 
-git reset --hard 8f4b  <---8f4b is the hash of commit 
+
+
+### 11021 Data
+
+
+
+### 11021 Collection
+
+#### Git branch
+
+ git branch   <--- ctrl+shift+~ in IDEA list all branches menus 
+
+     git branch -a  <-------will list local and remote branches 
+     git branch -av   <---with more info
+     git branch -avv  <----more detailed with how branches are bound, need look into 
+    
+     git branch iss553   <--this will create branch
+     git branch XXXX oldBranchName <----I guess oldtype is based on which branch, for examp git branch xxx master 
+                          <---from Luban  D180, there are 4 types of stuff we can create the branch: 
+                           <---from current branch, from new branch, from  remote branch, from  commit hash 
+    
+     git branch -d hotfix      <---this will delett hot fix 
+     git check -b iss553   <---this willl do create branch and check at thesame time 
+     git checkout master     <--switch to master or branch, if workspace file no new change, will stick to the branch
+                                             <--if workspace file has new change,  then must commit change or stash them !! 
+     git merge issu553        <--merge the branch, that means you stand in master and from master point of view merge 
+                                                 the branch of issu553 stuff , you always in your own branch !! 
+                                            <---issue553 is always "the other " source of information !! 
+
+
+#### Git Log
+
+(1) git log       <---can only list current branch log
+(2) git reflog              <------------this one seems also good for the quick one 
+(3) when differnt formatting needed
+   git log --pretty=oneline                               <------from luban, show history each one line
+   git log --pretyy=oneline  --decorate=full   <----this could show tag and more info <----will use this one !! 
+   git log --pretyy=oneline --tags --decorate=full <---seems --tags is not necessary 
+   git log --no-walk --tags --pretty="%h %d %s" --decorate=full  <---this is useful to us  (hard to remember)
+
+           <--from: https://stackoverflow.com/questions/4211604/show-all-tags-in-git-log
+   git log -p    <---will show details  
+   git log --stat  --summary         <--- seems create mode
+(4) git log branchXXX
+         <---check log on one branch
+(5) git tag -l   <--just list the tag
+
+
+
+#### Git Patch
+
+git format-patch <target_branch> -o <directory> 
+
+​           <--from: https://devconnected.com/how-to-create-and-apply-git-patch-files/
+
+​           <--sitting in current branch and compare with target_branch , output to a directory
+
+git format-patch master
+
+​            <---this is real one, sitting in branch1 and targeting master 
+
+git format-patch master -o patches
+
+patches/0001-add-a.patch
+
+​           <--- output to the patches directory,  directory is created automatically
+
+#### Git Rebase
+
+git rebase master 
+
+    <---should first checkout the branch which need rebase
+    <---after run: it will show like: 
+       First, rewinding head to replay your work on top of it...
+    Applying: add a
+    Using index info to reconstruct a base tree...
+    M       11021Exp020/src/main/java/billydev/App.java
+    Falling back to patching base and 3-way merge...
+    Auto-merging 11021Exp020/src/main/java/billydev/App.java
+    CONFLICT (content): Merge conflict in 11021Exp020/src/main/java/billydev/App.java
+    error: Failed to merge in the changes.
+    Patch failed at 0001 add a
+    The copy of the patch that failed is found in: .git/rebase-apply/patch
+    
+    When you have resolved this problem, run "git rebase --continue".
+                          <-----in App.java will show things like <<<<<, then do manual merge
+                              after manual merge done, git add App.java <---this means merge done!!
+    If you prefer to skip this patch, run "git rebase --skip" instead.
+    To check out the original branch and stop rebasing, run "git rebase --abort".
+edit xxxx
+git add xxx.java  <---tell git conflict fixed 
+git rebase --continue 
+    <----Qus044, 200804S001-S008
+    <---another try: 20080907Sxxx
+
+
+#### Git Reset
+
+
+
+(***)without file as parameter
+
+git reset  . 
+
+```
+  <--this will unstage the changes ( without file git reset does mixed, clean index, the same as unstage!!) 
+```
+
+
+ git reset --hard tagname         
+
+```
+      <---this could avoid the duplicated files caused by TOD diskbackup !! 
+             as this tag should be clean one !!
+```
+
+git reset --hard 8f4b  
+
+```
+     <---8f4b is the hash of commit 
+     <--if you are in branch, this reset only affect branch 
+```
+
+
+
+  git reset --hard     
+
+```
+ <-----should reset to what you committed , like svn revert 
+```
+
+
+  
+
+  git reset --hard  head^     
+
+```
+                     <---head^^  head^^^^ will roll back more versions !! 
+                     <----need test 
+```
+
+
+  git reset --hard  head~2               
+
+```
+<----this will quickly roll back to 2 versions
+```
+
+
+  git reset --mixed 0b7fa140d960543572e0d6d6e121e70929cf75b5 
+
+​               refer to: (https://segmentfault.com/a/1190000006185954)
+
+```
+                <---git reset has lots of stuff, the above did myself is reset index 
+                     as well  the head ( as tag name is head, so head no change) 
+                <---so basically git reset is reset to certain version of repository !! 
+```
+
+#### Git Squash
+
+git rebase -i xxxx  
+
+     <----xxxx is the begin commit( if we squash b and c, it is a )
+     <----check screenshots 200804S001-S005  Qus046
+      <---example in "vi": 
+               pick  xxxxx    a        <----this is previous commit 
+               pick  xxxxx    b    <--change the pick to s if you want merege b to a 
+               pick  xxxxx    c    <---change the pick to s if you want to merge  c to a
+          after change: 
+               pick  xxxxx    a     
+               s     xxxxx    b     
+               s     xxxxx    c    <---type :wq will hint you to do the message editing!!       
+#### Git Stash
+
+IDEA: might be better to use shelf : https://www.jetbrains.com/help/idea/work-on-several-features-simultaneously.html#shelve
+
+      <---the menu of stash in in VCS menu not in git view ; <---stash need at least one commit !! 
+      <---shelf can do some local different "group" which stash must apply for all uncommitted changes; 
+      <---patch created by shelf could only apply to IDEA I gues 
+git stash    <----check Qus31
+    git stash              <----when git pull origin, local changes made, use git stash to let it remember see Qus31
+    git stash list   <---- can see what stuff has been stashed !!
+
+
+
 
 
 ## 11041 Docker
 
 
-## 11041 Docker API and doc
+### 11041 Docker API and doc
 
 Docker~  resource Chinese (http://c.biancheng.net/view/3257.html)
 
 Commands check   https://springbootdev.com/2017/11/10/docker-most-important-and-frequently-used-commands/
                        <---this is quick command check 
 
-## 11041 Docker Collections ordered by key
+### 11041 Docker Collections ordered by key
 
-Commands: 
+#### Commands: 
 
 Folders setup: 
   docker cp   <--- can copy docker folders to host and restart container  (https://juejin.im/post/6844904016086827016) 
-  
-Build
+
+#### Build
+
   docker build  -t java-app .                    <--see 181022-2 S002  
-  
-Compose
+
+#### Compose
+
   docker-compose up
   docker-compose build <-----this is how to compose the docker stuff  check Exp004(1)
   docker-compose stop
   docker-compose down 
   docker-compose down -v   <---check Qus50 with more details 
-  
-  
-Container:
+
+#### Container:
+
   docker container ls -a               <----this is very important even can see exited containers 
   docker ps                                          check the runnning process of containers 
-  docker rm ef                       <---- remove the container, ef is container id (https://juejin.im/post/6844904016086827016)
+  docker rm ef                       
+
+​              <---- remove the container, ef is container id (https://juejin.im/post/6844904016086827016)
   docker start d582226a3acc          <---- the next day only need start the container
   docker stop CONTAINER_ID           <-- from (https://stackoverflow.com/questions/35122773/single-command-to-stop-and-remove-docker-container)
   docker stop 34e1de1c6c41           <--the real action 
 
-Images: 
+#### Images: 
+
   docker pull rabbitmq:3.8.9-management   <-- 51302Qus005  from:(https://juejin.im/post/6844903970545090574) also check: (https://hub.docker.com/_/rabbitmq)
   docker search rabbitmq       <-- 51302Qus005  from:(https://juejin.im/post/6844903970545090574)
+
                                <---this is image search
   docker images            to list current images, need start virtual box server first; 
   docker images -a          <-----this will list all images  
@@ -426,21 +618,27 @@ Images:
                             <---once used by container must force remove it 
   docker image rmi   xxxxx   <-----this is really reclaim diskspace 
 
-Inspect: 
+#### Inspect: 
+
    docker inspect --format '{{ (index (index .NetworkSettings.Ports "5672/tcp") 0).HostPort }}' rabbitmq_container
    docker inspect --format '{{ (index (index .NetworkSettings.Ports "5672/tcp") 0).HostPort }}' 350d344abd1e
+
                             <---this is real command 
                            <-- from: https://stackoverflow.com/questions/42137216/i-cant-connect-to-rabbitmq-server-port-5672                             
-Log:
+#### Log:
+
   docker logs  350d344abd1e |less   <---this is the best one 350d344abd1e is container id 
   docker logs -f 容器ID    <--from (https://juejin.im/post/6844903970545090574)
+
                            <--this one seems can not move the cursor 
   tail -f `docker inspect --format='{{.LogPath}}' containername`  <--from (https://stackoverflow.com/questions/41144589/how-to-redirect-docker-container-logs-to-a-single-file)
                           <---this one might have permission issue
-Run:                    
+#### Run:                    
+
   docker run --help                   <---to get the help hints        
   docker run   "image_name"           <---do not know that it is about ????  docker run   -p 6379:6379 redis
   docker run   --rm   -u root   -p 8080:8080  -v jenkins-data:/var/jenkins_home 
+
           -v /var/run/docker.sock:/var/run/docker.sock   -v "$HOME":/home  jenkinsci/blueocean
                             <------- -v should map volumn,    11031Tut02(01) 
                             <---   --rm    Automatically remove the container when it exits
@@ -460,10 +658,14 @@ Run:
                                 <---setup LDAP users from (https://blog.csdn.net/mylitboy/article/details/88865428)
   docker run --rm -p 389:389 --name myopenldap --env LDAP_ORGANISATION="billydev" --env LDAP_DOMAIN="billydev.com" --env LDAP_ADMIN_PASSWORD="123456" --detach osixia/openldap
                                 <---try my own , did not use hostname and network bridge   
-   end::tagname[]
-                                
+​     **docker run -p 389:389 --name 33808exp181LdapContainer --network bridge --hostname openldap-host --env  LDAP_ORGANISATION="MyCompany Inc." --env LDAP_DOMAIN="mycompany.com" --detach osixia/openldap**
+
+​                    <---For 33808Exp181 and it will create container that can be reused 
+
+end::tagname[]
+​                                
   docker run --rm -p 27017:27017 --name mymongodb --detach mongo                                
-                                                                                              
+​                                                                                              
 Run a command inside container bash: 
   docker exec -i -t 3ae bin/bash  <--get into container from (https://juejin.im/post/6844903970545090574)
   docker exec -i -t 350d344abd1e  bin/bash   <---real command, 350d.. is container id 
@@ -473,7 +675,7 @@ Volume
   docker volume ls   <---- will list:  DRIVER   VOLUME NAME   local  jenkins-data <--from 11031Tut02(01) S018
   docker volume inspect xxxx   <-----will give the details of docker volume with local folder name!!
 
-  
+
 ## 11061
 
 API reference (https://docs.gradle.org/current/dsl/index.html)
@@ -482,11 +684,12 @@ API reference (https://docs.gradle.org/current/dsl/index.html)
 
 ## 30000 Java 
 
+### API and doc
 
 Java Core~ API class diagram - very good (http://www.falkhausen.de/Java-8/index.html)
 
 Java Core~ API doc 8.0 (https://docs.oracle.com/javase/8/docs/api/)
- 
+
 ### Java Core Blog
 
 Java Core Blog Alibaba (https://www.javaweb.shop/article/310.html)
@@ -547,7 +750,7 @@ Maven central (user interface) (https://mvnrepository.com/repos/central)
 
 ## 32602 Maven Data
 local repository:  C:\Users\Billy\.m2  <---could be found in IDEA setting/build tools/maven
- 
+
 ## 32602 Maven Collection ordered by key 
 
 
@@ -557,7 +760,7 @@ JUnit 4 API~ (https://junit.org/junit4/javadoc/latest/index.html)
 
 JUnit 5 API~ (https://junit.org/junit5/docs/5.0.1/api/index.html?overview-summary.html)
             <---Assertions.java class 
-            
+
 Junit 4 Examples 
 assertEquals(MediaType.APPLICATION_JSON_UTF8, response.getHeaders().getContentType());  <---33808Exp083 BookControllerRestTemplateTest line 57            
 assertEquals(HttpStatus.OK, response.getStatusCode());                                  <---33808Exp083 BookControllerRestTemplateTest line 58
@@ -630,9 +833,9 @@ Spring Boot API (https://docs.spring.io/spring-boot/docs/current/api/)
 (1) Spring boot reference doc (overall) (https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/reference/html/)
 
 (2) Spring boot build ( used by U020) (https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/reference/html/using-spring-boot.html#using-boot-build-systems)
-  
+
 (3) Spring boot feature (******my second read enter from sprig boot U021******) (https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/reference/html/spring-boot-features.html#boot-features-external-config) 
-  
+
 (4) Spring boot how to (like FQA with details, very useful when doing examples) (https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/reference/html/howto.html#howto-spring-boot-application)
 
 (7) All Spring projects -Boot,Data,Session etc.(https://spring.io/projects/spring-data-jdbc)
@@ -737,7 +940,7 @@ management.server.ssl.key-store-password = secret
 management.security.enabled: false                    <-- from 33808exp104, try to disable security 
 management.trace.include: remote_address, parameters  <---from 33808exp104, what need to be added to trace
 management.endpoints.web.exposure.exclude=beans,trace
-          
+​          
 mybatis.typeAliasesPackage=com.billydev.entity     <---Exp032  
 mybatis.mapperLocations=classpath:mapper/*.xml
 
@@ -761,7 +964,7 @@ spring.cloud.gcp.project-id=iconic-access-229601              <---from 33808exp1
 spring.cloud.gcp.credentials.location=file:[LOCAL_FS_CREDENTIALS_PATH]   <---from 33808exp172
 spring.data.mongodb.host=192.168.1.100          <---33808exp175
 spring.data.mongodb.port=27017                  <---33808exp175
-spring.data.rest.base-path=/api                   <----33808Exp180
+spring.data.rest.base-path=/api                   <----33808Exp180, adjust rest root URI (https://spring.io/guides/tutorials/react-and-spring-data-rest/)
 spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
                    <---- this one is old: spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 spring.datasource.hikari.enabled=false  <--Exp120                   
@@ -806,6 +1009,9 @@ spring.profiles.active
 spring.rabbitmq.username=guest          <---from vhr BPOT2123
 spring.rabbitmq.password=guest           <---from vhr BPOT2123
 spring.rabbitmq.host=192.168.91.128       <---from vhr BPOT2123
+
+Spring.rabbitmq.host=192.168.1.100     <---from 33808exp156
+
 spring.rabbitmq.port=5672                  <---from vhr BPOT2123
 spring.rabbitmq.listener.simple.acknowledge-mode=manual   <---from vhr BPOT2123
 spring.rabbitmq.listener.simple.prefetch=100               <---from vhr BPOT2123
@@ -814,6 +1020,7 @@ spring.redis.port=6379                 <---from vhr BPOT2123
 spring.redis.password=123                  <---from vhr BPOT2123
 spring.redis.database=0                   <---from vhr BPOT2123
 spring.resources
+
             <--ResourceProperties @ConfigurationProperties use this prefix
 spring.servlet.multipart.max-file-size=128MB
 spring.servlet.multipart.max-request-size=128MB
@@ -854,7 +1061,7 @@ Spring Framework~ API (https://docs.spring.io/spring-framework/docs/current/java
                   <---WebMVC:   RestTemplate,
                   <---MockMVC
                   <---shared: MediaType,
-                  
+
 Spring Framework~ class diagram (https://blog.csdn.net/strivezxq/article/details/44560771)
 
 #### Spring Framework AOP from Core
@@ -869,14 +1076,14 @@ Spring Framework AOP Concepts (https://www.edureka.co/blog/spring-aop-tutorial/)
 
 Spring Framework WebFlux/Reactor Reactive Stream API (https://www.reactive-streams.org/reactive-streams-1.0.0-javadoc/index.html?org/reactivestreams/Publisher.html)
                                  <---seems another project 
-                   
+
 Spring Framework WebFlux/Reactor core API (new, not part of spring) (https://projectreactor.io/docs/core/release/api/index.html?reactor/core/publisher/Mono.html)
                                  <---Mono, Flux etc. 
                                  <---Spring implmentation class API still within Spring Framework API doc
 
 Spring Framework WebFlux/Reactor core API (old) (https://projectreactor.io/docs/core/3.0.3.RELEASE/api/index.html?reactor/core/publisher/Mono.html)
 Spring Framework WebFlux/Reactor netty API(https://projectreactor.io/docs/netty/snapshot/api/index.html?reactor/netty/channel/ChannelOperations.html)
-     
+​     
 Spring Framework WebFlux reference doc(https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html)
 
 #### Spring Framework WebMVC 
@@ -892,7 +1099,7 @@ Spring Framework WebMVC GetMapping URL pattern (https://stackoverflow.com/questi
 
 Spring Framework WebSocket 6455 websocket protocol (https://tools.ietf.org/html/rfc6455)
 Spring Framework WebSocket API (https://www.w3.org/TR/websockets/)
-     
+​     
 ### Spring HATEOAS 
 
 Spring HATEOAS API (https://docs.spring.io/spring-hateoas/docs/current/api/index.html?org/springframework/hateoas/EntityModel.html)
@@ -919,7 +1126,7 @@ Java Logging Logback configuration  <---with detailed patterns (https://www.cnbl
                        <--see also 33808Exp149
 Java Logging slf4j API (http://docs.glngn.com/latest/api/org.slf4j.slf4j-api/index.html?org/slf4j/spi/MDCAdapter.html)
 
-                              
+
 ## 33845 Hibernate
 
 Hibernate API (https://docs.jboss.org/hibernate/orm/5.0/javadocs/)
@@ -952,7 +1159,7 @@ UML diagrams <--list diagrams  (https://www.uml-diagrams.org/class-reference.htm
    <---here just list overview stuff 
 
 JavaScript ~~ API overview (https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-    
+​    
 JavaScript ~~ reference (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
 
 
@@ -992,12 +1199,12 @@ JavaScript Tools JSFiddle (https://jsfiddle.net/)
 
 JavaScript Web API (https://developer.mozilla.org/zh-CN/docs/Web/API)
                    <--it has specificationa and interfaces 
-                   
+
 JavaScript Web API Body mixin (https://developer.mozilla.org/en-US/docs/Web/API/Body)
                            <---
 JavaScript Web API Body json() method (https://developer.mozilla.org/en-US/docs/Web/API/Body/json)
                            <--will convert response stream to Promise (I guess Promise will absorb commnunication waiting time) 
-                   
+
 JavaScript Web API Fetch (https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch)
 
 JavaScript Web API Storage (https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Storage_API)
@@ -1026,7 +1233,7 @@ JQuery official doc (https://api.jquery.com/)
 
 WebJars reference doc (on the very right side, list the files) (https://www.webjars.org/)
     <--can also so search 
-   
+
 ## 73080  http protocol
 
 RFC 7231 (new http) (https://tools.ietf.org/html/rfc7231)
@@ -1042,15 +1249,17 @@ RFC 6265 (state management and cookies) (https://tools.ietf.org/html/rfc6265)
 ### http protocol headers
 http protocol headers entity header content-type (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Type)
 http protocol headers entity header content-type  media types (https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types)
-                                                   <---media type should be the actual value of content-type which is a header
-                                                   <---application/JSON是一种通用的MIME类型，具有实用、精简、易读的特点 
-                                                   <---33808exp144 use github special mime type
+                   <---media type should be the actual value of content-type which is a header
+                   <---application/JSON是一种通用的MIME类型，具有实用、精简、易读的特点 
+                   <---33808exp144 use github special mime type
 http protocol headers entity header content-type  media types from Spring MimeMapping
                                                    <---33808Exp069 MimeMappings there is static block
 http protocol headers entity header content-type  media types for post (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/POST)
                                                    <---could be: application/x-www-form-urlencoded (see 33808exp144 BodyInserters line501)
                                                                  multipart/form-data
                                                                  text/plain
+                                                  <---Media type collections:
+                                                     application/hal+json   <---this is Spring Data REST's default media type , from 33808exp180 (https://spring.io/guides/tutorials/react-and-spring-data-rest/)
 http protocol headers general header (https://developer.mozilla.org/zh-CN/docs/Glossary/%E9%80%9A%E7%94%A8%E9%A6%96%E9%83%A8)
                                       <--could be used both request and response
 http protocol headers general header cache control (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control)
@@ -1062,8 +1271,8 @@ http protocol headers general header pragma  (https://developer.mozilla.org/zh-C
                                       <---seems old version of cache control 
 
 http protocol headers request header accept (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Accept)
-                                       <--- Accept 请求头用来告知（服务器）客户端可以处理的内容类型，这种内容类型用MIME类型来表示。
-                                       <--- 33808exp069 200908S012 : accept a bunch of media types
+      <--- Accept 请求头用来告知（服务器）客户端可以处理的内容类型，这种内容类型用MIME类型来表示。
+        <--- 33808exp069 200908S012 : accept a bunch of media types
 http protocol headers request header accept-language (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Accept-Language)
                                        <---33808exp069 AcceptHeaderLocaleResolver.java line 98
 http protocol headers request header authorization (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Authorization)
@@ -1072,7 +1281,7 @@ http protocol headers request header authorization (https://developer.mozilla.or
                                       <---related authorization framework (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Authentication)
 http protocol headers request header user-agent (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/User-Agent)
                                       <---33808exp144 use own user agent definition
-                                
+
 http protocol headers response header Content-Disposition (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Disposition)
                                       <--33808exp082
                                       <--also mentioned: General header (for a subpart of a multipart body)   
@@ -1082,7 +1291,7 @@ http protocol headers response header Expires   (https://developer.mozilla.org/z
                                       <---如果在Cache-Control响应头设置了 "max-age" 或者 "s-max-age" 指令，那么 Expires 头会被忽略。
 
 tobe add origin header 33808Exp179*******
-                               
+​                               
 ### http protocol status code 
 
 http protocol status code (https://tools.ietf.org/html/rfc2616#page-57)
@@ -1100,11 +1309,11 @@ curl -H "Authorization: Bearer xxxxx" localhost:8080
 curl -H "Authorization: Bearer $TOKEN" -d "my message" localhost:8080/message
       <--this is post request  
       <--not sure what this request is
-      
+
 
 curl -v localhost:8080/employees/99  <--need try 
       <--  -v should show the debug information like:   
-         
+
 ~Common Options
     refer to: (https://gist.github.com/subfuzion/08c5d85437d5d4f00e58) 
 
@@ -1129,10 +1338,12 @@ DELETE
     curl --request DELETE http://localhost:8080/posts/14
          <--seems --request and -X is the same
     curl -X DELETE localhost:8080/employees/1         
-      
+
 POST       
    (1) curl --header "Content-Type: application/json"   --request POST   --data "{"""firstName""":"""Billy""","""lastName""":"""li""","""emailId""":"""billydev@gmail.com"""}""" http://localhost:8080/api/v1/users
-         <---worked in windows
+               <---worked in windows
+       curl -X POST localhost:8080/api/employees -d "{\"firstName\": \"Bilbo\", \"lastName\": \"Baggins\", \"description\": \"burglar\"}" -H "Content-Type:application/json"
+               <---worked for windows , 33808Exp180 <---seems use different escape     
    (2) curl --header "Content-Type: application/json" \
               --request POST \
               --data '{"username":"xyz","password":"xyz"}' \
@@ -1141,7 +1352,7 @@ POST
    (3) In windows, above single quote has issue: 
        Example: "{ """name""":"""Frodo""", """age""":123 }"  <--for inner quote use """ to escape
             refer to: (https://stackoverflow.com/questions/31503754/errormessagesunexpected-character-code-39-expected-a-valid-value)
-
+    
        Other succeed examples: 
            curl --header "content-type:application/json"  -X POST -d "{"""name""":"""test3""","""role""":"""test3"""}" localhost:8080/employees
            curl -H "content-type:application/json"  -X POST -d "{"""name""":"""test4""","""role""":"""test4"""}" localhost:8080/employees
@@ -1151,13 +1362,19 @@ POST
 PUT
    curl --header "Content-Type: application/json"   --request PUT -d @data.json http://localhost:8080/posts/29
             <---seems  put the json in data file is important
-   
+
    Other successful examples: 
    curl -H "content-type:application/json"  -X PUT  -d "{"""name""":"""test5""","""role""":"""test5"""}"  localhost:8080/employees/1
-   
+
 ## 73090 Web Link 
 
 ## 73090 Web Link API and Doc 
 
 Web Link (https://www.iana.org/assignments/link-relations/link-relations.xhtml)
-                        <----33808Exp180_(01)_1_a IANA stuff                                                                              
+                        <----33808Exp180_(01)_1_a IANA stuff
+
+## 73090 Web Link Collections 
+
+profile      <---from 33808Exp180 article, and profile in rest response, it is IANA based                         
+self         <---from 33808Exp180
+stylesheet   <---knew this for long time                                                                                                
