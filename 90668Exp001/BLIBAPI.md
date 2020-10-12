@@ -281,6 +281,9 @@ Lots of other stuff here
 73066 ReactJS
 73068 ReactNative
 73077 Vue.js
+
+
+
 73080_http_protocol
 73082 http client
 ??
@@ -288,6 +291,9 @@ Lots of other stuff here
 73083 curl
 73085 wireshark
 
+
+
+73086 Stomp
 
 73088 Ext.js
 
@@ -333,8 +339,9 @@ Windows Important folders:
     Startup: C:\Users\Billy\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup 
 
 
-
 ## 10300 Virtual Box
+
+Linux open terminal   ctrl+Alt+T 
 
 ## 10502 Nginx 
 
@@ -419,6 +426,103 @@ IntalliJ IDEA Reference doc Chinese How to create real time template (https://ww
      git merge issu553        <--merge the branch, that means you stand in master and from master point of view merge 
                                                  the branch of issu553 stuff , you always in your own branch !! 
                                             <---issue553 is always "the other " source of information !! 
+
+#### Git Checkout 
+
+git checkout  <--should checkout the head
+git checkout -b localbranch b775a749a5
+
+​              <--I guess the above  checkout a commit from a branch <---need to confirm 
+
+​             <---33808Exp148 200913,  we can direct check out with branch name,
+​             <---if I do git checkout b775a749a5, I will be in detached head!!
+
+201010: the following need more editing :) 
+
+Check out (normal working want to go to another branch ,  reset --hard want fix messed up things
+
+ git checkout HEAD -- my-file.txt
+         example: git checkout HEAD -- src/main/java/com/billydev/blib/controller/RestApiController.java
+                                   <--this will revert specific file to HEAD !! 
+      git checkout @ -- myfile.ext
+      git checkout -- myfile.ext   <---this is     reset to index if index is not empty
+       git checkout upstream/master -- myfile.txt            <----all these checkout stuff check Qus34
+       git checkout TAGNAME --myfile.txt <-----------seems use  use myfile.txt without -- also ok
+                                                         <----finally use git diff head to compare work director to the head  ( git diff will not show anything)
+
+https://segmentfault.com/a/1190000006185954
+前面讲到checkout是会修改HEAD的指向，变更Index区域里的内容，修改Working Directory里的内容。
+
+这看上去很像reset --hard，但和reset --hard相比有两个重要的差别
+   reset会把working directory里的所有内容都更新掉
+   checkout不会去修改你在Working Directory里修改过的文件
+   reset把branch移动到HEAD指向的地方
+   checkout则把HEAD移动到另一个分支
+            <---need to take more look at
+
+#### Git diff and commit 
+
+##### Git diff
+
+git diff      
+
+     <---compare local with the one within index(staged) !! 
+         if new file is never added--never indexed, will not be checked in "git diff") 
+         if the file is staged using git add xxx, then the git diff show nothing
+             <--I guess the newly added is the same for local and indexed) 
+git diff  head   
+     <--- compare local once indexed with head  (seems not included brand new file which is not indexed) 
+     <---must commit at least one version
+     <---git diff always begin from local directory indexed file unless using --cached or --staged 
+git diff  --cached  or  git diff --staged     <---compare head with indexed !!   
+git diff 73066Exp039_190513_01    
+    <---check qus24, compare tag with currently staged 
+    <--looks like the git diff --cached, need check
+git diff master iss553                <--compare master with the branch 
+git diff master origin/master   
+
+​       <---compare local git with remote git ; need to do a "git fetch" first to get "remote" stuff , check Qus27 
+
+##### Git add
+
+git add *.java   <---see 33808Exp016 190815S005
+git add -A         <-----should add the whole tree, need to compare with git add . ??
+git rm --cached  newFile      
+
+​          <--this will  unstage the  cached, useful when fix the files not ignored by moving them out of cache
+
+##### Git commit
+
+git commit  <-- In IDEA ctrl+K , then ctrl+M after get into commit dialog box
+
+          <----in command line, git commit only commit those 'added' stuff !! 
+git commit -a    <--- could do the unstaged file directly   check 35000Exp001 (01) S008
+        <---if multiple file, must use "git add xx xxx", can not use  "commit -a -m "xx" xx  xx "
+        <---seems git commit -a -m "xxxx"    if the file never added (first time file) not working
+               so new files must be explictly added, new files could not be sneak in using -a !! 
+#### Git Init and config
+
+git init  <--setup .git folder
+
+​              <---after git init, IDEA need to be launched or relaunched 
+
+​              <-- About .gitignore 
+​                       (a) must add .gitigore file before git init ; 
+​                       (b) If not, need to do :  git rm --cached <folder or file>
+
+​                               <---details see Qus029_(3) 
+
+git config --global user.name "billy"
+git config --global user.email "billydev@gmail.com"    <--refer to: 11005Qus01
+git config --list --local    
+
+​    <---this could list local settings including the remote name like "origin"    Check Qus28
+
+​          local I guess means for this directory and remote origin should be related to project
+
+git config  --list --global   <--- seems like user.name is global for the whole computer,  
+git config --edit --global    <---this will show username or email setting  Check Qus28 
+
 
 
 #### Git Log
@@ -530,10 +634,56 @@ git rebase --continue
     <----Qus044, 200804S001-S008
     <---another try: 20080907Sxxx
 
+#### Git remote 
+
+##### remote setup
+
+git remote -v    <--list all remote stuff
+git remote set-url origin   https://github.com/billydevInGitHub/30170.git
+
+​              <--reset remote url , this one should be useful 
+
+##### fetch
+
+git fetch                                      <--this step is a must before we can proceed
+git diff master origin/master   <---compare local master with remote master
+
+
+
+##### Remote ops
+
+git push      <---use ctrl+shift+K in IDEA 
+git remote add origin https://github.com/xxxxxx   
+
+​        <--ready to push to remote 
+
+​        <--need to create a repository in  remote site like github first 
+git push -u origin master                                   <---actual push
+git branch -a     <---this will list all branches including remote, if no remote, need to do a   "git fetch"    first  
+git diff master  origin/master     
+
+​        <----once remote fetched, can compare local master to remote master branch ! 
+
+git pull --tags                   
+
+​      <---this pull remote tags to local  ( usually git clone remote does not include the tags ) 
+git push origin "tagname"  <---we can also push the local tag to the remote
+git pull origin          
+
+​      <---origin is the remote, when pull origin might have conflict if local changed made, then can do git stash 
+
+
 
 #### Git Reset
 
+good link: https://segmentfault.com/a/1190000006185954
 
+​     <--git reset是会修改版本历史的，丢弃掉一些版本历史
+
+​      <-- can change the commit or index or local to certain
+git reset --soft  target       <-- only change the head,    index and working dir no change; 
+git reset --mixed target    <-- change head and indexed 
+git reset --hard  target      <-- change head, indexed and working directory         
 
 (***)without file as parameter
 
@@ -567,7 +717,7 @@ git reset --hard 8f4b
 ```
 
 
-  
+
 
   git reset --hard  head^     
 
@@ -594,6 +744,36 @@ git reset --hard 8f4b
                 <---so basically git reset is reset to certain version of repository !! 
 ```
 
+(***) with file as parameter 带文件参数的reset
+​     上面讲到的git reset实际上不带参数的，如果带上文件参数，那么效果会是怎样的？
+
+git reset  file.txt        <---can use file name ( with file name, seems only --mixed worked by default)
+​       HEAD不会动       <---can not understand this ???   
+
+​             <---it looks like reset the cached stuff from head ?? need confirm 
+​       将那个commit的snapshot里的那个文件放到Index区域中
+​       需要注意的是带文件参数的git reset没有--hard, --soft这两个参数。只有--mixed参数。
+
+#### Git Revert
+
+git revert    
+
+​    <-----undoes the changes from a previous commit, keep the history 
+
+​     是根据那个commit逆向生成一个新的commit，版本历史是不会被破坏的。 
+
+​     refer to:  https://segmentfault.com/a/1190000006185954 
+
+​     referto:https://stackoverflow.com/questions/8358035/whats-the-difference-between-git-revert-checkout-and-reset
+​             <---I guess git revert only affect the index/cached stuff
+​             <---SEEMS REVERT JUST REVERT ONE SPECIFIC COMMIT STUFF NOT OVERALL HISTORY
+
+#### Git Show
+
+git show  
+
+    <---seems show the most recent changes or hash ??
+    <--seems the most recent committed stuff 
 #### Git Squash
 
 git rebase -i xxxx  
@@ -619,9 +799,75 @@ git stash    <----check Qus31
     git stash              <----when git pull origin, local changes made, use git stash to let it remember see Qus31
     git stash list   <---- can see what stuff has been stashed !!
 
+#### Git Status
 
+git status        <--- I guess this is the only chance to see the un-indexed file !! 
 
+#### Git tag
 
+git tag -a v1.4 -m "my version 1.4"   <----add tag name and with message    check Qus08
+git tag v1.4-lw                 <---this is light weight tag , no further information
+
+git show v1.4-lw
+
+​          <----seems will show what commit (change related to this tag)
+
+git tag -a v1.2 9fceb02           
+
+​         <---this is kind of later tag !!  
+
+​         <---this one seems will create a new hash, but in IDEA seem bind to the same hash
+
+​              but (see below)               in git show-ref --tags we can see a new hash
+
+git tag -l             
+
+​                   <---just list tag with no more information 
+
+​                    <---seems only in IDEA will show tag stuff together with branch and master names
+
+ git log --tags      <----?? seems not see any tag stuff 
+
+git show-ref --tags
+
+​        <---will give tag and hash reference 
+
+​       <---from: https://stackoverflow.com/questions/1862423/how-to-tell-which-commit-a-tag-points-to-in-git
+
+#### GitHub stuff 
+
+##### fork
+
+click the fork 
+190413S007
+
+##### do code change
+
+clone to local 190413S010
+push to remote  S015 toS021
+
+##### pull request PR
+
+(1) create new one:  190413S023
+   or 200802S002
+(2) Compare the changes S024
+(3) Create pull request S025   
+(4) Send pull request S026 
+
+##### rep owner check PR
+
+(1) Can see the pull request and fork 
+(2) Merge the pull request through communication
+   ~S036
+
+​     <--this step need communication from both sides
+
+#### Ops in .git folder
+
+git cat-file -t  XXXhashcode           <---get the type of the object 
+git cat-file -p  XXXhashcode         <---get the content of the object 
+
+​         <---from Luban course ??
 
 ## 11041 Docker
 
@@ -811,38 +1057,55 @@ local repository:  C:\Users\Billy\.m2  <---could be found in IDEA setting/build 
 
 ## 32602 Maven Collection ordered by key 
 
-
 ## 32606 JUnit
+
+### 32606 Junit Doc
 
 JUnit 4 API~ (https://junit.org/junit4/javadoc/latest/index.html)
 
 JUnit 5 API~ (https://junit.org/junit5/docs/5.0.1/api/index.html?overview-summary.html)
             <---Assertions.java class 
+### 32606 Junit Data
 
-Junit 4 Examples 
-assertEquals(MediaType.APPLICATION_JSON_UTF8, response.getHeaders().getContentType());  <---33808Exp083 BookControllerRestTemplateTest line 57            
-assertEquals(HttpStatus.OK, response.getStatusCode());                                  <---33808Exp083 BookControllerRestTemplateTest line 58
-assertEquals(employee2.getFirstName(), employee.getFirstName()); <--- Employee employee2 = employeeRepository.findByFirstName("admin"); line 41 EmployeeRepositoryTests in 33808Exp125
-assertNotNull(id); <---Long id = entityManager.persistAndGetId(employee, Long.class); line 37 EmployeeRepositoryTests in 33808Exp125
+### 32606 Junit Collections
 
-JSONAssert.assertEquals(expected, response.getBody(), false);      expected is hardcoded json String  <---33808Exp083 BookControllerRestTemplateTest line 60  
+#### Junit 4 Examples 
 
+assertEquals(MediaType.APPLICATION_JSON_UTF8, response.getHeaders().getContentType());  
 
-JUnit 5 Examples
+​            <---33808Exp083 BookControllerRestTemplateTest line 57            
+assertEquals(HttpStatus.OK, response.getStatusCode());                                  
+
+​           <---33808Exp083 BookControllerRestTemplateTest line 58
+assertEquals(employee2.getFirstName(), employee.getFirstName()); 
+
+​          <--- Employee employee2 = employeeRepository.findByFirstName("admin"); line 41  
+
+​                   EmployeeRepositoryTests in 33808Exp125
+assertNotNull(id); 
+
+​            <---Long id = entityManager.persistAndGetId(employee, Long.class); line 37 EmployeeRepositoryTests in 33808Exp125
+
+JSONAssert.assertEquals(expected, response.getBody(), false);     
+
+​             <--- expected is hardcoded json String  <---33808Exp083 BookControllerRestTemplateTest line 60  
+
+#### JUnit 5 Examples
+
 assertThrows(StorageException.class, () -> {
+
 			service.store(new MockMultipartFile("foo", "../foo.txt",
 			MediaType.TEXT_PLAIN_VALUE, "Hello, World".getBytes()));
 		});         <---- line 59 FileSystemStorageServiceTests 33808exp082 
 
-### 32606 JUnit AssertJ
-         <--need compare with JUnit5
+#### AssertJ
 32606 JUnit AssertJ~ Unit5 compare  (http://testinglikeaboss.com/tips-tricks/migrating-from-junit-5-assertions-to-assertj/)
 
 32606 JUnit AssertJ examples
 assertThat(response.getStatusCode()).isEqualByComparingTo(HttpStatus.FOUND) <---33808exp082 FileUploadIntegrationTests line 47
 assertThat(service.load("foo.txt")).exists();
 
-### 32606 JUnit Spring Util Assert 
+#### Spring Util Assert 
 Assert.isTrue(bookingService.findAllBookings().size() == 3,	"First booking should work with no problem"); <---line23 AppRunner 33808exp137
 
 ## 32811 Lombok
@@ -1013,6 +1276,8 @@ server.ssl.enabled = true               <--from 33808Exp099 for ssl configuratio
 server.ssl.key-store = classpath:sample.jks
 server.ssl.key-password = password                      
 
+server.tomcat.max-threads=0;   <----From 33808exp113 was commented out, I guess control tomcat thread
+
 spring.aop.proxy-target-class=false  <--this should make Spring force use CGLIB dynamic proxy  from Exp079  (https://www.jianshu.com/p/05c262a67283)
 spring.application.name=a-bootiful-client  <---from 33808Exp158
 spring.application.name=contract-rest-client   <--from 33808Exp167
@@ -1044,7 +1309,13 @@ spring.jpa.hibernate.ddl-auto = update
 spring.jpa.generate-ddl=true
               <--the above 2 shall generate the db tables automatically
 spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect
-              <--from Exp119          
+
+​          <--from Exp119    
+
+spring.jpa.properties.hibernate.generate_statistics=true      
+
+​          <---From Exp117, will generate good hibernate statistics !! 
+
 spring.jpa.show-sql=true            <--from Exp126 , Exp123, Exp125     
 spring.ldap.embedded.ldif=classpath:test-server.ldif          <-- 33808Exp157
 spring.ldap.embedded.base-dn=dc=springframework,dc=org        <-- 33808Exp157
@@ -1191,16 +1462,23 @@ Hibernate API (https://docs.jboss.org/hibernate/orm/5.0/javadocs/)
 
 Hibernate Validator API (https://docs.jboss.org/hibernate/stable/validator/api/index.html?org/hibernate/validator/constraints/Email.html)
 
-
 ## 38000 MySQL 
+
+### 38000 Doc
 
 MySQL Doc (https://dev.mysql.com/doc/)
 
 MySQL Doc reference manual(https://dev.mysql.com/doc/refman/8.0/en/)
 
-### MySQL blog
-
 My SQl blog Database normalization 3 norms (https://segmentfault.com/a/1190000022843792) 
+
+### 38000 Data
+
+DBeaver Script location: C:\Billydev080107\TempDev\200721-1-DBeaverScripts
+
+### 38000 Collection
+
+### 
 
 ## 50216 Authentication and authorization
 
@@ -1210,7 +1488,17 @@ Oauth2.0 (https://tools.ietf.org/html/rfc6749#page-1)
 
 ## 51999 UML
 
+### 51999 UML Doc
+
 UML diagrams <--list diagrams  (https://www.uml-diagrams.org/class-reference.html)
+
+
+
+#### 51999 UML Data
+
+#### 51999 UML Collections
+
+
 
 ## 73030 JavaScript ~~
    <---just pickup stuff from application view, so pickup "start API" one by one because  system view of js is a mess
@@ -1220,7 +1508,9 @@ JavaScript ~~ API overview (https://developer.mozilla.org/en-US/docs/Web/JavaScr
 ​    
 JavaScript ~~ reference (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
 
+### 73030 JavaScript Dev Tools 
 
+JavaScript Tools JSFiddle (https://jsfiddle.net/)
 
 ### 73030 JavaScript Global Objects 
 
@@ -1238,20 +1528,29 @@ JavaScript Global Objects JSON stringify (https://developer.mozilla.org/zh-CN/do
 
 ### 73030 JavaScript Lib
 
+##### __Client Side Framework ( like react.js etc)
+
 JavaScript Lib Client side framework (https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks)
 
+##### Rest.js 
+
+​          <---from 33808Exp180
+
+refer to: https://github.com/cujojs/rest
+
+##### Socket JS
 
 JavaScript Lib SocketJS Home~ (https://github.com/sockjs)
 JavaScript Lib SocketJS client (https://github.com/sockjs/sockjs-client)
+
                                <---SockJS is a browser JavaScript library that provides a WebSocket-like object. 
+##### Stomp JS
 
 JavaScript lib stomp.js API (https://stomp-js.github.io/stomp-websocket/codo/alphabetical_index.html)
 
 
 
-### 73030 JavaScript Tools 
 
-JavaScript Tools JSFiddle (https://jsfiddle.net/)
 
 ### 73030 JavaScript Web API
 
@@ -1424,14 +1723,20 @@ PUT
    Other successful examples: 
    curl -H "content-type:application/json"  -X PUT  -d "{"""name""":"""test5""","""role""":"""test5"""}"  localhost:8080/employees/1
 
+## 73086 Stomp
+
+### 73086 Stomp Doc
+
+Official site https://stomp.github.io/ 
+
 ## 73090 Web Link 
 
-## 73090 Web Link API and Doc 
+### 73090 Web Doc 
 
 Web Link (https://www.iana.org/assignments/link-relations/link-relations.xhtml)
                         <----33808Exp180_(01)_1_a IANA stuff
 
-## 73090 Web Link Collections 
+### 73090 Web Link Collections 
 
 profile      <---from 33808Exp180 article, and profile in rest response, it is IANA based                         
 self         <---from 33808Exp180
