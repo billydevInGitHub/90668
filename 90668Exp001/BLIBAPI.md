@@ -12,10 +12,10 @@ test own files (./innerLink.md)
 BillyDev Git Hub (https://github.com/billydevInGitHub)
 
 # BLIB numbers 
-10000-10099 Meta Data and  shared stuff  
---
-Meta data , shared etc
+
 10000-10020  reserved
+
+​      <---10000-10099 Meta Data and  shared stuff  
 
 10021 meta data 
 
@@ -82,6 +82,8 @@ Meta data , shared etc
 30601-30800 encoding, threading, I18N
 30801-31000 lel3  DB, network, graphic, xml, syntax ,security
                        File System Management, 
+30840 File Directory Ops
+
 30860 XML Programming
 
 30862 JSON API
@@ -1050,6 +1052,32 @@ Java Code Convention Ali conventions (https://github.com/alibaba/p3c)
 
 Epoch time converter (https://www.epochconverter.com/) 
 
+## 30840 File and Directory Ops
+
+### 30840 File and Directory Ops Doc
+
+### 30840 File and Directory Data
+
+### 30840 File and Directory Collection
+
+#### Dir Ops
+
+List all files in Dir
+
+​      <--33808exp082 FileSystemStorageService  line 57
+
+​           Files.walk(this.rootLocation, 1)  got stream, then use filter and lambda to get pure file names
+
+#### File Ops
+
+File Copy using Stream:   
+
+​       <--33808exp082 FileSystemStorageService line 45 
+
+​           use: Files.copy(inputStream, this.rootLocation.resolve(filename),   StandardCopyOption.REPLACE_EXISTING);
+
+​              <----this one has copy option !! 
+
 
 
 ## 31422 Lambda 
@@ -1157,6 +1185,18 @@ JEE API (https://docs.oracle.com/javaee/6/api/index.html?javax/servlet/http/Http
 JEE JPA API (https://docs.oracle.com/javaee/7/api/index.html?javax/persistence/package-summary.html)
 
 ## 33808 Spring
+
+### 33808 Spring Doc
+
+### 33808 Spring Data
+
+tomcat :  33808Exp119， 33808Exp121
+
+### 33808 Spring Collection
+
+
+
+
 
 Spring~ all projects (https://spring.io/projects/spring-boot#learn)
 
@@ -1296,6 +1336,12 @@ mybatis.mapperLocations=classpath:mapper/*.xml
 
 security.oauth2.resource.filter-order = 3 <--33808Exp093
 
+server.contextPath=/springboot-jndi-lookup   
+
+​            <---I guess 33808exp121, once this is set use jndi, 
+
+​                 then spring.datasource.jndi-name=java:comp/env/jdbc/j4s         will be used
+
 server.error.include-stacktrace=never   <---from 33808Exp083 , Exp147      
 server.port = 8443                      <--from 33808Exp099 for ssl configuration
 server.port:8090                        <--from 33808Exp094
@@ -1321,11 +1367,20 @@ spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
 spring.datasource.hikari.enabled=false  <--Exp120                   
 spring.datasource.initialization-mode=always               <--from Exp127
                     <---when table not created ?? or sqlnot load ?
+spring.datasource.jndiName=jdbc/myDataSource
+
+​                        <---33808Exp119 use this to set jndi name and then use this to search up jndi datasource
+
+spring.datasource.jndi-name=java:comp/env/jdbc/j4s
+
+​                         <---33808exp121 use this, I guess this is Spring internal jndi name !!!!!!(need confirm)
+
 spring.datasource.url=jdbc:mysql://localhost:3306/33808exp119?useSSL=false
 spring.datasource.url=jdbc:mysql://localhost:3306/github_demo?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=true <--Exp133 (https://www.cnblogs.com/ZhangZiSheng001/p/12003922.html)
 spring.datasource.username=billy
 spring.datasource.password=123456
 spring.datasource.jndiName=jdbc/myDataSource    
+
              <--from 33808Exp119        
              <--we can use our own datasource properties check Exp126
              <--DBCP2 connection pool properties refer to: ()
