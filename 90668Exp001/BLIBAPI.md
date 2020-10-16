@@ -67,7 +67,7 @@ Meta data , shared etc
 11031 Jenkins
 11041 Docker
 11051 Sonar
-32602 maven
+​              <---32602 maven
 11061 gradle
 11071 jira
 11081 Kubernetes
@@ -82,15 +82,31 @@ Meta data , shared etc
 30601-30800 encoding, threading, I18N
 30801-31000 lel3  DB, network, graphic, xml, syntax ,security
                        File System Management, 
+30860 XML Programming
+
+30862 JSON API
+
+30870 SOAP webservice
+
 30960 Syntax and JavaCC
 30966 Rhino  
 31000-31999 OOP-Inheritance, polymophism, encapsulation
 31122 method chain
 
+31428 Java8AggregationAndMapReduce
+
+​             <---consider merge to stream programming?
+
 32001 PDE eclipse plugin dev
 32005 GEF 
+
+32020 JavaFX
+
 32100 UUID and Hash
 32600 DevOps
+
+32602 maven
+
 32609 CI(moved to 51005)
 32651 Java Security
 32800 Community and standard
@@ -326,12 +342,17 @@ Also we can use **bold** or __another way__.
 
 ## 10200 Windows
 
+### 10200 Windows Doc
 
-## 10200 Windows Data
+### 10200 Windows Data
 
 host folder: C:\Windows\System32\drivers\etc\host  <--- set up own "domain" 33808Exp034_(01)
 
-## 10200 Windows Collection ordered by key
+startup folder: C:\Users\Billy\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+
+​                 <----can use windows Key+R to run dialog box , then type in: hell:startup
+
+### 10200 Windows Collection
 
 Telnet
     <---type in search box telnet, then "turn windows feature on and off, then click telent --install 
@@ -1244,13 +1265,20 @@ logging.****
              <---see also 33830           
 management.endpoint.health.show-components=always  <---there are a bunch of indicator stuff          
 management.endpoint.health.show-details=always    <--from 33808Exp097
+
+management.endpoint.health.show-details=always   <----33808exp153
+
 management.endpoint.shutdown.enabled=true     <---shutdown spring boot using a post message from (https://cloud.tencent.com/developer/article/1586358)
+
 management.endpoints.sessions.enable=true    <--from 33808Exp102
 management.endpoints.web.base-path=/minitor    <--- from (https://cloud.tencent.com/developer/article/1586358)
 management.endpoints.web.cors.allowed-origins=https://www.choupangxia.com  <---allow CORS from (https://juejin.im/post/6844904000832159751)
 management.endpoints.web.cors.allowed-allowed-methods=GET,POST        <---from (https://juejin.im/post/6844904000832159751)
 management.endpoints.web.exposure.exclude=beans,trace  <--from https://cloud.tencent.com/developer/article/1586358
 management.endpoints.web.exposure.include=*   <--from 33808exp096, expose all web endpoints    
+
+management.endpoints.web.exposure.include=*      <----33808exp153
+
 management.health.defaults.enabled: false     <--from (https://cloud.tencent.com/developer/article/1586358)         
 management.health.mongo.enabled: false        <--from (https://cloud.tencent.com/developer/article/1586358)  
 management.server.port=8080                   <--from 33808Exp099 for ssl configuration
@@ -1334,7 +1362,11 @@ spring.mvc
             <--WebMvcProperties @ConfigurationProperties use this prefix
 spring.mvc.date-format  yyyy-MM-dd <--yaml from Exp028 
 spring.profiles.active
-            <--from 33808Exp066 ,    Exp147       
+
+​       <--from 33808Exp066 ,    Exp147       
+
+spring.profiles.active=demo   <---33808exp083
+
 spring.rabbitmq.username=guest          <---from vhr BPOT2123
 spring.rabbitmq.password=guest           <---from vhr BPOT2123
 spring.rabbitmq.host=192.168.91.128       <---from vhr BPOT2123
@@ -1357,6 +1389,11 @@ spring.servlet.multipart.max-request-size=128MB
 spring.session.store-type=jdbc  <--from 33808Exp102
 spring.session.jdbc.initialize-schema=always  <--from 33808Exp102
 spring.session.timeout.seconds=900    <--from 33808Exp102
+
+spring.security.oauth2.client.registration.github.client-id: 7a53c7593fb2ca88c9d7
+
+spring.security.oauth2.client.registration.github.client-secret:asfs <---from 33808exp084
+
 spring.security.user.name=javaboy      <---basic authentication user info , from 33808exp141
 spring.security.user.password=123      <---basic authentication user info , from 33808exp141
 spring.thymeleaf.cache  false <--yaml from Exp028 
@@ -1474,7 +1511,7 @@ My SQl blog Database normalization 3 norms (https://segmentfault.com/a/119000002
 
 ### 38000 Data
 
-DBeaver Script location: C:\Billydev080107\TempDev\200721-1-DBeaverScripts
+DBeaver Script location: 
 
 ### 38000 Collection
 
@@ -1483,6 +1520,21 @@ DBeaver Script location: C:\Billydev080107\TempDev\200721-1-DBeaverScripts
 ## 50216 Authentication and authorization
 
 Oauth2.0 (https://tools.ietf.org/html/rfc6749#page-1)
+
+<---some comments: 
+
+```
+The authorization code provides a few important security benefits,
+   such as the ability to authenticate the client, as well as the
+   transmission of the access token directly to the client without
+   passing it through the resource owner's user-agent and potentially
+   exposing it to others, including the resource owner.
+      <---seems authorization code go through the browser, use authorization code
+          to communicate with the client (whichi has client information),the it is
+          client to have the access token !! 33808exp093/094
+      <---in 33808exp084, the resource server seems the same as client, so we use
+          only authorization code instead of access token which has more detailed info
+```
 
 
 
@@ -1590,8 +1642,9 @@ JQuery official doc (https://api.jquery.com/)
 
 WebJars reference doc (on the very right side, list the files) (https://www.webjars.org/)
     <--can also so search 
-
 ## 73080  http protocol
+
+### 73080 http protocol Doc
 
 RFC 7231 (new http) (https://tools.ietf.org/html/rfc7231)
 
@@ -1599,11 +1652,18 @@ RFC 2626  (old http) (https://tools.ietf.org/html/rfc2616)
 
 RFC 2626 (old http, better display) (https://www.w3.org/Protocols/rfc2616/rfc2616.html)
                <--clearly state request header, response header, entity header etc. 
-
 RFC 6265 (state management and cookies) (https://tools.ietf.org/html/rfc6265)
 
+### 73080 http protocol Data
 
-### http protocol headers
+
+
+### 73080 http protocol Collections
+
+#### http protocol headers 
+
+##### entity header
+
 http protocol headers entity header content-type (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Type)
 http protocol headers entity header content-type  media types (https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types)
                    <---media type should be the actual value of content-type which is a header
@@ -1617,38 +1677,99 @@ http protocol headers entity header content-type  media types for post (https://
                                                                  text/plain
                                                   <---Media type collections:
                                                      application/hal+json   <---this is Spring Data REST's default media type , from 33808exp180 (https://spring.io/guides/tutorials/react-and-spring-data-rest/)
-http protocol headers general header (https://developer.mozilla.org/zh-CN/docs/Glossary/%E9%80%9A%E7%94%A8%E9%A6%96%E9%83%A8)
-                                      <--could be used both request and response
-http protocol headers general header cache control (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control)
-                                      <--- example: setHeader("Cache-Control", "s-maxage=" + cacheSeconds);
-http protocol headers general header cache control cache FAQ (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching_FAQ)
-                                      <--- more advanced things here
-http protocol headers general header pragma  (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Pragma)
-                                      <---spring source code: 33808exp069, WebContentGenerator.java line 422 
-                                      <---seems old version of cache control 
+##### general header
 
-http protocol headers request header accept (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Accept)
-      <--- Accept 请求头用来告知（服务器）客户端可以处理的内容类型，这种内容类型用MIME类型来表示。
-        <--- 33808exp069 200908S012 : accept a bunch of media types
-http protocol headers request header accept-language (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Accept-Language)
-                                       <---33808exp069 AcceptHeaderLocaleResolver.java line 98
-http protocol headers request header authorization (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Authorization)
-                                      <---33808exp094 has basic authroization and how to encode user name and password
-                                      <---33808exp094 also use bear token !!
-                                      <---related authorization framework (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Authentication)
-http protocol headers request header user-agent (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/User-Agent)
-                                      <---33808exp144 use own user agent definition
+http protocol headers general header
 
-http protocol headers response header Content-Disposition (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Disposition)
-                                      <--33808exp082
-                                      <--also mentioned: General header (for a subpart of a multipart body)   
-                                      <--response.addHeader("Content-Disposition", "attachment; filename="+fileName); 33808exp051
-http protocol headers response header Expires   (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Expires)
-                                      <---spring source code: 33808exp069, WebContentGenerator.java line 422 
-                                      <---如果在Cache-Control响应头设置了 "max-age" 或者 "s-max-age" 指令，那么 Expires 头会被忽略。
+​    (https://developer.mozilla.org/zh-CN/docs/Glossary/%E9%80%9A%E7%94%A8%E9%A6%96%E9%83%A8)
 
-tobe add origin header 33808Exp179*******
+​       <--could be used both request and response
+
+http protocol headers general header cache control
+
+​      (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control)
+
+​          <--- example: setHeader("Cache-Control", "s-maxage=" + cacheSeconds);
+
+http protocol headers general header cache control 
+
+​            cache FAQ (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching_FAQ)
+
+​            <--- more advanced things here
+
+http protocol headers general header pragma 
+
+​               (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Pragma)
+
+​                <---spring source code: 33808exp069, WebContentGenerator.java line 422 
+​                 <---seems old version of cache control 
+
+
+
+##### request header
+
+accept
+
+​       (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Accept)
+
+​         <--- Accept 请求头用来告知（服务器）客户端可以处理的内容类型，这种内容类型用MIME类型来表示。
+​         <--- 33808exp069 200908S012 : accept a bunch of media types
+
+accept-language
+
+​       (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Accept-Language)
+
+​         <---33808exp069 AcceptHeaderLocaleResolver.java line 98
+
+authorization
+
+​       (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Authorization)
+
+​         <---33808exp094 has basic authroization and how to encode user name and password
+​         <---33808exp094 also use bear token !!
+
+​         <---33808exp136  AuthFilter use bear token as well 
+
+​         <---related authorization framework 
+
+​              (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Authentication)
+
+origin
+
+​        <--- 33808exp179_(01) S001,  
+
+user-agent
+
+​            (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/User-Agent)
+
+​          <---33808exp144 use own user agent definition
+
+##### response header
+
+Access-Control-Allow-Origin
+
+​      <---33808Exp179_(01) S002
+
+Content-Disposition
+
+​         (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Disposition)
+
+​                    <--33808exp082
+​                     <--also mentioned: General header (for a subpart of a multipart body)   
+​                     <--response.addHeader("Content-Disposition", "attachment; filename="+fileName);  
+
+​                         33808exp051
+
+http protocol headers response header Expires 
+
+​                (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Expires)
+
+​               <---spring source code: 33808exp069, WebContentGenerator.java line 422 
+​               <---如果在Cache-Control响应头设置了 "max-age" 或者 "s-max-age" 指令，那么 Expires 头会被忽略。
+
+
 ​                               
+
 ### http protocol status code 
 
 http protocol status code (https://tools.ietf.org/html/rfc2616#page-57)
@@ -1728,6 +1849,8 @@ PUT
 ### 73086 Stomp Doc
 
 Official site https://stomp.github.io/ 
+
+JSR 356 https://jcp.org/en/jsr/detail?id=356
 
 ## 73090 Web Link 
 
