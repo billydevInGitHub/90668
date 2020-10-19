@@ -79,8 +79,12 @@ BillyDev Git Hub (https://github.com/billydevInGitHub)
       30012 algorithm
       30040 source and java code convention
 30101-30600 Core Programming language
+
+30160 IO Overall 
+
 30601-30800 encoding, threading, I18N
 30801-31000 lel3  DB, network, graphic, xml, syntax ,security
+
                        File System Management, 
 30840 File Directory Ops
 
@@ -221,7 +225,7 @@ null stuff here
 
 51330 RPC
 
-51340 Logging Service
+51340 Logging Service  (see 33830)
 
 51350_Configuration
 
@@ -353,6 +357,8 @@ host folder: C:\Windows\System32\drivers\etc\host  <--- set up own "domain" 3380
 startup folder: C:\Users\Billy\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 
 ​                 <----can use windows Key+R to run dialog box , then type in: hell:startup
+
+weChat backup folder: C:\Users\Billy\Documents\WeChat Files\wxid_vue5o6gxnrbf12\BackupFiles\
 
 ### 10200 Windows Collection
 
@@ -1052,7 +1058,27 @@ Java Code Convention Ali conventions (https://github.com/alibaba/p3c)
 
 Epoch time converter (https://www.epochconverter.com/) 
 
+## 30160 IO Overall
+
+### 30160 IO Overall Doc
+
+### 30160 IO Overall Data
+
+### 30160 IO Overall Collection
+
+#### Stream Copy
+
+​      InputStream in = resource.getInputStream()....
+
+​      StreamUtils.copy(in, outputMessage.getBody());
+
+​                    <----33808exp082 ResourceHttpMessageConverter
+
+​                            use this Util the buffer size is 4096 and also will do the flush and return byte count !!!!
+
 ## 30840 File and Directory Ops
+
+see also Resource in Spring 
 
 ### 30840 File and Directory Ops Doc
 
@@ -1062,11 +1088,25 @@ Epoch time converter (https://www.epochconverter.com/)
 
 #### Dir Ops
 
+Create Dir
+
+​    Files.createDirectories(rootLocation);
+
+​             <---33808exp082 , roootLocation is Path
+
+Delete Dir
+
+​    FileSystemUtils.deleteRecursively(rootLocation.toFile())
+
+​                <---the source code of Utils can take a look, actually use Files.walk and visitor pattern to delete
+
 List all files in Dir
 
 ​      <--33808exp082 FileSystemStorageService  line 57
 
 ​           Files.walk(this.rootLocation, 1)  got stream, then use filter and lambda to get pure file names
+
+
 
 #### File Ops
 
@@ -1074,11 +1114,21 @@ File Copy using Stream:
 
 ​       <--33808exp082 FileSystemStorageService line 45 
 
-​           use: Files.copy(inputStream, this.rootLocation.resolve(filename),   StandardCopyOption.REPLACE_EXISTING);
+​           use: Files.copy(inputStream, this.rootLocation.resolve(filename),    
+
+​           StandardCopyOption.REPLACE_EXISTING);
 
 ​              <----this one has copy option !! 
 
+File relative path and absolute path
 
+​      this.rootLocation.resolve(filename)
+
+​                 <---got absolue path  33808Exp082 FileSystemStorageService line 45
+
+​       this.rootLocation::relativize
+
+​                 <---extract pure file name: 33808Exp082 FileSystemStorageService line 59
 
 ## 31422 Lambda 
 
@@ -1104,6 +1154,11 @@ Maven central (user interface) (https://mvnrepository.com/repos/central)
 ## 32602 Maven Data
 local repository:  C:\Users\Billy\.m2  <---could be found in IDEA setting/build tools/maven
 
+
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>         <--used in POM.xml
 ## 32602 Maven Collection ordered by key 
 
 ## 32606 JUnit
@@ -1188,9 +1243,100 @@ JEE JPA API (https://docs.oracle.com/javaee/7/api/index.html?javax/persistence/p
 
 ### 33808 Spring Doc
 
+Spring Boot API (https://docs.spring.io/spring-boot/docs/current/api/)
+
+(1) Spring boot reference doc (overall) (https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/reference/html/)
+
+(2) Spring boot build ( used by U020) (https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/reference/html/using-spring-boot.html#using-boot-build-systems)
+
+(3) Spring boot feature (******my second read enter from sprig boot U021******) (https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/reference/html/spring-boot-features.html#boot-features-external-config) 
+
+(4) Spring boot how to (like FQA with details, very useful when doing examples) (https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/reference/html/howto.html#howto-spring-boot-application)
+
+(5) All Spring projects -Boot,Data,Session etc.(https://spring.io/projects/spring-data-jdbc)
+
+(6) Spring Framework~ API (https://docs.spring.io/spring-framework/docs/current/javadoc-api/index.html?org/springframework/web/servlet/config/annotation/EnableWebMvc.html)
+
+​              <---WebFlux: ClientResponse, WebClient, 
+​              <---WebMVC:   RestTemplate,
+​              <---MockMVC
+​              <---shared: MediaType,
+
+(7) Spring Framework~ class diagram (https://blog.csdn.net/strivezxq/article/details/44560771)
+
 ### 33808 Spring Data
 
-tomcat :  33808Exp119， 33808Exp121
+#### Keyword to Exp
+
+Command Line Runner: 
+
+​      implement interface:
+
+​       33808Exp001
+
+​       33808Exp011
+
+​       33808Exp053
+
+​       33808Exp054
+
+​       33808Exp079
+
+​       33808Exp080
+
+​       33808Exp083
+
+​       33808Exp085
+
+​       33808Exp106 Seems use ApplicationRunner instead of CommandLine Runner
+
+​                        <--https://www.concretepage.com/spring-boot/spring-boot-commandlinerunner-and-applicationrunner-example#:~:text=CommandLineRunner%20and%20ApplicationRunner%20serve%20the,spring%20ApplicationArguments%20as%20an%20argument.
+
+​          <--- the same but ApplicationRunner will accept the args from main method 
+
+​       33808Exp115
+
+​       33808Exp116, 
+
+​              <---      use bean: 
+
+​       33808Exp054
+
+​        33808Exp082
+
+​        33808Exp137  
+
+Configuration Properties: 
+
+​       33808Exp003
+
+​       33808Exp082
+
+​        33808Exp144
+
+Configuration Properties(bind to field)
+
+​        33808Exp065    
+
+Exception Handler
+
+​        33808Exp147, Exp053, Exp083, Exp082,Exp004, Exp012     50216exp008,
+
+Tomcat :  
+
+​        33808Exp119， 33808Exp121
+
+Validation: 
+
+​         33808Exp147,Exp083 
+
+WebMvcConfigurer:
+
+​      33808exp145 add interceptor
+
+#### Exp to keyword
+
+Exp145 interceptor 
 
 ### 33808 Spring Collection
 
@@ -1207,22 +1353,55 @@ Spring~ Official Getting Started Guides, Topics and Tutorials (https://spring.io
 
 Spring~ Interview Questions (https://www.edureka.co/blog/interview-questions/spring-interview-questions/#WhatarethemajorfeaturesindifferentversionsofSpringFramework?)
               <---seems from book146 
+#### Spring Source code
 
-### Spring Boot
+##### --Connection pool
 
-Spring Boot API (https://docs.spring.io/spring-boot/docs/current/api/)
+```
+spring:
+  datasource:
+    dbcp2:
+      url: jdbc:mysql://localhost:3306/33808exp133?useSSL=false
+      username: billy
+      password: 123456
+      driver-class-name: com.mysql.jdbc.Driver
+      initial-size: 5
+             <--#初始化连接数量:连接池启动时创建的初始化连接数量
+             #默认为0
+      maxIdle=8 <--add myself             
+             <--#最大空闲连接:连接池中容许保持空闲状态的最大连接数量,超过的空闲连接将被释
+                  放,如果设置为负数表示不限制
+                  #默认为8
+      min-idle: 2
+             <--#最小空闲连接:连接池中容许保持空闲状态的最小连接数量,低于这个数量将创建新的连接,如果设
+                 置为0则不创建
+                 #注意：timeBetweenEvictionRunsMillis为正数时，这个参数才能生效。
+                 #默认为0
+      max-total: 20
+             <--#最大活动连接数量:连接池在同一时间能够分配的最大活动连接的数量, 如果设置为负数则表示不
+                 限制  #默认为8
+      max-wait-millis: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+    type: org.apache.commons.dbcp2.BasicDataSource
+    <---from 33808exp133
+    <---see also Qus125_(03)_2 the source of comments
+```
 
-(1) Spring boot reference doc (overall) (https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/reference/html/)
+##### --Resource 
 
-(2) Spring boot build ( used by U020) (https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/reference/html/using-spring-boot.html#using-boot-build-systems)
+Resource resource = new UrlResource(file.toUri());
 
-(3) Spring boot feature (******my second read enter from sprig boot U021******) (https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/reference/html/spring-boot-features.html#boot-features-external-config) 
+​            <--33808exp082, wrap path with Resource 
 
-(4) Spring boot how to (like FQA with details, very useful when doing examples) (https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/reference/html/howto.html#howto-spring-boot-application)
+#### Spring Boot
 
-(7) All Spring projects -Boot,Data,Session etc.(https://spring.io/projects/spring-data-jdbc)
 
-#### Spring Boot Actuator 
+
+##### Spring Boot Actuator 
 
 Spring Boot Actuator API document (https://docs.spring.io/spring-boot/docs/current/actuator-api/html/#overview)
 
@@ -1249,28 +1428,58 @@ Spring Boot Actuator
        http://localhost:8080/actuator/metrics/tomcat.sessions.active.current session active   <---check 33808Exp152 static metrics.html  with links when the above links not working in markdown
        http://localhost:8080/actuator/shutdow   <--when enabled, use:   curl -X POST "http://localhost:8080/actuator/shutdown" to shutdown (https://juejin.im/post/6844904000832159751)
        http://localhost:8080/actuator/threaddump   <--give big json and detailed thread information
-#### Spring Boot Configuration 
+##### Spring Boot Command Line Runner
+
+```
+@Bean
+CommandLineRunner init(StorageService storageService) {
+   return (args) -> {
+      storageService.deleteAll();
+      storageService.init();
+   };
+}  
+      <--from 33808Exp082 
+      <--looks we can still pass args into lambda
+      <--StorageService should be sth we can inject into, how about the other bean ?
+```
+
+##### Spring Boot Configuration 
+
 __collection type configuration properties
+
+​      <-----check (https://www.baeldung.com/configuration-properties-in-spring-boot)
+
       #List properties
       mail.defaultRecipients[0]=admin@mail.com
       mail.defaultRecipients[1]=owner@mail.com
       #Map Properties      <---
       mail.additionalHeaders.redelivery=true
       mail.additionalHeaders.secure=true
+                       <---redelivery and secure should be the key of the map
       #Object properties
       mail.credentials.username=john
       mail.credentials.password=password
       mail.credentials.authMethod=SHA1
-           <---public class ConfigProperties {
+      
+      tod.rootLocation=D:\\Backup\\PM1000
+      tod.inputSourceFolders[0]=D:\\Backup\\PM1000\\Billydev080107
+      tod.inputSourceFolders[1]=D:\\Backup\\PM1000\\李斌收藏081226
+                          <---pay attention to: \\     
+      Sample code of configuration class: 
+           @Configuration     <---still needed to make it as bean
+                              <---@EnableConfigurationProperties might not be needed TOD2098
+                              
+           @ConfigurationProperties(prefix = "mail") 
+           public class ConfigProperties {
                  private String host;
                  private int port;
                  private String from;
                  private List<String> defaultRecipients;
                  private Map<String, String> additionalHeaders;
                  private Credentials credentials;
-                 // standard getters and setters
+                 // standard getters and setters <----THIS IS VERY IMPORTANT!!!!!!
         }      
-              <-----need to confirm check (https://www.baeldung.com/configuration-properties-in-spring-boot)
+
 __custom configuration properties
       <---Exp126  own datasource properties
       <---Exp144  with nested properties class
@@ -1278,12 +1487,25 @@ __custom configuration properties
       <---Exp038  customized properties from luban, GitHubReps folder 
       <---Exp065     @Value("${billydev.name}")  on field   private String name;
 __yaml configuration
-      <---Exp133
+      <---Exp133  this yaml based is very important as the @configurationProperties are directly 
+                 annotated on the target Bean !!!!!!!
       <---Exp104 actuator configuration
       <---Exp028 mvc and servlet configuration    
       <---Exp034 lots of configurations for the eureka stuff  
       <---Exp178 has lots of configuration stuff like ribbon, endpoints setting etc.  
-debug=true     ^^^      <---output debug info for core modules from: (https://docs.spring.io/spring-boot/docs/2.1.1.RELEASE/reference/html/boot-features-logging.html)       
+__Online examples: 
+
+https://docs.spring.io/spring-boot/docs/1.4.1.RELEASE/reference/html/common-application-properties.html
+
+​                   <----list lots of examples 
+
+debug=true     ^^^      
+
+​              <---output debug info for core modules 
+
+​                from: (https://docs.spring.io/spring-boot/docs/2.1.1.RELEASE/reference/html/boot-features-logging.html)   
+
+​    
 eureka.client.register-with-eureka=false            <---from 33808Exp158
 eureka.client.fetch-registry=false                  <---from 33808Exp158
 log4j.rootLogger=WARN                   <---from 33808exp155 
@@ -1301,6 +1523,7 @@ logging.level.org.springframework.jdbc.core = TRACE  <--from Exp127     <---need
 logging.level.root=debug
 logging.level.root=ERROR             <--from 33808Exp083
 logging.****
+
              <---more examples Exp067,
              <---see also 33830           
 management.endpoint.health.show-components=always  <---there are a bunch of indicator stuff          
@@ -1440,7 +1663,9 @@ spring.resources
             <--ResourceProperties @ConfigurationProperties use this prefix
 spring.servlet.multipart.max-file-size=128MB
 spring.servlet.multipart.max-request-size=128MB
-            <--from 33808Exp082            
+
+​                 <--from 33808Exp082            
+
 spring.session.store-type=jdbc  <--from 33808Exp102
 spring.session.jdbc.initialize-schema=always  <--from 33808Exp102
 spring.session.timeout.seconds=900    <--from 33808Exp102
@@ -1455,13 +1680,13 @@ spring.thymeleaf.cache  false <--yaml from Exp028
 ribbon.eureka.enabled=false                 <---from 33808Exp171       
 zuul.routes.books.url=http://localhost:8090  <---from 33808Exp171
 
-### Spring Data 
+#### Spring Data 
 
-#### Spring Data Common 
+##### Spring Data Common 
 
 Spring Data Common API (crud and pagingsorting here) (https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html)
 
-#### Spring Data JPA
+##### Spring Data JPA
 
 Spring Data JPA API (https://docs.spring.io/spring-data/jpa/docs/2.3.1.RELEASE/api/)
 
@@ -1471,29 +1696,50 @@ Spring Data JPA repository class diagram(local diagram 200810S001) (https://www.
 
 Spring Data JPA tutorial (https://www.javaguides.net/p/spring-data-jpa-tutorial.html)
 
-#### Spring Data MongoDB
+##### Spring Data MongoDB
 
 Spring Data MongoDB API (https://docs.spring.io/spring-data/data-mongodb/docs/current/api/index.html?overview-summary.html)
 
-### Spring Framework
 
-Spring Framework~ API (https://docs.spring.io/spring-framework/docs/current/javadoc-api/index.html?org/springframework/web/servlet/config/annotation/EnableWebMvc.html)
-                  <---WebFlux: ClientResponse, WebClient, 
-                  <---WebMVC:   RestTemplate,
-                  <---MockMVC
-                  <---shared: MediaType,
 
-Spring Framework~ class diagram (https://blog.csdn.net/strivezxq/article/details/44560771)
+#### Spring Framework
 
-#### Spring Framework AOP from Core
+##### Validation 
 
+all constraints 
+
+​         see: https://blog.csdn.net/shenchaohao12321/article/details/100163991
+
+​                   <---Chinese blog list all constraints 
+
+official site:
+
+​     https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#validation
+
+
+
+
+
+#### AOP 
+
+    aspect:一定要给spring去管理  抽象  aspectj->类  
+    pointcut:切点表示连接点的集合  ------------------->           表
+       （我的理解：PointCut是JoinPoint的谓语，这是一个动作，主要是告诉通知连接点在哪里，切点表达式决定 
+         JoinPoint 的数量）
+    Joinpoint:连接点   目标对象中的方法 ---------------->    记录
+         （我的理解：JoinPoint是要关注和增强的方法，也就是我们要作用的点）
+    Weaving :把代理逻辑加入到目标对象上的过程叫做织入
+    target 目标对象 原始对象
+    aop Proxy 代理对象  包含了原始对象的代码和增加后的代码的那个对象
+    advice:通知    (位置 + logic)   
+             <--33808Qus076_(02)_1
 Spring Framework AOP API (https://javadoc.io/doc/org.springframework/spring-aop/latest/index.html)
 
 Spring Framework AOP AspectJ API (https://javadoc.io/doc/org.aspectj/aspectjrt/latest/index.html)
 
 Spring Framework AOP Concepts (https://www.edureka.co/blog/spring-aop-tutorial/)
 
-### Spring Framework WebFlux/Reactor
+#### WebFlux/Reactor
 
 Spring Framework WebFlux/Reactor Reactive Stream API (https://www.reactive-streams.org/reactive-streams-1.0.0-javadoc/index.html?org/reactivestreams/Publisher.html)
                                  <---seems another project 
@@ -1507,7 +1753,7 @@ Spring Framework WebFlux/Reactor netty API(https://projectreactor.io/docs/netty/
 ​     
 Spring Framework WebFlux reference doc(https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html)
 
-#### Spring Framework WebMVC 
+#### WebMVC 
 
 Spring Framework WebMVC~ reference doc() (https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html)
       <---Spring implmentation class API still within Spring Framework API doc
@@ -1516,22 +1762,28 @@ Spring Framework WebMVC GetMapping URL pattern (https://stackoverflow.com/questi
                                     <----example: 33808exp082 @GetMapping("/files/{filename:.+}") will also give filename variable
                                     <---@RequestMapping("/pdf/{fileName:.+}")  33808exp051
 
-#### Spring Framework WebSocket 
+#### WebSocket 
 
 Spring Framework WebSocket 6455 websocket protocol (https://tools.ietf.org/html/rfc6455)
 Spring Framework WebSocket API (https://www.w3.org/TR/websockets/)
 ​     
-### Spring HATEOAS 
+#### Spring HATEOAS 
 
 Spring HATEOAS API (https://docs.spring.io/spring-hateoas/docs/current/api/index.html?org/springframework/hateoas/EntityModel.html)
 
-### Spring Security 
+#### Spring Security 
 
 Spring Security API (https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/config/annotation/web/builders/HttpSecurity.html)
 
 Spring Security Blog (江南一点雨) (https://zhuanlan.zhihu.com/p/150397755)
 
 ## 33830 Java logging
+
+### 33830 Java logging Doc
+
+### 33830 Java logging Data
+
+### 33830 Java logging Collection
 
 Java Logging Command Line configure arguments (https://www.baeldung.com/spring-boot-logging)
                      <--- -Dlogging.level.org.springframework=TRACE 
@@ -1569,6 +1821,8 @@ My SQl blog Database normalization 3 norms (https://segmentfault.com/a/119000002
 DBeaver Script location: 
 
 ### 38000 Collection
+
+
 
 ### 
 
@@ -1715,6 +1969,14 @@ RFC 6265 (state management and cookies) (https://tools.ietf.org/html/rfc6265)
 
 ### 73080 http protocol Collections
 
+#### http media types ( MIME types)
+
+​      <-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
+
+​     text/html  <---33808exp082 AbstractMessageConverterMethodProcessor line 267 selected media type
+
+
+
 #### http protocol headers 
 
 ##### entity header
@@ -1801,6 +2063,20 @@ user-agent
 
 ##### response header
 
+Accept-Ranges 
+
+​              <---33808exp082 AbstractMessageConverterMethodProcessor line 205
+
+​                    the range is : bytes in this example
+
+​             <--- in presence of an `Accept-Ranges` header, the browser may try to *resume* an interrupted 
+
+​                  download, rather than to start it from the start again. from
+
+​                   https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Ranges
+
+​                        
+
 Access-Control-Allow-Origin
 
 ​      <---33808Exp179_(01) S002
@@ -1825,7 +2101,7 @@ http protocol headers response header Expires
 
 ​                               
 
-### http protocol status code 
+#### http protocol status code 
 
 http protocol status code (https://tools.ietf.org/html/rfc2616#page-57)
 
