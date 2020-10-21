@@ -86,6 +86,8 @@ BillyDev Git Hub (https://github.com/billydevInGitHub)
 30801-31000 lel3  DB, network, graphic, xml, syntax ,security
 
                        File System Management, 
+30820 Network Programming
+
 30840 File Directory Ops
 
 30860 XML Programming
@@ -1050,7 +1052,25 @@ Java Core Version wiki java history (https://en.wikipedia.org/wiki/Java_version_
 
 ## 30040 Java Code convention
 
+### 30040 Java Code convention Doc
+
 Java Code Convention Ali conventions (https://github.com/alibaba/p3c)
+
+### 30040 Java Code convention Data
+
+### 30040 Java Code convention Collection
+
+Coding best practice: 
+
+Code convention must be strictly followed, this is training of a new way of thinking; 
+
+1 Logging the most important thing for the info
+
+​    debug stuff use debug logging level ; 
+
+​    logging information must have specific information for this domain like concrete path name etc. 
+
+​    logging information must begin with upper case character; 
 
 ## 30140 Date and Time 
 
@@ -1075,6 +1095,18 @@ Epoch time converter (https://www.epochconverter.com/)
 ​                    <----33808exp082 ResourceHttpMessageConverter
 
 ​                            use this Util the buffer size is 4096 and also will do the flush and return byte count !!!!
+
+## 30820 Network Programming
+
+### 30820 Network Programming Doc
+
+### 30820 Network Programming Data
+
+### 30820 Network Programming Collection
+
+Scanner and User input
+
+​             <---30820Exp012 
 
 ## 30840 File and Directory Ops
 
@@ -1129,6 +1161,16 @@ File relative path and absolute path
 ​       this.rootLocation::relativize
 
 ​                 <---extract pure file name: 33808Exp082 FileSystemStorageService line 59
+
+File time check and compare
+
+​      BasicFileAttributes fileAttributes = Files.readAttributes(source,   BasicFileAttributes.class);
+
+​      FileTime ft1=fileAttributes.lastModifiedTime();
+
+​      if (ft1.compareTo(ft2)<=0) { ...
+
+​                   <---BPOT2098 tools class
 
 ## 31422 Lambda 
 
@@ -1486,7 +1528,12 @@ __custom configuration properties
       <---Exp133  a bit customized datasource of connection pool 
       <---Exp038  customized properties from luban, GitHubReps folder 
       <---Exp065     @Value("${billydev.name}")  on field   private String name;
+__system configuration properties
+
+​      WebMvcProperties.java in 33808Exp083
+
 __yaml configuration
+
       <---Exp133  this yaml based is very important as the @configurationProperties are directly 
                  annotated on the target Bean !!!!!!!
       <---Exp104 actuator configuration
@@ -1522,10 +1569,14 @@ logging.level.org.springframework=INFO
 logging.level.org.springframework.jdbc.core = TRACE  <--from Exp127     <---need check,might be useful 
 logging.level.root=debug
 logging.level.root=ERROR             <--from 33808Exp083
-logging.****
+logging.
 
-             <---more examples Exp067,
-             <---see also 33830           
+​              <---logging format see 33830 
+
+​	      <---log level can set to class level see BPOT2098 application.yml
+
+​        
+
 management.endpoint.health.show-components=always  <---there are a bunch of indicator stuff          
 management.endpoint.health.show-details=always    <--from 33808Exp097
 
@@ -1781,23 +1832,143 @@ Spring Security Blog (江南一点雨) (https://zhuanlan.zhihu.com/p/150397755)
 
 ### 33830 Java logging Doc
 
+Java Logging slf4j API (http://docs.glngn.com/latest/api/org.slf4j.slf4j-api/index.html?org/slf4j/spi/MDCAdapter.html)
+
 ### 33830 Java logging Data
 
 ### 33830 Java logging Collection
 
+#### Command line param
+
 Java Logging Command Line configure arguments (https://www.baeldung.com/spring-boot-logging)
+
                      <--- -Dlogging.level.org.springframework=TRACE 
                          -Dlogging.level.com.baeldung=TRACE
                      <---33808Exp152 
 
-Java Logging Logback configuration 
-                     <---33808Exp067
-                     <---check: (https://dzone.com/articles/configuring-logback-with-spring-boot)
-                              <--gives different setting from dev or production
-Java Logging Logback configuration  <---with detailed patterns (https://www.cnblogs.com/chrischennx/p/6781574.html)
-                       <---explained %t thread, %p log level, %c class, %d date, %m message and MDC stuff (Exp143)  
-                       <--see also 33808Exp149
-Java Logging slf4j API (http://docs.glngn.com/latest/api/org.slf4j.slf4j-api/index.html?org/slf4j/spi/MDCAdapter.html)
+#### Logback configuration
+
+​            <---main log level config see 33808Spring Collection/Spring Boot/Spring Boot Configuration
+
+The following is application.properties
+
+```
+logging.level.root=debug
+logging.pattern.console=%d{dd-MM-yy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger.%M - %msg%n
+
+output: 
+20-10-20 10:33:11.353 [main] DEBUG billydev.SpringBootLoggingDemo.main - Going to divide 42 by 0
+       <---date, [thread name in magenta color], Log Level DEBUG/INFO highlighted, 
+           %logger. <--full class name with method name main, message 
+
+
+logging.path=logs
+logging.file=${logging.path}/log.log
+logging.pattern.file=%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n
+
+output of log file: 
+23-09-2020 11:48:00.586 [main] DEBUG o.s.u.c.s.UiApplicationContextUtils.initThemeSource - Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@78fbff54]
+      <---date with format,  [threadname], DEBUG is log level, 
+          %logger has length and with method name, message, 
+```
+
+​                 <---33808Exp067                     
+
+- `%d` – outputs the time that the log message occurred in formats that `SimpleDateFormat` allows.
+- `%thread` – outputs the name of the thread that the log message occurred in.
+- `$-5level` – outputs the logging level of the log message.
+- `%logger{36}` – outputs the package + class name the log message occurred in. The number inside the brackets represents the maximum length of the package + class name. If the output is longer than the specified length, it will take a substring of the first character of each individual package starting from the root package until the output is below the maximum length. The class name will never be reduced. A nice diagram of this can be found in the [Conversion Word docs](https://logback.qos.ch/manual/layouts.html#conversionWord).
+- `%M` – outputs the name of the method that the log message occurred in (apparently this is quite slow to use and not recommended unless you're not worried about performance, or if the method name is particularly important to you).
+- `%msg` – outputs the actual log message.
+- `%n` – line break.
+- `%magenta()` – sets the color of the output contained in the brackets to magenta (other colors are available).
+- `highlight()` – sets the color of the output contained in the brackets depending on the logging level (for example ERROR = red).
+
+​                <---check: (https://dzone.com/articles/configuring-logback-with-spring-boot)
+​    
+
+In following in xml file: 
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+
+    <springProfile name="default">
+        <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="prod">
+
+        <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>app_prod.log</file>
+
+            <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+                <fileNamePattern>logs/archived/app.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+                <!-- each archived file, size max 10MB -->
+                <maxFileSize>2KB</maxFileSize>
+                <!-- total size of all archive files, if total size > 20GB, it will delete old archived file -->
+                <totalSizeCap>20GB</totalSizeCap>
+                <!-- 60 days to keep -->
+                <maxHistory>60</maxHistory>
+            </rollingPolicy>
+
+            <encoder>
+                <pattern>%d %p %c{1.} [%t] %m%n</pattern>
+            </encoder>
+        </appender>
+
+        <logger name="org.springframework" level="INFO"/>
+        <logger name="com.mkyong" level="DEBUG"/>
+        <root level="ERROR">
+            <appender-ref ref="FILE-ROLLING"/>
+        </root>
+    </springProfile>
+
+</configuration>
+
+output log in log file: 
+2020-10-20 10:26:33,669 INFO org.springframework.web.context.ContextLoader [restartedMain] Root WebApplicationContext: initialization completed in 3523 ms
+        <--first date, INFO is log level, class name, [threadname], message: "Root Web...."
+```
+
+​    <--see also 33808Exp149               explained 
+
+​                 %t thread, 
+
+​                 %p log level of logging event, 
+
+​                 %c class, 
+
+​                %d date, 
+
+​               %m message 
+
+​               <--gives different setting from dev or production
+
+​                <--- detailed patterns (https://www.cnblogs.com/chrischennx/p/6781574.html)
+
+​                   
+
+logging.pattern.level=%X{userId}%5p
+
+​       <--For 33808exp143
+
+​        <-- a pattern **%X{key}** to retrieve the values that are present in the **MDC**.
+
+​              The key will be **userId** in our example.
+
+​         <---more pattern : https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/PatternLayout.html
+
+
+
+
+
+
 
 
 ## 33845 Hibernate
@@ -1971,9 +2142,17 @@ RFC 6265 (state management and cookies) (https://tools.ietf.org/html/rfc6265)
 
 #### http media types ( MIME types)
 
-​      <-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
+​       https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
 
-​     text/html  <---33808exp082 AbstractMessageConverterMethodProcessor line 267 selected media type
+​                 <--list all media types
+
+application/json
+
+​        <---33808exp134,  this is  typical rest controller, spring seems wrapped media type with a class
+
+text/html  
+
+​            <---33808exp082 AbstractMessageConverterMethodProcessor line 267 selected media type
 
 
 
