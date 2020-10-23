@@ -5,11 +5,7 @@
 
 Markdown format (https://guides.github.com/features/mastering-markdown/)
 
-# _BLIB GitHub
 
-test own files (./innerLink.md)
-
-BillyDev Git Hub (https://github.com/billydevInGitHub)
 
 # BLIB numbers 
 
@@ -83,6 +79,9 @@ BillyDev Git Hub (https://github.com/billydevInGitHub)
 30160 IO Overall 
 
 30601-30800 encoding, threading, I18N
+
+30660 I18N and Encoding
+
 30801-31000 lel3  DB, network, graphic, xml, syntax ,security
 
                        File System Management, 
@@ -162,7 +161,7 @@ null stuff here
 36800 Analytical query
 36900 Query optimization
 
-38000-38700 MySQL
+38000 MySQL
 
 38900  Query Optimization(to be merged)
 38916  Index and explain plan
@@ -1062,7 +1061,13 @@ Java Code Convention Ali conventions (https://github.com/alibaba/p3c)
 
 Coding best practice: 
 
-Code convention must be strictly followed, this is training of a new way of thinking; 
+```
+OVERALL： 
+
+​     Code convention must be strictly followed, this is training of a new way of thinking; 
+      names need think and think； 
+
+Details： 
 
 1 Logging the most important thing for the info
 
@@ -1071,6 +1076,11 @@ Code convention must be strictly followed, this is training of a new way of thin
 ​    logging information must have specific information for this domain like concrete path name etc. 
 
 ​    logging information must begin with upper case character; 
+
+2 info.md for all projects
+```
+
+
 
 ## 30140 Date and Time 
 
@@ -1095,6 +1105,16 @@ Epoch time converter (https://www.epochconverter.com/)
 ​                    <----33808exp082 ResourceHttpMessageConverter
 
 ​                            use this Util the buffer size is 4096 and also will do the flush and return byte count !!!!
+
+## 30660 I18N and encoding
+
+### 30660 I18N and encoding Doc
+
+### 30660 I18N and encoding Data
+
+UTF-8  <--BPOT2098  TODProperties use @PropetySource , its encoding 
+
+### 30660 I18N and encoding Collection
 
 ## 30820 Network Programming
 
@@ -1172,6 +1192,8 @@ File time check and compare
 
 ​                   <---BPOT2098 tools class
 
+31420 Nested Class
+
 ## 31422 Lambda 
 
 Lambda ~~ Good tutorial (https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/Lambda-QuickStart/index.html#section5)
@@ -1238,11 +1260,27 @@ JSONAssert.assertEquals(expected, response.getBody(), false);
 
 #### JUnit 5 Examples
 
-assertThrows(StorageException.class, () -> {
+```
+assertEquals(HttpStatus.OK, entity.getStatusCode());
+assertEquals("http://localhost:9000", entity.getHeaders().getAccessControlAllowOrigin());
+Greeting greeting = entity.getBody();
+assertEquals("Hello, World!", greeting.getContent());
+```
 
-			service.store(new MockMultipartFile("foo", "../foo.txt",
-			MediaType.TEXT_PLAIN_VALUE, "Hello, World".getBytes()));
-		});         <---- line 59 FileSystemStorageServiceTests 33808exp082 
+​             <--- 33808exp179
+
+```
+assertThrows(StorageException.class, () -> {
+		service.store(new MockMultipartFile("foo", "../foo.txt",
+		MediaType.TEXT_PLAIN_VALUE, "Hello, World".getBytes()));
+	});    
+```
+
+​              <---- line 59 FileSystemStorageServiceTests 33808exp082 
+
+
+
+
 
 #### AssertJ
 32606 JUnit AssertJ~ Unit5 compare  (http://testinglikeaboss.com/tips-tricks/migrating-from-junit-5-assertions-to-assertj/)
@@ -1261,7 +1299,9 @@ Assert.isTrue(bookingService.findAllBookings().size() == 3,	"First booking shoul
 @Data   <--33808Exp053
 @EqualsAndHashCode(callSuper = false)  <--33808Exp146
 @NoArgsConstructor <--33808Exp146
-@Slf4j  <--33808Exp053
+@Slf4j  
+
+​     <--we can directly use log, like log.info(xxx)   33808Exp053
 
 ## 32815 Reflection
 
@@ -1322,7 +1362,7 @@ Command Line Runner:
 
 ​       33808Exp054
 
-​       33808Exp079
+​       33808Exp079  <--implement in main configuration class 
 
 ​       33808Exp080
 
@@ -1360,9 +1400,17 @@ Configuration Properties(bind to field)
 
 ​        33808Exp065    
 
+Custom annotation
+
+​       33808Exp079,
+
 Exception Handler
 
 ​        33808Exp147, Exp053, Exp083, Exp082,Exp004, Exp012     50216exp008,
+
+Lombok
+
+​        33808Exp053, 33808Exp130, 33808Exp132, 33808Exp145, 33808Exp146, 
 
 Tomcat :  
 
@@ -1473,16 +1521,32 @@ Spring Boot Actuator
 ##### Spring Boot Command Line Runner
 
 ```
-@Bean
-CommandLineRunner init(StorageService storageService) {
+@Bean  <---in BPOT2098 we use @Component also work
+CommandLineRunner init(StorageService storageService) {   
+                        <---use constructor to inject,we can try this in BPOT2098 as well
    return (args) -> {
       storageService.deleteAll();
       storageService.init();
    };
 }  
-      <--from 33808Exp082 
+      <--from 33808Exp082 , we also implemented in BPOT2098
       <--looks we can still pass args into lambda
       <--StorageService should be sth we can inject into, how about the other bean ?
+```
+
+```
+@Configuration        <---use @Configuration + @Bean combination
+@Slf4j
+class LoadDatabase {
+
+   @Bean
+   CommandLineRunner initDatabase(EmployeeRepository repository) {
+      return args -> {
+         log.info("Preloading " + repository.save(new Employee("Bilbo Baggins", "burglar")));
+         log.info("Preloading " + repository.save(new Employee("Frodo Baggins", "thief")));
+      };
+   }
+}
 ```
 
 ##### Spring Boot Configuration 
@@ -1989,11 +2053,317 @@ My SQl blog Database normalization 3 norms (https://segmentfault.com/a/119000002
 
 ### 38000 Data
 
-DBeaver Script location: 
+DBeaver Script location:  D:\Backup\PM1000\Billydev080107\TempDev\200721-1-DBeaverScripts
+
+cardinality=NUM_ROWS*selectivity
+
+​            <---my guess 1000rows, each group(same value) has 3, selectivity = 1/3, cardinality is 300 
+
+​           <--from: http://blog.itpub.net/26736162/viewspace-2140358/ 
 
 ### 38000 Collection
 
+#### server operations 
 
+server start up option
+
+```
+my.cnf on windows
+
+"C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqld.exe" --defaults-file="C:\ProgramData\MySQL\MySQL Server 8.0\my.ini" MySQL80  
+           <---see 201022-1  S001 
+           <---open that ini file, we can get the following: 
+datadir=C:/ProgramData/MySQL/MySQL Server 8.0/Data
+default-storage-engine=INNODB
+log-output=FILE
+general-log=0
+general_log_file="BILLYDELL.log"
+slow-query-log=1
+slow_query_log_file="BILLYDELL-slow.log"
+long_query_time=10
+             <-----logging might be important 
+lower_case_table_names=1
+              <--so case insensitive
+max_connections=151              
+```
+
+​       <--from: https://stackoverflow.com/questions/1712646/i-can-not-find-my-cnf-on-my-windows-computer 
+
+#### database operations
+
+​     <--include user, log and data files,encoding ,  etc. 
+
+###### create database 
+
+create database abc
+
+​        <---
+
+show databases
+
+```
+mysql> show databases;
++-----------------------+
+| Database              |
++-----------------------+
+| 33808exp012           |
+| 33808exp012prac01     |
+| 33808exp012prac02     |
+| 33808exp045           |
+```
+
+​           <--- first get into mysql client tool 
+
+###### backup
+
+#### client and session 
+
+command line client
+
+```
+SET default_storage_engine=NDBCLUSTER;
+```
+
+​          <---set storage engine in session 
+
+​               check exp013 
+
+
+
+#### datatype choose
+
+##### How to do conversion
+
+mysql doc: 
+
+​      https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-type-conversions.html
+
+jdbc view : 
+
+​      https://www.cis.upenn.edu/~bcpierce/courses/629/jdkdocs/guide/jdbc/getstart/mapping.doc.html
+
+​         <---especially list the retrieve compatability which is very useful 
+
+my BLIB
+
+​      U002,U003,U004
+
+Clob blob conversion
+
+​         https://thorben-janssen.com/mapping-blobs-and-clobs-with-hibernate-and-jpa/ 
+
+TODO: 
+
+​      (1) make a entity class which might need to map to not normal types :
+
+​            bigDecimal, boolean, byte[] etc. to see how they are converted to mysql type through JPA
+
+​      (2)  make a mysql table with all types , then do jdbc query and get the datatypes 
+
+​       (3)List scenario that cause overflow, truncated or lost precision 
+
+​                   <---so we can avoid them !! 
+
+#### table operation
+
+##### create table 
+
+```
+create table persistent_logins (
+
+      username varchar(64) not null, 
+
+                 <---better to have not null constraints, need collect reasons
+
+      series varchar(64) primary key, 
+
+                  <----I guess table usually have primary key
+
+      token varchar(64) not null, 
+
+             <---not fixed length char, less than 65k use varchar
+
+      last_used timestamp not null);
+
+                <----timestamp will consider timezone, which timezone client or server?
+                     I guess should be client, check U003 for details 
+```
+
+​       <--- from API decrease 
+
+```
+DROP TABLE IF EXISTS `t_student`;
+CREATE TABLE `t_student` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+              <---auto_increment is important
+  `name` varchar(255) DEFAULT NULL COMMENT '姓名',
+                <---default null is interesting
+  `age` int(11) DEFAULT NULL COMMENT '年龄',
+  `clazz_id` int(11) DEFAULT NULL COMMENT '班级id',
+  `number` varchar(6) DEFAULT NULL COMMENT '学号',
+  PRIMARY KEY (`id`) USING BTREE
+              <--- primary key in the very last,  BTree and other options need to collect
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+   <---must use `` in `id`, not 'id', same when `id` is referenced in primary key
+   <---if not use `` that is ok !!
+   <--totally different from java:
+     (i) after table name use "(" not "{" 
+     (ii) varaible first then type !!
+```
+
+​       <---from 33808exp133
+
+```
+DROP TABLE IF EXISTS `user`;
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+             <---collate need to collect more information
+             <---seems name always default null
+  `address` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+         <---can we assign engine table by table 
+         
+```
+
+​     <-- from: http://mybatis.javaboy.org/2019/1102/helloworld
+
+
+
+db creation example with foreign key
+https://grobmeier.solutions/spring-security-5-using-jdbc.html
+
+​         <---need add the code 
+
+##### modify table
+
+```
+alter table
+
+(a) Add column
+
+   alter table emptest add (salary int, hire_date timestamp , height int) 
+                 <---how about the data already exists in table
+                 
+(b) Modify column
+
+alter table emptest modify  height  varchar(30)
+
+alter table emptest alter  hire_date set  DEFAULT CURRENT_TIMESTAMP
+             <---need confirm
+                  desc emptest
+                  select * from emptest
+
+alter table emptest  rename column  height  to high
+
+alter table emptest modify  high  varchar(35) 
+         <---to test:  select * from emptest
+
+(c) drop column  
+
+   alter  table emptest drop column high
+
+   desc emptest  
+        -----seems only rename column and drop column need add the "column" into !!
+```
+
+##### insert data
+
+```
+insert into posts (jpa_one_to_many_demo.posts.content, created_at,updated_at,description,title) 
+
+   values ("billy test", CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),"desc1","admin")
+             <---current time 
+```
+
+
+
+#### constraint operation
+
+#### index 
+
+##### index concepts
+
+​         <--- see 38000Qus026_(02) which is very good
+
+##### create general index
+
+```
+CREATE TABLE t1 (
+  col1 VARCHAR(10),
+  col2 VARCHAR(20),
+  INDEX (col1, col2(10))
+);    <--general create table with index
+CREATE TABLE t1 (col1 INT, col2 INT, INDEX func_index ((ABS(col1))));
+         <-- with function index
+CREATE INDEX idx1 ON t1 ((col1 + col2));
+          <---
+CREATE INDEX idx2 ON t1 ((col1 + col2), (col1 - col2), col1);
+ALTER TABLE t1 ADD INDEX ((col1 * 40) DESC);
+```
+
+​           <--- from decrease , should be general index and function index
+
+##### create composite index 
+
+```
+CREATE TABLE table_name (
+    c1 data_type PRIMARY KEY,
+    c2 data_type,
+    c3 data_type,
+    c4 data_type,
+    INDEX index_name (c2,c3,c4)
+);
+     <---create index during table creation
+     
+CREATE INDEX index_name 
+ON table_name(c2,c3,c4);
+       <--add index on existing table
+```
+
+​      <--from: https://www.mysqltutorial.org/mysql-index/mysql-composite-index/#:~:text=To%20create%20a%20composite%20index%20at%20the%20time%20of%20table,c2%2C%20c3%2C%20and%20c4.
+
+##### show index
+
+```
+SHOW INDEXES FROM table_name;
+
+```
+
+​           <-- from: https://www.mysqltutorial.org/mysql-index/mysql-show-indexes/#:~:text=To%20query%20the%20index%20information,table%20in%20the%20current%20database.
+
+#### query operation
+
+​    see some old queries in 36000 Exp
+
+#### query optimization 
+
+​        <-- check overall rules on paper
+
+​         <--check U005 
+
+​         <---Check 38000Qus024_(02)
+
+
+
+
+
+
+
+#### execution plan
+
+​         <---check 38000Qus034, Qus027  <--Qus034 super good and there is a good example to do !!!
+
+​         <---U007 list output format 
+
+#### number operations
+
+#### datetime operations
+
+string operations 
 
 ### 
 
@@ -2230,9 +2600,25 @@ authorization
 
 ​              (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Authentication)
 
+cookie
+
+​    https://www.geeksforgeeks.org/http-headers-cookie/#:~:text=A%20cookie%20is%20an%20HTTP,It%20is%20an%20optional%20header.&text=It%20is,and%20space%20i.e%20'%3B'.
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Cookie", cookie);
+		RequestEntity<Object> request = new RequestEntity<>(headers, HttpMethod.GET, uri);
+		return restTemplate.exchange(request, String.class);
+​            <--33808exp006
+
 origin
 
-​        <--- 33808exp179_(01) S001,  
+```
+RequestEntity.get(uri("/greeting")).header(HttpHeaders.ORIGIN, "http://localhost:9000").build()
+```
+
+​           <--- 33808exp179_(01) S001,  
+
+
 
 user-agent
 
@@ -2258,7 +2644,23 @@ Accept-Ranges
 
 Access-Control-Allow-Origin
 
-​      <---33808Exp179_(01) S002
+```
+assertEquals("http://localhost:9000", entity.getHeaders().getAccessControlAllowOrigin());
+```
+
+​         <---request is from localhost:9000, spring boot(on 8080) allow this 9000 server got stuff and display
+
+​               how about the request pretend to be a general browser ??
+
+​          <---gives a clear answer :  ACTUALLY THE BROWSER NEED "SAME ORIGIN" 
+
+​                     <--my understanding : the code form server A can not access server B unless server B let it !!
+
+​                     https://juejin.im/post/6844903859068862472
+
+​                <--mentioned JSONP, see:  73030Qus041
+
+​         <---33808Exp179_(01) S002
 
 Content-Disposition
 
@@ -2270,25 +2672,37 @@ Content-Disposition
 
 ​                         33808exp051
 
-http protocol headers response header Expires 
+Expires 
 
 ​                (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Expires)
 
 ​               <---spring source code: 33808exp069, WebContentGenerator.java line 422 
 ​               <---如果在Cache-Control响应头设置了 "max-age" 或者 "s-max-age" 指令，那么 Expires 头会被忽略。
 
+set-cookie
 
-​                               
+		String sessionId1 = firstResponse.getBody();
+		String cookie = firstResponse.getHeaders().getFirst("Set-Cookie");
+		String sessionId2 = nextRequest(restTemplate, uri, cookie).getBody();
+​             https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie
+
+​             <---                               33808exp006
 
 #### http protocol status code 
 
-http protocol status code (https://tools.ietf.org/html/rfc2616#page-57)
+IETF status code (https://tools.ietf.org/html/rfc2616#page-57)
 
-http protocol status code MDN Chinese (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status)
+MDN Chinese (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status)
 
-http protocol status code JavaEE Implementation javax.servlet.http.HttpServletResponse  <--Constants in check 33808exp136
-http protocol status code Spring Implementation HttpStatus.java class(enum)  in 33808Exp083
-http protocol status code w3.org (https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)
+JavaEE Implementation 
+
+​               <---   javax.servlet.http.HttpServletResponse  33808exp136
+Spring Implementation 
+
+​                 <--- HttpStatus.java class(enum)  in 33808Exp083
+w3.org (https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)
+
+
 
 ## 73083 Curl 
 
