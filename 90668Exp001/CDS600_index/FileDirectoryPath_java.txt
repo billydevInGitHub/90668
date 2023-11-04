@@ -1,0 +1,19 @@
+
+
+=== File Ops
+
+Check      CDS600001
+           (exists check)
+Create     CDS600002
+           (create directory)
+Copy       CDS600003
+           (copy file)
+
+Remove
+
+
+=== Path Ops
+
+Connect     CDS600000                CDS600005
+            (connect with String)    (connect with another
+                                      path filename)
