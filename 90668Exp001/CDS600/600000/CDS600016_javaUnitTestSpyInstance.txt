@@ -1,0 +1,5 @@
+_subject=Mockito.spy(new SubjectToTest())
+doReturn(someResult).when(_subject).methodOfSubject()
+      # when we are unit test one methods of sut, other method  could be mock, then spy is used here
+         I think the implementation of spy is "interception of method" instead of totally replace the object
+      # from UA2

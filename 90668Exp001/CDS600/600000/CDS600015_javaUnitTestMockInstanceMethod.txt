@@ -1,0 +1,9 @@
+@Mock
+SUTClass sutObject
+     # we are mocking up this instance
+
+Mockito.doReturn(mockResult).when(subObject).methodOfSutObject()
+     # so "methodOfSutObject" is mocked up
+     # check UA2 blibalias
+
+

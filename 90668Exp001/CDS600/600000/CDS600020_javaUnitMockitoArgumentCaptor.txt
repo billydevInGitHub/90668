@@ -1,0 +1,51 @@
+Class to test:
+    public class EmailService {
+        private DeliveryPlatform platform;
+        public EmailService(DeliveryPlatform platform) {
+            this.platform = platform;
+        }
+        public void send(String to, String subject, String body, boolean html) {
+            Format format = Format.TEXT_ONLY;
+            if (html) {
+                format = Format.HTML;
+            }
+            Email email = new Email(to, subject, body);
+            email.setFormat(format);
+            platform.deliver(email);
+                       # method result is passed as a mocked object arguments
+        }
+        ...
+    }
+Test class:
+    @ExtendWith(MockitoExtension.class)
+    class EmailServiceUnitTest {
+
+        @Mock
+        DeliveryPlatform platform;
+
+        @InjectMocks
+        EmailService emailService;
+
+        @Captor
+        ArgumentCaptor<Email> emailCaptor;
+                    # it will intercept parameters passed in to mock object
+                ...
+        @Test
+        void whenDoesSupportHtml_expectHTMLEmailFormat() {
+            String to = "info@baeldung.com";
+            String subject = "Using ArgumentCaptor";
+            String body = "Hey, let'use ArgumentCaptor";
+
+            emailService.send(to, subject, body, true);
+
+            verify(platform).deliver(emailCaptor.capture());
+                             # when call verify, I think we intercept the mockObject method call
+            Email value = emailCaptor.getValue();
+            assertThat(value.getFormat()).isEqualTo(Format.HTML);
+        }
+    }
+
+    # basically some tests result could be verified when the result passed to another method
+         as argument, then we should use it
+    # check: https://www.baeldung.com/mockito-argumentcaptor  gives good example
+        also learnt @injectMocks annotation

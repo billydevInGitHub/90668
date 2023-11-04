@@ -1,0 +1,44 @@
+
+=== Make SUT testable
+
+
+=== Mock and test preparation
+
+tmpDir           CDS600023
+                 (setup test env)
+
+
+mock static      CDS600019
+                (mock static method)
+
+mock instance     CDS600015
+                 (mock instance)
+
+spy instance      CDS600016
+                 (spy instance)
+
+argument           CDS600017
+matcher            (eq)
+
+lenient           CDS600018
+                  (simple example)
+
+
+=== Assert
+
+single result     CDS600022       CDS600026
+assert            (equals)        (true)
+
+collection        CDS600025
+result assert     (contains value)
+
+argument          CDS600020
+captor            (check arg passed
+                  to mock object)
+
+call stack        CDS600021
+                  (verify)
+
+
+
+=== Frameworks

@@ -1,0 +1,7 @@
+SomeClass mockObj=Mockito.spy(new SomeClass(xx))
+doNothing()
+  .when(mockObj)
+  .callMethod(eq("123"),10)
+   # when these condition matches, it will return doNothing()
+   # not necessary be spy
+   # check:https://www.digitalocean.com/community/tutorials/mockito-argument-matchers-any-eq

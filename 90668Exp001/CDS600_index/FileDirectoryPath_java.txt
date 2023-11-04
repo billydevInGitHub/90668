@@ -2,18 +2,49 @@
 
 === File Ops
 
-Check      CDS600001
-           (exists check)
-Create     CDS600002
-           (create directory)
-Copy       CDS600003
-           (copy file)
+Check
+  exists       CDS600001            CDS600006
+               (exists check       (exists chk
+               with Files)           with File)
+
+  isDirecto    CDS600010
+               (is directory
+               or not)
+
+  name         CDS600011
+               (chk name)
+
+Create         CDS600002
+               (create directory)
+Copy           CDS600003
+               (copy file)
 
 Remove
 
+list files
+
+=== Create File instance
+
+constructor    CDS600007
+               (path to string
+               then new File)
+
+convert        CDS600008
+               (path directly
+               to File)
 
 === Path Ops
 
-Connect     CDS600000                CDS600005
-            (connect with String)    (connect with another
-                                      path filename)
+Connect        CDS600000                CDS600005
+               (connect with String)    (connect with another
+                                         path filename)
+get String
+
+=== Create Path instance
+
+constructor
+
+
+convert        CDS600012
+               (from File to
+               absolute path) 
