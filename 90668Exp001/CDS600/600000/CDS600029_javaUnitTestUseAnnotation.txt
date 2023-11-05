@@ -1,0 +1,18 @@
+check our XXXRunner examples:
+
+(1) Add annotation in test class
+    for example:  @ABCConfig(dbName="db123", appFile="app123.txt)
+
+(2) Define the annation with interface
+    example:
+       @Retention(RetentionPolicy.RUNTIME)
+       @Target(ElementType.TYPE)
+       public @interface ABCConfig {
+                      # attention, annotation interface is a bit different
+            String dbName();
+            String appFile();
+       }
+(3) In some test lifecycle like runner, read the annotation out and use it:
+          ABCConfig abcConfig=     we can get TestClass from parent runner
+                                   then use reflection get those
+                                   then could be used

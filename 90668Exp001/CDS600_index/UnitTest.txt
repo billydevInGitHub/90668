@@ -42,3 +42,11 @@ call stack        CDS600021
 
 
 === Frameworks
+Junit4 runner       CDS600028
+rules               (basic)
+
+Junit5 extensions   CDS600027
+                    (basic)
+
+Java annotation     CDS600029
+                    (example)
