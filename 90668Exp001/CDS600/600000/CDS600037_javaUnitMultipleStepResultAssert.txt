@@ -1,0 +1,7 @@
+ SUT.doSth()
+ assertTrue(SUT.getSth().exists())
+ SUT.doClean()
+ assertTrue(SUT.isCleared())
+     # sometimes we not only test one method, but a seriese of methods
+       231105-1-S001 should not test multiple methods at a time,should use spy ?
+          # this is actually integration test not unit test !!!!!

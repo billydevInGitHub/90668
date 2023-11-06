@@ -1,6 +1,16 @@
+=== Overall
+procedure        CDS600057
+
 
 === Make SUT testable
+Testable         CDS600052            CDS600056
+                 (split big method)   (split line to method)
 
+Use real         CDS600055
+code             (real code)
+
+Private          CDS600053
+method
 
 === Mock and test preparation
 
@@ -28,8 +38,20 @@ mockBackend       CDS600030
 
 === Assert
 
+null assert       CDS600031        CDS600050
+                  (assert null)   (not null)
+empty assert      CDS600036
+                  (assert empty)
+exception         CDS600032         CDS600039
+assert            (assert throw)    (setup exception)
+
 single result     CDS600022       CDS600026
 assert            (equals)        (true)
+
+json assert       CDS600035
+                  (basic)
+file content      CDS600038
+assert            (hamcrest stringContainsInOrder)
 
 collection        CDS600025
 result assert     (contains value)
@@ -38,17 +60,24 @@ argument          CDS600020
 captor            (check arg passed
                   to mock object)
 
-call stack        CDS600021
-                  (verify)
+call stack        CDS600021    CDS600037
+                  (verify)     (step by step chk)
 
 
 
 === Frameworks
-Junit4 runner       CDS600028
-rules               (basic)
+JUnit4/5               CDS600033
+comparison             (annotation)
 
-Junit5 extensions   CDS600027
-                    (basic)
 
-Java annotation     CDS600029
-                    (example)
+Junit4 runner          CDS600028
+rules                  (basic)
+
+Junit5 extensions      CDS600027
+                       (basic)
+
+Java annotation        CDS600029
+                       (example)
+
+Test fixture           CDS600051
+                       (basic impl)

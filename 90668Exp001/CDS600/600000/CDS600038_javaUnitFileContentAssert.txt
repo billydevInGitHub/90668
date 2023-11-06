@@ -1,0 +1,4 @@
+String content=new String(Files.readAllBytes(someFile))
+assertThat(content, Matchers.stringContainsInOrder(
+  "key1", "key2" ...)
+        # Hamcrest is used here

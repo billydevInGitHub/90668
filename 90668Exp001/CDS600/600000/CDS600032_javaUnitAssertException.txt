@@ -1,0 +1,6 @@
+RuntimeException runtimeException = assertThrows(NullPointerException.class,
+           ()->SUT.doSomeTest());
+              #second param is functional Executable interface
+
+assertEquals(message, exception.getMessage())
+              # further check the message

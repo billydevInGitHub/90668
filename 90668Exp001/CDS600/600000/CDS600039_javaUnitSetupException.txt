@@ -1,0 +1,4 @@
+RuntimeException exception=new RuntimeException();
+exception.sertStackTrace(new StackTraceElement[]{
+     new StackTraceElement(xxx,xxxx)
+     })

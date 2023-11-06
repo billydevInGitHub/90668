@@ -1,1 +1,2 @@
-Assertions.assertEqual(objectA, objectB)
+Assertions.assertEquals(objectA, objectB)
+     # seems both null is equal
