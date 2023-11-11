@@ -1,0 +1,14 @@
+@Test
+void givenStaticMethodWithArgs_whenMocked_thenReturnsMockSuccessfully() {
+    assertThat(StaticUtils.range(2, 6)).containsExactly(2, 3, 4, 5);
+
+    try (MockedStatic<StaticUtils> utilities = Mockito.mockStatic(StaticUtils.class)) {
+        utilities.when(() -> StaticUtils.range(2, 6))
+          .thenReturn(Arrays.asList(10, 11, 12));
+         SUT.callMethod();
+               # this method will call StaticUtils inside
+        assertThat(StaticUtils.range(2, 6)).containsExactly(10, 11, 12);
+    }
+
+    assertThat(StaticUtils.range(2, 6)).containsExactly(2, 3, 4, 5);
+}

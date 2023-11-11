@@ -18,8 +18,9 @@ tmpDir           CDS600023
                  (setup test env)
 
 
-mock static      CDS600019
-                (mock static method)
+mock static      CDS600019              CDS600060             CDS600061
+                (mock static method)   (mock method with     (mock method with
+                                        no param)             param)
 
 mock instance     CDS600015
                  (mock instance)

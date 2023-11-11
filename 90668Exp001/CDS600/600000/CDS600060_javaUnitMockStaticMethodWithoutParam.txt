@@ -1,0 +1,16 @@
+@Test
+void givenStaticMethodWithNoArgs_whenMocked_thenReturnsMockSuccessfully() {
+    assertThat(StaticUtils.name()).isEqualTo("Baeldung");
+
+    try (MockedStatic<StaticUtils> utilities = Mockito.mockStatic(StaticUtils.class)) {
+        utilities.when(StaticUtils::name).thenReturn("Eugen");
+
+        SUT.callMethod();
+             # this method will call utilities class
+             #
+        assertThat(StaticUtils.name()).isEqualTo("Eugen");
+    }
+
+    assertThat(StaticUtils.name()).isEqualTo("Baeldung");
+}
+     #
