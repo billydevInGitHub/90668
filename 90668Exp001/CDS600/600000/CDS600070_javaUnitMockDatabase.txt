@@ -1,0 +1,42 @@
+# Link here is the same as CDS600069
+public class CustomerReaderTest {
+
+		//Class to be tested
+		private CustomerReader customerReader;
+
+		//Dependencies
+		private EntityManager entityManager;
+
+
+		@Before
+		public void setup(){
+			customerReader = new CustomerReader();
+
+			entityManager = mock(EntityManager.class);
+			customerReader.setEntityManager(entityManager);
+			      # inject mock into SUT
+		}
+
+		@Test
+		public void happyPathScenario(){
+			Customer sampleCustomer = new Customer();
+			      # unit test prepared data
+			sampleCustomer.setFirstName("Susan");
+			sampleCustomer.setLastName("Ivanova");
+
+			when(entityManager.find(Customer.class,1L)).thenReturn(sampleCustomer);
+
+			String fullName = customerReader.findFullName(1L);
+			assertEquals("Susan Ivanova",fullName);
+		}
+
+		@Test
+		public void customerNotPresentInDb(){
+			when(entityManager.find(Customer.class,1L)).thenReturn(null);
+
+			String fullName = customerReader.findFullName(1L);
+			assertEquals("",fullName);
+		}
+	}
+      # from: https://semaphoreci.com/community/tutorials/stubbing-and-mocking-with-mockito-2-and-junit#:~:text=Mocking%20and%20stubbing%20are%20the,an%20email%20after%20every%20test.
+
