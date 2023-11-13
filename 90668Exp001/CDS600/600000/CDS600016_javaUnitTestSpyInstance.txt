@@ -9,7 +9,8 @@ doReturn(someResult).when(_subject).methodOfSubject()
          libraries or APIs. Instead of completely mocking these external dependencies, spy objects can retain the
          original behavior while selectively modifying or verifying specific methods relevant to the test case.
          Sep 12, 2023
-         ===||  <---third party is another important case
+         ===||  <---third party is another important case, I think this is not for SUT but a class SUT reply on, we can
+                    also mock partly the third party class (this is also good case for using real code instead of Mock)
 
          ===
          When and why should a spy be used in Junit?

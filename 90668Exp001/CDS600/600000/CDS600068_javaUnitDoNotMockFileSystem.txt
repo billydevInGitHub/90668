@@ -1,0 +1,13 @@
+refer to: https://groups.google.com/g/mockito/c/xhS6YoQxhUs?pli=1
+    # first we can use real file ops
+    # if use Mock, also need "high tech"
+         ===
+         BufferedReader rdr = mock(BufferedReader.class);
+         no, no, no! don't mock types you don't own...
+                # not sure if he is right, in CDS600066 we mock FileSystem
+         >Passing a BufferedReader wrapping a StringReader is an interesting approach
+         yes! Making the reader injectable is one of the good solutions.
+                # this one has a precondition that we can inject the class
+         Cheers,
+         Szczepan
+         ===||

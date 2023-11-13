@@ -6,8 +6,12 @@ procedure        CDS600057
 Testable         CDS600052            CDS600056
                  (split big method)   (split line to method)
 
-Use real         CDS600055
-code             (real code)
+Use real         CDS600055            CDS600065
+code             (overall)            (light weight class)
+
+                 CDS600066           CDS600067             CDS600068   ^_^
+                 (mock file/dir      (mock file content    (do not mock
+                  ops)                reading ops)          file system)
 
 Private          CDS600053
 method
@@ -37,6 +41,9 @@ lenient           CDS600018
 mockBackend       CDS600030
                   (to test webclient)
 
+annotation        CDS600029
+input             (example)
+
 === Assert
 
 null assert       CDS600031        CDS600050
@@ -65,6 +72,24 @@ call stack        CDS600021    CDS600037
                   (verify)     (step by step chk)
 
 
+=== Annotations
+
+                      Junit 5         JUnit 4
+
+enable annotation    CDS600062
+                      (3 ways)
+
+@Mock
+
+@InjectMocks         CDS600063
+                    (auto inject mock)
+
+@Captor              CDS600020
+                     (verify arguments)
+
+
+
+
 
 === Frameworks
 JUnit4/5               CDS600033
@@ -77,8 +102,7 @@ rules                  (basic)
 Junit5 extensions      CDS600027
                        (basic)
 
-Java annotation        CDS600029
-                       (example)
+
 
 Test fixture           CDS600051
                        (basic impl)
