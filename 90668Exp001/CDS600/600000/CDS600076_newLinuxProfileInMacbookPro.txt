@@ -1,0 +1,4 @@
+cd
+vi .zshrc
+     # adding:     ll="ls -l"
+source .zshrc

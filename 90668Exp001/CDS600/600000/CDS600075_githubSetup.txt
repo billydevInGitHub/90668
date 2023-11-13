@@ -1,0 +1,14 @@
+1 create a new repo in github
+
+2 mkdir 90668 under: /Users/billy/billydev231026
+  cd 90668
+
+3 Following the following from github:
+   echo "# 60000" >> README.md
+   git init
+   git add README.md
+   git commit -m "first commit"
+   git branch -M main
+   git remote add origin https://github.com/billydevInGitHub/60000.git
+   git push -u origin main
+         # last step can be done in intellij
