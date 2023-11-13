@@ -1,0 +1,8 @@
+@TempDir
+private path _ttDir;
+     # other directories are set on top of this
+
+Path ttAppDir=_ttDir.resolve("someSubDirectory");
+Files.createDirectories(ttAppDir)
+Files.createFile(ttAppDir.resolve("someTestFileName.txt")
+     # these setup could be within setup() method

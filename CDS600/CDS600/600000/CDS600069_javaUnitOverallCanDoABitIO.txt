@@ -1,0 +1,28 @@
+refer to: https://semaphoreci.com/community/tutorials/stubbing-and-mocking-with-mockito-2-and-junit#:~:text=Mocking%20and%20stubbing%20are%20the,an%20email%20after%20every%20test.
+    # ===
+      These tests:
+      examine a single class,
+      require just the source code of the application, instead of a running instance,
+      are fast,
+            # the above 3 should be clear
+      are not affected by external systems, e.g. web services or databases, and
+      perform little or no I/O, e.g. no real database connections.
+            # seems file system IO could do a bit
+      ===||
+            # good definition of unit tests
+    # ===
+      Common targets for mocking are:
+
+      Database connections,
+      Web services,
+      Classes that are slow,
+      Classes with side effects, and
+      Classes with non-deterministic behavior.
+             # file system is not included here
+      ===||
+            # good idea of mock targets
+    # ===
+      A stub is a fake class that comes with preprogrammed return values. It’s injected into the class under test to give you absolute control over what’s being tested as input. A typical stub is a database connection that allows you to mimic any scenario without having a real database.
+      A mock is a fake class that can be examined after the test is finished for its interactions with the class under test. For example, you can ask it whether a method was called or how many times it was called. Typical mocks are classes with side effects that need to be examined, e.g. a class that sends emails or sends data to another external service.
+      ===||
+            # mock seems more advanced  stub

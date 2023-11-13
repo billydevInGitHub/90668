@@ -1,0 +1,14 @@
+Keys:
+
+1 testFixture sourceSet
+      has testFixture class here
+2 build.gradle
+     dependencies
+           testFixtureImplementation(junitlib)
+                  junitlib set in parent module build.gradle file
+            # so test fixture can use these lib
+3 During test use test fixture
+
+
+refer to: https://docs.gradle.org/current/userguide/java_testing.html
+               Using test fixtures  part

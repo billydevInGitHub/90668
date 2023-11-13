@@ -1,0 +1,2 @@
+somePath.resolve(anotherPath.getFileName().toString())
+      # this way we only care about the file name of another path

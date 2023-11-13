@@ -1,0 +1,4 @@
+assertThat(someResults, containsInAnyOrder(specialValue))
+       # org.hamcrest.MatcherAssert.assertThat
+       # org.hamcrest.Matchers.containsInAnyOrder
+       # for these special cases, hamcrest is better

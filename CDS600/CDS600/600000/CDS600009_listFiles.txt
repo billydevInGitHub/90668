@@ -1,0 +1,2 @@
+someFile.listFiles()
+     # if someFile is not directory, return null

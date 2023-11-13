@@ -1,0 +1,2 @@
+For example, one big line  abc.getInstance().doSth()
+      # we can put   abc.getInstance()  into a method, then we can mock this method

@@ -1,0 +1,22 @@
+https://stackoverflow.com/questions/49498856/filesystem-mocking-using-mockito
+     # gives detailed code for file and dir ops
+     ===
+     //mock or provide real implementation of what has to be returned from filesystem mock
+     RemoteIterator<LocatedFileStatus> it = (RemoteIterator<LocatedFileStatus>) Mockito.mock(RemoteIterator.class);
+     LocatedFileStatus myFileStatus = new LocatedFileStatus();
+     when(it.hasNext()).thenReturn(true).thenReturn(false);
+            # mock the Iterator is "high tech"
+     when(it.next()).thenReturn(myFileStatus).thenReturn(null);
+            # can not both cases
+            # myself returned stuff could be mock or real, myFileStatus is a "real" one
+     //mock the file system and make it return above content
+     FileSystem fileSystem = Mockito.mock(FileSystem.class);
+     when(fileSystem.listFiles(sourceDirectoryPath, true)).thenReturn(it);
+            # file system could be mocked
+     RemoteIterator<LocatedFileStatus> files =
+             fileSystem.listFiles(sourceDirectoryPath, true);
+
+     assertThat(files.hasNext()).isTrue();
+     assertThat(files.next()).isEqualTo(myFileStatus);
+     assertThat(files.hasNext()).isFalse();
+     ===||

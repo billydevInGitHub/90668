@@ -1,0 +1,71 @@
+public class CustomerDao {
+
+		@PersistenceContext
+		private EntityManager entityManager;
+
+		private Logger logger;
+
+		public void saveCustomer(String firstName, String lastName) {
+			if(firstName == null || lastName==null)
+			{
+				logger.error("Missing customer information");
+				throw new IllegalArgumentException();
+			}
+			Customer customer = new Customer(firstName,lastName);
+			        # ^_^ argument passed SUT not created by us by the method we are testing
+			          we need change the arguments of the "fly"
+			entityManager.persist(customer);
+			entityManager.flush();
+			logger.info("Saved customer with id {}", customer.getId());
+			        # customer id reflected in logger
+		}
+
+	}
+
+# test:
+public class CustomerDaoTest {
+
+		// Class to be tested
+		private CustomerDao customerDao;
+
+		// Dependencies (will be mocked)
+		private EntityManager entityManager;
+		private Logger logger;
+
+		@Before
+		public void setup() {
+			customerDao = new CustomerDao();
+
+			entityManager = mock(EntityManager.class);
+			customerDao.setEntityManager(entityManager);
+
+			logger = mock(Logger.class);
+			customerDao.setLogger(logger);
+		}
+
+		@Test
+		public void happyPath() {
+			doAnswer(new Answer<Void>() {
+				public Void answer(InvocationOnMock invocation) {
+					Customer customer = invocation.getArgument(0);
+					customer.setId(123L);
+					return null;
+				}
+			}).when(entityManager).persist(any(Customer.class));
+
+			customerDao.saveCustomer("Suzan", "Ivanova");
+
+			verify(logger).info("Saved customer with id {}", 123L);
+			     # still use verify but now have custom id
+
+		}
+
+		@Test(expected = IllegalArgumentException.class)
+		public void missingInformation() {
+			customerDao.saveCustomer("Suzan", null);
+		}
+
+	}
+
+    from: https://semaphoreci.com/community/tutorials/stubbing-and-mocking-with-mockito-2-and-junit#:~:text=Mocking%20and%20stubbing%20are%20the,an%20email%20after%20every%20test.
+        # same link CDS600069 and CDS600070 etc.

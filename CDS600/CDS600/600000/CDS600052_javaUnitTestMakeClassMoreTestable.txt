@@ -1,0 +1,15 @@
+To test one big method, there will be many scenarios
+        step 1   A B
+        Step 2   C D
+        Step 3   E F
+        then we need test:  A C E,  A D E, B C E, B D E, ...
+      # if we split each step into a method, then we need only test each method
+          then each method has only 2 scenario to test
+
+      # in the future in integration test, we might face same issue again,
+         but in integration test we usually focus on key path of business logic
+               focus what we really care about !!!
+               we can use the mock to setup scenarios,corner case might not be important
+
+      # https://stackoverflow.com/questions/2669881/splitting-a-test-to-a-set-of-smaller-tests
+                   seems also mentioned splitting will take advantage of setup and tear down

@@ -1,0 +1,3 @@
+String expectedJson="\"completed\":false, fieldA:aaa,fieldB:bbb\""
+assertEquals(expectedJson, realJson)
+       # manually forge json content

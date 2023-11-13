@@ -1,0 +1,3 @@
+better understand our 60066 runner code in test as it uses runner
+    # after read CDS600028,
+    # need to collect more rule examples

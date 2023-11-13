@@ -1,0 +1,2 @@
+lenient().doNothing().when(mockObj).callMemthod()
+     # it will not warn when stubbing is not called

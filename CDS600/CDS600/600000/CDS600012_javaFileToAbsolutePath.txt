@@ -1,0 +1,3 @@
+someFile.getAbsolutePath()
+     then use:  Paths::get  method to convert to Path
+    # can used as File::getAbsolutePath

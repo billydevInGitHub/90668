@@ -1,0 +1,4 @@
+We can very if the mock method is called, how many times called, order of call and arguments etc.
+
+    # check: https://www.baeldung.com/mockito-verify
+             good article and many scenarioes covered

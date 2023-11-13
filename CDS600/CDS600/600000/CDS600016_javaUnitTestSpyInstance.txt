@@ -1,0 +1,21 @@
+_subject=Mockito.spy(new SubjectToTest())
+doReturn(someResult).when(_subject).methodOfSubject()
+      # when we are unit test one methods of sut, other method  could be mock, then spy is used here
+         I think the implementation of spy is "interception of method" instead of totally replace the object
+      # check online:
+         ===
+         Why use spy instead of mock?
+         Testing Third-Party Libraries or APIs: Mockito Spy is beneficial when testing code that relies on third-party
+         libraries or APIs. Instead of completely mocking these external dependencies, spy objects can retain the
+         original behavior while selectively modifying or verifying specific methods relevant to the test case.
+         Sep 12, 2023
+         ===||  <---third party is another important case, I think this is not for SUT but a class SUT reply on, we can
+                    also mock partly the third party class (this is also good case for using real code instead of Mock)
+
+         ===
+         When and why should a spy be used in Junit?
+         Spies are useful when we have a huge class full of methods, and we want to mock certain methods. In this scenario,
+         we should prefer using spies rather than mocks and stubs. It calls the real method behavior, if the methods are not
+         stubbed.
+         ===||  <---this is the most important case for us now
+      # from UA2

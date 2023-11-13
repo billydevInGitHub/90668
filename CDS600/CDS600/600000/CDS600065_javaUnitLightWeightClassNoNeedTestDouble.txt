@@ -1,0 +1,10 @@
+from: https://softwareengineering.stackexchange.com/questions/382087/how-exactly-should-unit-tests-be-written-without-mocking-extensively
+    ===
+    If invoking Calculator::add doesn't significantly increase the time required to run the test (or any of the other important
+    properties for this use case), then I wouldn't bother using a test double -- it doesn't provide benefits that outweigh the costs.
+
+    Notice the two assumptions here: a human being as part of the cost evaluation, and the short stack of unverified changes in
+    the benefit evaluation. In circumstances where those conditions do not hold, the value of "isolation" changes quite a bit.
+    ===||    # myself: seems a balance between "the cost of test double" and "the isolation of the changes"
+                       if the isolation of changes is not very complicated ( stack is not big or long)
+                       we do not need bother to do the mock

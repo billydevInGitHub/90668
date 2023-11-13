@@ -1,0 +1,24 @@
+To test webclient, just like Mockito instance, we need to doReturn()when().xxx
+     we need prepare backend ---return sth when request sth
+
+Example:
+(1) Inject MockWebServer into test
+     MoackWebServer _mockBackEnd = new MockWebServer()
+
+(2) Registrator extension  (see CDS600027)
+     start backend server when test start
+     shutdown backend server when test done
+
+(3) Do the mock setup
+    Prepare webclient pointing to localhost and mockBackEnd port
+    Wrap webclient into our SUT
+    Prepare (enqueue) the message into mockBack
+    _mockBackEnd.enqueue( new MockResponse().addHeader("Content-Type", "application/json").setBody(someJson)
+    sut.call method
+    assertRequest : we can take the request out from _mockBackEnd.takeRequest
+                     # just like CDS600020
+               then assert method and assert URL
+    assert result:  sut call return a result should be the same as enqueue
+
+       # my guess, MockBackend will "intercept" local http requests and then we can do comparison
+       # to be improved with real examples
