@@ -1,0 +1,7 @@
+INPUT_LIST.stream().sorted(Comparator.comparing(it -> it.charAt(0), Comparator.reverseOrder()))
+    .collect(Collectors.toList());
+       # interface Comparator's static comparing method return Comparator interface itself
+                first param of comparing method is a Functional API key extractor
+                second param of comparing method is
+
+       # from: https://wjw465150.github.io/blog/Groovy/my_data/Java8/Java_8_lambdas_vs._Groovy_closures_(part_2_of_2).htm

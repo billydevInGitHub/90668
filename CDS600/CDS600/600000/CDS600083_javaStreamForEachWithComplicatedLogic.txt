@@ -1,0 +1,11 @@
+List<String> returnList=new ArrayList<>();
+someList.stream().forEach(str->{
+        returnList.add("===");
+        if(str.contains("A")){
+            returnList.add("A");
+                #inside lambda, we can not change variable returnList, but can call its method
+        }else{
+            returnList.add("B");
+        }
+       })
+        # complicated lambda must use {}

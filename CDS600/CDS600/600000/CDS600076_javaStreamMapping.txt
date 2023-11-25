@@ -1,0 +1,5 @@
+INPUT_LIST.stream().map(it -> it.toUpperCase()).collect(Collectors.toList());
+    # java need to explicitly use parameter in lambda
+
+
+    # from: https://wjw465150.github.io/blog/Groovy/my_data/Java8/Java_8_lambdas_vs._Groovy_closures_(part_1_of_2).htm#:~:text=Lambdas%20can%20only%20access%20variables,to%20explicitly%20declare%20parameter%20types.

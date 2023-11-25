@@ -1,3 +1,35 @@
-===
+=== Creating
 Convert to
 Stream
+    array to      CDS600075
+    stream        (File[] to
+                   stream)
+
+
+
+=== Iterate through
+
+filter         CDS600080        CDS600081      CDS600082
+              (simple filter   (filter out    (use a regex
+               out string)      one element)   matcher class)
+
+mapping        CDS600076         CDS600077      CDS600078    CDS600079
+               (basic mapping    (set list      (type        (semicolon
+                to upper case)    to default)    inference)   hell)
+
+
+               CDS600075
+               (compare with
+                forEach)
+
+forEach        CDS600083
+               (use complicated
+                lambda )
+
+for loop
+
+
+=== Sorting and compare
+
+sorting      CDS600085
+             (use Comparator)

@@ -1,0 +1,5 @@
+INPUT_LIST.stream().map(it -> "default").collect(Collectors.toList());
+    # groovy is more simpler
+
+
+    # from: https://wjw465150.github.io/blog/Groovy/my_data/Java8/Java_8_lambdas_vs._Groovy_closures_(part_1_of_2).htm#:~:text=Lambdas%20can%20only%20access%20variables,to%20explicitly%20declare%20parameter%20types.

@@ -1,2 +1,3 @@
 Stream.of(Paths.get("SomePath").toFile().listFiles())
      .filter(file->file.getName().matches("somePattern.*")
+       # listFiles() return Fils[], then we can convert to

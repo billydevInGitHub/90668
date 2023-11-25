@@ -1,0 +1,9 @@
+List<String> filteredList=someList.stream().
+              .filter(it->someMatcher.hasAPattern(it)
+              .collect(Collectors.toList());
+
+         # someMatcher code:
+            private static final Pattern MATCHER_PATTERN=Pattern.compile(".*\\.tar\\.gz$");
+            public boolean hasAPattern(String name){
+                 return MATCHER_PATTERN.matcher(name).matches();
+            }
