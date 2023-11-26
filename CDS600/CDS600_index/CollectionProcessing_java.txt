@@ -5,7 +5,9 @@ Stream
     stream        (File[] to
                    stream)
 
-
+    OtherStream   CDS600086
+    to stream     (int range
+                   to Stream)
 
 === Iterate through
 
@@ -18,18 +20,40 @@ mapping        CDS600076         CDS600077      CDS600078    CDS600079
                 to upper case)    to default)    inference)   hell)
 
 
-               CDS600075
-               (compare with
-                forEach)
-
+               CDS600075          CDS600091
+               (compare with      (alias,example
+                forEach)           display map key
+                                   and value)
 forEach        CDS600083
                (use complicated
                 lambda )
 
 for loop
 
+=== reduce and group
+
+concatenate    CDS600087             CDS600088
+               (concatenate          (join with
+                stream element        separator)
+                together)
+
+max            CDS600095
+              (get max
+               value)
+
+second         CDS600096            CDS600097
+largest       (get second          (another way
+               largest)             with no limit)
 
 === Sorting and compare
 
-sorting      CDS600085
-             (use Comparator)
+sorting                         CDS600085
+                                (extract and
+                                 convert
+                                 then compare)
+
+=== Map convert to List
+
+toList     CDS600091
+          (convert to
+           List)

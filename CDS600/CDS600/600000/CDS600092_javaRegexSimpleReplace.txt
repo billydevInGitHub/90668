@@ -1,0 +1,11 @@
+// this example is from book37 ,after example 12-10
+
+
+String input="qwer23423sdfsfs22342";
+
+Pattern pattern = Pattern.compile("[0-9]+");
+Matcher matcher = pattern.matcher(input);
+String output = matcher.replaceAll("#");
+
+System.out.println(output);
+    # from: https://github.com/billydevInGitHub/30280/blob/master/30280expXXX/src/main/java/billydev/exp003_ReplaceAllDigits/Replace_All_Digits.java

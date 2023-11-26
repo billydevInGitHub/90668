@@ -1,0 +1,10 @@
+int secondLargestNumber = Arrays
+        .stream(numbers)
+        .boxed()
+        .sorted(Comparator.reverseOrder())
+        .skip(1)
+        .findFirst()
+        .get();
+           # this one does not need to do the limit first 
+
+                # from: https://www.benchresources.net/java-8-find-second-largest-number-in-an-arrays-or-list-or-stream/

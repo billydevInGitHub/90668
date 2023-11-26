@@ -1,0 +1,8 @@
+list.stream().sorted(Comparator.reverseOrder()).limit(2).skip(1).findFirst()
+      # get top2 first, skip one, seems make sense
+
+      # another option:
+         list.stream().sorted(Collections.reverseOrder()).distinct().limit(2).skip(1).findFirst().get()
+                 # this one seems do a distinct
+
+      #from: https://stackoverflow.com/questions/51606628/how-can-i-call-second-largest-number-from-arraylist-using-collections

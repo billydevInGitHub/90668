@@ -1,0 +1,8 @@
+Optional<Integer> optional2 = Optional.empty();
+        System.out.println("\nOptional2 : " + optional2);
+        val =  optional2.orElseThrow(()-> {
+                return new Exception("no value present in Optional object");
+            });
+        # I think compare with CDS600098, here we can "control" the exception(make more sense) instead of just an "No such element exception"
+
+         # from: https://www.educative.io/answers/what-is-the-optionalorelsethrow-method-in-java?utm_campaign=interview_prep&utm_source=google&utm_medium=ppc&utm_content=pmax&utm_term=&eid=5082902844932096&utm_term=&utm_campaign=%5BNew-Oct+23%5D+Performance+Max+-+Coding+Interview+Patterns&utm_source=adwords&utm_medium=ppc&hsa_acc=5451446008&hsa_cam=20684486602&hsa_grp=&hsa_ad=&hsa_src=x&hsa_tgt=&hsa_kw=&hsa_mt=&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=CjwKCAiA9ourBhAVEiwA3L5RFgm_EkG7GqkCKng8xZ669ycH1YjPhP4JWQhIY6VYwaY-HNC_3bWXQxoCGC4QAvD_BwE

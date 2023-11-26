@@ -1,0 +1,24 @@
+List<String> list= new ArrayList();
+list.add("abc");list.add("sads");list.add("ysdfsd");list.add("bnn");
+String outPut=list.stream().collect(Collectors.maxBy(Comparator.comparing(it -> it.charAt(0)))).get();
+System.out.println(outPut);
+       # seems Comparator comparing method is very useful
+       # Per Java API
+       ===
+       API Note:    # from Java 8 API doc
+       There are many existing classes in the JDK whose signatures are well-suited for use with method references as arguments to collect(). For example, the following will accumulate strings into an ArrayList:
+
+            List<String> asList = stringStream.collect(ArrayList::new, ArrayList::add,
+                                                       ArrayList::addAll);
+
+       The following will take a stream of strings and concatenates them into a single string:
+
+
+            String concat = stringStream.collect(StringBuilder::new, StringBuilder::append,
+                                                 StringBuilder::append)
+                                        .toString();
+       ===||   # that mean collect can return ArrayList or Optional
+
+
+       #   INPUT_LIST.stream().collect(Collectors.maxBy(Comparator.comparing(it -> it.charAt(0)))).get();
+           fron: https://wjw465150.github.io/blog/Groovy/my_data/Java8/Java_8_lambdas_vs._Groovy_closures_(part_2_of_2).htm

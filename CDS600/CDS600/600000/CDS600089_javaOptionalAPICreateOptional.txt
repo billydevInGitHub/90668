@@ -1,0 +1,6 @@
+Optional<String>  getSomeStrByPattern(String inputString, Pattern someRegexPattern){
+    Matcher matcher=someRegexPattern.matcher(inputString);
+    return matcher.find()?Optional.of(matcher.group(1)):Optional.empty()
+
+       # I think with Optional as the wrapper, we can use some functional API to check the wrapped value
+}

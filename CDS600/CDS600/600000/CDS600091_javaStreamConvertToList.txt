@@ -1,0 +1,4 @@
+INPUT_MAP.entrySet().stream().map(it -> it.getKey() + "=" + it.getValue()).collect(Collectors.toList());
+     # first to Set, then to stream, then do mapping
+
+     # from https://wjw465150.github.io/blog/Groovy/my_data/Java8/Java_8_lambdas_vs._Groovy_closures_(part_2_of_2).htm

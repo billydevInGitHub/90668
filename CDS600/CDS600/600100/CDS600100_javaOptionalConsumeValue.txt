@@ -1,0 +1,39 @@
+A Consumer is intended to be implemented as a lambda expression:
+
+Optional<User> user = ...
+user.ifPresent(theUser -> doSomethingWithUser(theUser));
+Or even simpler, using a method reference:
+
+Optional<User> user = ...
+user.ifPresent(this::doSomethingWithUser);
+This is basically the same thing as
+
+Optional<User> user = ...
+user.ifPresent(new Consumer<User>() {
+    @Override
+    public void accept(User theUser) {
+        doSomethingWithUser(theUser);
+    }
+});
+     # the above 3 ways, we basically provided the "implementation of functional api"
+       one missing part is: the code in Optional api ifPresent method calling back the accept method
+     # try with real code:
+     ===
+             Optional<String> user = Optional.of("someString");
+             user.ifPresent(new Consumer<String>() {
+                 @Override
+                 public void accept(String theUser) {
+                     doSomethingWithUser(theUser);
+                 }
+
+                 private void doSomethingWithUser(String theUser) {
+                     System.out.println(theUser);
+                 }
+                     # method in anonymous class
+             });
+     ===||
+
+
+
+
+     # from: https://stackoverflow.com/questions/24228279/proper-usage-of-optional-ifpresent

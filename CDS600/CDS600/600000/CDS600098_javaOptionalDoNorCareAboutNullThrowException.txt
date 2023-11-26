@@ -1,0 +1,4 @@
+SomeOptional.get()
+    # throw NoSuchElementException - if there is no value present
+    # I think its kind of hard get, do not care about exception
+       and compared with CDS600099, NoSuchElementException maybe not that user friendly

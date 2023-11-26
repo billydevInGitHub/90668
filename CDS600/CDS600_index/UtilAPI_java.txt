@@ -1,0 +1,17 @@
+=== Optional API
+
+create      CDS600089
+            (return Optional
+             per regex check)
+
+handle      CDS60090
+value not   (orElseGet
+present      is better)
+
+
+can throw    CDS600098                CDS600099
+Exception    (ok to                   (throw better
+when null     throw exception)         exception)
+
+Consume
+value

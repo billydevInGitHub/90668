@@ -1,0 +1,2 @@
+Something.replace("old", "new").replace("another_old", "another_new");
+      #

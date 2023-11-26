@@ -1,0 +1,4 @@
+IntStream.rangeClosed(RANGE_START, RANGE_END_INCLUSIVE).boxed().collect(Collectors.toList());
+       # boxed will box to Integer stream
+
+       # from: https://wjw465150.github.io/blog/Groovy/my_data/Java8/Java_8_lambdas_vs._Groovy_closures_(part_2_of_2).htm

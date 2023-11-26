@@ -1,0 +1,18 @@
+
+
+=== replace
+String       CDS600092
+             (replace all
+              digits)
+
+             CDS600093
+             (not use
+              regex)
+
+
+=== useful pattern
+
+simple
+  all digits       CDS600092
+                   (alias,
+                    all digits)

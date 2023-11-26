@@ -1,0 +1,5 @@
+String name = Optional.of("baeldung")
+  .orElseGet(() -> getRandomName());
+
+        # from: https://www.baeldung.com/java-optional-or-else-vs-or-else-get
+             seems use orElseGet() functional api has some benefits, if the value present will not retrieve the "other" value
