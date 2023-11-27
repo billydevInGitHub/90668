@@ -1,4 +1,10 @@
 
+=== match check
+             CDS600101
+             (use Pattern
+              and String
+              check)
+
 
 === replace
 String       CDS600092
@@ -9,6 +15,11 @@ String       CDS600092
              (not use
               regex)
 
+
+=== extract
+                                  CDS600102
+                                  (use substring
+                                   to extract)
 
 === useful pattern
 

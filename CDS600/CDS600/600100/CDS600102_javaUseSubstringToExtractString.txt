@@ -1,0 +1,3 @@
+String last =someString.substring(someString.lastIndexOf('-')+1);
+
+     #

@@ -1,0 +1,5 @@
+public String returnAfterRemoveLeadingBackSlash(String input){
+   return input.charAt(0)== '/'? input.substring(1):input;
+}
+
+     # 
