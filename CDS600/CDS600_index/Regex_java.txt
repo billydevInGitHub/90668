@@ -17,9 +17,15 @@ String       CDS600092
 
 
 === extract
-                                  CDS600102
-                                  (use substring
-                                   to extract)
+                                  CDS600102         CDS600103
+                                  (use substring    (remove leading
+                                   to extract)       slash)
+=== find details
+
+all occurrences    CDS600105        CDS600106
+                   (find all        (all occur
+                    animals)         with details)
+
 
 === useful pattern
 
@@ -27,3 +33,6 @@ simple
   all digits       CDS600092
                    (alias,
                     all digits)
+  direct list      CDS600105
+  of string        (alias,pattern
+                    list animals)

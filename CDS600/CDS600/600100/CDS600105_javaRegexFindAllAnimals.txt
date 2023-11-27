@@ -1,0 +1,14 @@
+String input = "I have a cat, but I like my dog better.";
+
+Pattern p = Pattern.compile("(mouse|cat|dog|wolf|bear)");
+Matcher m = p.matcher(input);
+
+List<String> animals = new ArrayList<String>();
+while (m.find()) {
+	System.out.println("Found a " + m.group() + ".");
+	animals.add(m.group());
+}
+    # m.find() will keep finding
+           # we can give more example here
+      m.group() can extract out stuff
+    # from: https://github.com/billydevInGitHub/30280/blob/master/30280expXXX/src/main/java/billydev/exp002_HrefMatch/AnimalMatch.java
