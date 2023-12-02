@@ -1,0 +1,10 @@
+Classes for Unicode scripts, blocks, categories and binary properties
+\p{IsLatin}	A Latin script character (script)
+\p{InGreek}	A character in the Greek block (block)
+\p{Lu}	An uppercase letter (category)
+\p{IsAlphabetic}	An alphabetic character (binary property)
+\p{Sc}	A currency symbol
+\P{InGreek}	Any character except one in the Greek block (negation)
+[\p{L}&&[^\p{Lu}]]	Any letter except an uppercase letter (subtraction)
+
+       # from: https://docs.oracle.com/javase/8/docs/api/index.html?java/util/regex/Pattern.html

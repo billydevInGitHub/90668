@@ -1,0 +1,22 @@
+Character Classes
+Character classes may appear within other character classes, and may be composed by the union operator (implicit) and the intersection
+operator (&&). The union operator denotes a class that contains every character that is in at least one of its operand classes. The
+intersection operator denotes a class that contains every character that is in both of its operand classes.
+            # I think union has 2 ways
+
+The precedence of character-class operators is as follows, from highest to lowest:
+            # I think highest will be considered first
+1    	Literal escape    	\x
+2    	Grouping	[...]
+                # better to have some examples here
+3    	Range	a-z
+4    	Union	[a-e][i-u]
+                # I think [a-ei-u] do the same
+5    	Intersection	[a-z&&[aeiou]]
+Note that a different set of metacharacters are in effect inside a character class than outside a character class. For instance,
+the regular expression . loses its special meaning inside a character class, while the expression - becomes a range forming
+metacharacter.
+          # so metacharacters inside character class is different than outside character class ^_^
+            good explanation and super good 2 examples here !!!
+
+     # from: https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html#jcc

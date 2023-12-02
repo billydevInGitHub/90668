@@ -1,0 +1,20 @@
+.	Any character (may or may not match line terminators)
+     # so . is a char class, not a single char
+     # interesting match line terminators , need check
+\d	A digit: [0-9]
+     # CDS600092 actually use basic char class not predefined one
+\D	A non-digit: [^0-9]
+\h	A horizontal whitespace character: [ \t\xA0\u1680\u180e\u2000-\u200a\u202f\u205f\u3000]
+\H	A non-horizontal whitespace character: [^\h]
+\s	A whitespace character: [ \t\n\x0B\f\r]
+       # so there are 6 white spaces  32, 9,10,11,12,13,     11 is vertical tab very rare
+       # check: https://simple.m.wikipedia.org/wiki/File:ASCII-Table.svg
+\S	A non-whitespace character: [^\s]
+\v	A vertical whitespace character: [\n\x0B\f\r\x85\u2028\u2029]
+       # pay attention to vertical whitespace
+\V	A non-vertical whitespace character: [^\v]
+\w	A word character: [a-zA-Z_0-9]
+       # ^_^ digits are part of word character, underscore is part of
+       # \w is not white space
+\W	A non-word character: [^\w]
+       # from: https://docs.oracle.com/javase/8/docs/api/index.html?java/util/regex/Pattern.html

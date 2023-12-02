@@ -12,6 +12,8 @@ for (String str : input) {
 	while (m.find()) {
 		System.out.format("Text \"%s\" found at %d to %d%n  %s", m.group(), m.start(), m.end(),
 				"Using Start/End:" + str.substring(m.start(), m.end()));
+				     # after matcher execute find(), it will have details
+				        seems substring and group() have the same result
 	}
 
 }

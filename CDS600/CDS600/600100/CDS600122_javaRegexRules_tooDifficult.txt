@@ -1,0 +1,21 @@
+Back references
+\n	Whatever the nth capturing group matched
+\k<name>	Whatever the named-capturing group "name" matched
+
+Quotation
+\	Nothing, but quotes the following character
+\Q	Nothing, but quotes all characters until \E
+\E	Nothing, but ends quoting started by \Q
+
+Special constructs (named-capturing and non-capturing)
+(?<name>X)	X, as a named-capturing group
+(?:X)	X, as a non-capturing group
+(?idmsuxU-idmsuxU) 	Nothing, but turns match flags i d m s u x U on - off
+(?idmsux-idmsux:X)  	X, as a non-capturing group with the given flags i d m s u x on - off
+(?=X)	X, via zero-width positive lookahead
+(?!X)	X, via zero-width negative lookahead
+(?<=X)	X, via zero-width positive lookbehind
+(?<!X)	X, via zero-width negative lookbehind
+(?>X)	X, as an independent, non-capturing group
+
+       # from: https://docs.oracle.com/javase/8/docs/api/index.html?java/util/regex/Pattern.html

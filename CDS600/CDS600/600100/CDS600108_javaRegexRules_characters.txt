@@ -1,0 +1,25 @@
+Characters
+x	The character x
+\\	The backslash character
+        # with escape we got real backslash
+\0n	The character with octal value 0n (0 <= n <= 7)
+\0nn	The character with octal value 0nn (0 <= n <= 7)
+\0mnn	The character with octal value 0mnn (0 <= m <= 3, 0 <= n <= 7)
+\xhh	The character with hexadecimal value 0xhh
+\uhhhh	The character with hexadecimal value 0xhhhh
+       # with encoding values, need examples here
+
+\x{h...h}	The character with hexadecimal value 0xh...h (Character.MIN_CODE_POINT  <= 0xh...h <=  Character.MAX_CODE_POINT)
+       # need examples here
+       # x is kind of extened u I think
+\t	The tab character ('\u0009')
+\n	The newline (line feed) character ('\u000A')
+\r	The carriage-return character ('\u000D')
+\f	The form-feed character ('\u000C')
+       # above 4 is white space , 4 out of 6
+\a	The alert (bell) character ('\u0007')
+\e	The escape character ('\u001B')
+\cx	The control character corresponding to x
+       # these are single chars not chars classes,  so \s not here, \s is whitespace chars
+
+       # from: https://docs.oracle.com/javase/8/docs/api/index.html?java/util/regex/Pattern.html

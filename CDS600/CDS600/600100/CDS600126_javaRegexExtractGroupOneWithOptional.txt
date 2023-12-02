@@ -1,0 +1,7 @@
+Pattern patternWithUpdated=Pattern.compile("\\w*_updated_to_(\\d+[\\._]\\d{1,2})");
+                           # any word characters, then special words, then digit part, separator . or _m then digit part again
+Matcher matcher=patternWithUpdated=matcher("myFile_updated_to_2023_11");
+return matcher.find()?Optional.of(matcher.group(1)):Optional.empty();
+       # so what we get is the digit part
+
+      # so we get the result and wrap with Optional, so we can easily deal with different cases with Optional CDS600090

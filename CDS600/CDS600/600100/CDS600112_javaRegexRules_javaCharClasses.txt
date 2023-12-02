@@ -1,0 +1,6 @@
+java.lang.Character classes (simple java character type)
+\p{javaLowerCase}	Equivalent to java.lang.Character.isLowerCase()
+\p{javaUpperCase}	Equivalent to java.lang.Character.isUpperCase()
+\p{javaWhitespace}	Equivalent to java.lang.Character.isWhitespace()
+\p{javaMirrored}	Equivalent to java.lang.Character.isMirrored()
+       # from: https://docs.oracle.com/javase/8/docs/api/index.html?java/util/regex/Pattern.html

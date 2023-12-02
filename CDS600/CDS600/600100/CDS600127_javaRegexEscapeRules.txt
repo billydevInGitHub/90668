@@ -1,0 +1,20 @@
+Backslashes, escapes, and quoting
+The backslash character ('\') serves to introduce escaped constructs, as defined in the table above, as well as to quote characters
+that otherwise would be interpreted as unescaped constructs. Thus the expression \\ matches a single backslash and \{ matches a left
+brace.
+     # use backslash to escape
+
+It is an error to use a backslash prior to any alphabetic character that does not denote an escaped construct; these are reserved for
+future extensions to the regular-expression language. A backslash may be used prior to a non-alphabetic character regardless of whether
+ that character is part of an unescaped construct.
+     # escape has fail case
+
+Backslashes within string literals in Java source code are interpreted as required by The Java™ Language Specification as either Unicode
+escapes (section 3.3) or other character escapes (section 3.10.6) It is therefore necessary to double backslashes in string literals
+that represent regular expressions to protect them from interpretation by the Java bytecode compiler. The string literal "\b", for
+example, matches a single backspace character when interpreted as a regular expression, while "\\b" matches a word boundary.
+The string literal "\(hello\)" is illegal and leads to a compile-time error; in order to match the string (hello) the string literal
+"\\(hello\\)" must be used.
+     # explained why we need double backslash in java source code
+
+     # from: https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html#jcc

@@ -1,0 +1,6 @@
+String patternString = "<a\\s+href\\s*=\\s*(\"[^\"]*\"|[^\\s>])\\s*>";
+                       //after the equal sign 2 options: either everything in quotation marks or non-white space non-> ok
+                       # now we see \\s is whitespace char class
+                         * is greedy zero or more times
+
+          # from: https://github.com/billydevInGitHub/30280/blob/master/30280expXXX/src/main/java/billydev/exp002_HrefMatch/HrefMatch.java

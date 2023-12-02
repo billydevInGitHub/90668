@@ -1,5 +1,34 @@
+=== rules
+character          CDS600108
+                  (single char)
 
-=== match check
+character          CDS600109      CDS600110      CDS600111         CDS600112        CDS600115
+classes            (classes)      (predefined    (POSIX            (java lang       (advanced
+(many)                             classes)       classes)          classes)         classes)
+
+                   CDS600128 ^_^
+                   (rules)
+
+matcher            CDS600116                CDS600117
+                   (boundary               (line breaker
+                    matchers)               matchers)
+
+quantifiers        CDS600118      CDS600119        CDS600120
+                   (greedy)       (reluctant)      (possessive)
+
+logical ops        CDS600121
+                   (logical ops)
+
+escape             CDS600127
+                   (escape rules)
+
+advanced           CDS600122
+                   (difficult)
+
+
+
+
+=== match check (return boolean)
              CDS600101
              (use Pattern
               and String
@@ -17,14 +46,21 @@ String       CDS600092
 
 
 === extract
-                                  CDS600102         CDS600103
-                                  (use substring    (remove leading
-                                   to extract)       slash)
-=== find details
+simple pattern    CDS600105              CDS600102         CDS600103
+extract           (alias:extract         (use substring    (remove leading
+                   with group())           to extract)       slash)
+
+group pattern     CDS600125              CDS600126            CDS600129
+extract           (alias:list            (extract with       (extract pure
+                   group details)         group(1))           filename with
+                                                              group one)
+
+=== find all occurrence and details
 
 all occurrences    CDS600105        CDS600106
                    (find all        (all occur
                     animals)         with details)
+
 
 
 === useful pattern
@@ -36,3 +72,8 @@ simple
   direct list      CDS600105
   of string        (alias,pattern
                     list animals)
+
+Network            CDS600107
+                   (href)
+
+Application

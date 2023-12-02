@@ -1,0 +1,5 @@
+Pattern patternOfTarFile=Pattern.compile("(.*)\\.tar\\.gz");
+Matcher matcher=patternWithUpdated=matcher("myFile.tar.gz");
+return matcher.find()?Optional.of(matcher.group(1)):Optional.empty();
+       # so what we get myFile which is pure file name
+       # see CDS105

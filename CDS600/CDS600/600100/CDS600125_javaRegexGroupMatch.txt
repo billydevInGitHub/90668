@@ -1,0 +1,34 @@
+	      String line = "This order was placed for QT3000! OK?";
+	      String pattern = "(.*)(\\d+)(.*)";
+	               # there are 4 groups in this pattern
+
+	      testPattern(pattern, line);
+
+    private static void testPattern(String pattern, String line) {
+        System.out.println("Testing :"+pattern+" "+line+" \n----------");
+        // Create a Pattern object
+        Pattern r = Pattern.compile(pattern);
+
+        // Now create matcher object.
+        Matcher m = r.matcher(line);
+        if (m.find( )) {
+            System.out.println("Found value: " + m.group(0) );
+            System.out.println("Found value: " + m.group(1) );
+            System.out.println("Found value: " + m.group(2) );
+            System.out.println("Found value: " + m.group(3) );
+        } else {
+            System.out.println("NO MATCH");
+        }
+    }
+
+
+result:
+Testing :(.*)(\d+)(.*) This order was placed for QT3000! OK?
+----------
+Found value: This order was placed for QT3000! OK?
+Found value: This order was placed for QT300
+                          # if match found, group1 will do the greedy, 300 in 3000 will be eaten, only 0 left over
+Found value: 0
+Found value: ! OK?
+
+   # from: https://github.com/billydevInGitHub/30280/blob/master/30280expXXX/src/main/java/billydev/exp001_WithGroup/RegexMatches.java
