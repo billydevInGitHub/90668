@@ -1,0 +1,4 @@
+println people*.name
+   # same as CDS600132, need some test here
+       I guess it only apply to "object collection"
+   # from: https://blog.nareshak.com/groovy-collections-1/

@@ -10,14 +10,18 @@ Stream
                    to Stream)
 
 === Iterate through
+syntax          CDS600078      CDS600079
+               (type          (alias:
+               inference)      semicolon
+                               hell)
 
 filter         CDS600080        CDS600081      CDS600082
               (simple filter   (filter out    (use a regex
                out string)      one element)   matcher class)
 
-mapping        CDS600076         CDS600077      CDS600078    CDS600079
-               (basic mapping    (set list      (type        (semicolon
-                to upper case)    to default)    inference)   hell)
+mapping        CDS600076         CDS600077          CDS600079
+               (basic mapping    (set list          (semicolon
+                to upper case)    to default)        hell)
 
 
                CDS600075          CDS600091

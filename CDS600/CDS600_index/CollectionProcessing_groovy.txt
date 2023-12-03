@@ -1,0 +1,42 @@
+=== Creating
+Convert to
+collection
+    array to
+
+    OtherStream
+
+=== Iterate through
+syntax     CDS
+
+filter
+
+mapping     CDS600130       CDS600131       CDS600132             CDS600133*    CDS600135*
+            (all plus       (use closure    (collect              (syntax      (collection
+             one)            to multiply)    Object collection)    sugar)       plus closure)
+
+forEach
+
+for loop
+
+=== reduce and group
+
+concatenate
+
+max
+
+second
+largest
+
+=== Sorting and compare
+
+sorting
+
+
+
+=== batch ops
+
+collate      CDS
+
+=== Map convert to List
+
+toList

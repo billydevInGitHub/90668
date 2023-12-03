@@ -1,0 +1,32 @@
+def numbers = [3, 2, 1, 4]
+def multiplyBy2 = { number ->
+	number * 2
+}
+println numbers.collect(multiplyBy2)
+// [6, 4, 2, 8]
+   # seems return something new
+       per: https://stackoverflow.com/questions/36481872/groovy-each-vs-collect
+   # usage of closure we have to use "framework and call back thinking", here we defined callback with a closure
+      but we did not define a framework, instead we directly use framework method to "call" closure
+            # if we define both closure and framework code (will use someClosure.call(xxx)) then the code completed
+            # the simplest groovy closure framework like the folloing
+                =======
+                   def formatToLowerCaseClosure = { name ->
+                       return name.toLowerCase()
+                   }
+                   print.call("Hello! Closure")
+                   formatToLowerCaseClosure.call("Hello! Closure")
+                          # I think this is the simplest framework using closure
+                            the caller provided callback and did not provide framework method, instead
+                            directly call the callback
+                ======||
+                ===
+                  def greet = {
+                      return "Hello! ${it}"
+                  }
+                  assert greet("Alex") == "Hello! Alex"
+                        # this is also a complete framework call, seems did not use closure call explicitly
+                        # above 2 examples from: https://www.baeldung.com/groovy-closures
+                ===||
+
+   # from: https://blog.nareshak.com/groovy-collections-1/

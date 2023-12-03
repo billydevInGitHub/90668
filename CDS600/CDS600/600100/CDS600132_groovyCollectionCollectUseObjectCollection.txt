@@ -1,0 +1,14 @@
+class Person{
+	String name
+	int age
+}
+def people = [
+	new Person(name: 'Raj', age: 30),
+	new Person(name:'Reema', age: 25),
+	new Person(name: 'Mark', age: 40)
+]
+println people.collect { it. name }
+// [Raj, Reema, Mark]
+   # so collect is quite like mapping
+
+   # from: https://blog.nareshak.com/groovy-collections-1/

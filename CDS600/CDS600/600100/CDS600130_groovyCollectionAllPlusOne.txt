@@ -1,0 +1,5 @@
+def numbers = [3, 2, 1, 4]
+println numbers.collect {
+	it + 1
+} // [4, 3, 2, 5]
+   # from: https://blog.nareshak.com/groovy-collections-1/

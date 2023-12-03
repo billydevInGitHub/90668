@@ -1,0 +1,11 @@
+println numbers.collect(new HashSet()) { it * it }
+// [1, 4]
+
+// OR
+
+println numbers.collect([] as Set) { it * it }
+// [4, 1]
+
+    # it still looks like a map, actually not a map because element number is reduced
+
+    # from: https://blog.nareshak.com/groovy-collections-1/
