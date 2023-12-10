@@ -1,5 +1,5 @@
 When the test is within cohesion domain we can use real code like file system ops code
+    # especially we need new an instance the method to be tested, then we can not mock that new object !!!
+           # check:
     # usually we focus on logic, not the file system ops itself
-    # difficult to do the mock than use file system
-          # what we assert is the content of file system, mock usually mock the return code
     # why need within cohsion domain, because it does not call out, so no need to mock it

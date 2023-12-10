@@ -1,0 +1,30 @@
+public class AService {
+
+public void ser(){
+    A a = new A();
+    boolean d = a.getVal(1L) > 0;
+    if(d){
+        System.out.println("Inside If");
+    }
+}}
+
+import com.te.A;
+import com.te.AService;
+import com.te.IA;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+public class ATest {
+
+@Test
+public void test(){
+    IA a = Mockito.mock(A.class);
+    AService s = new AService();
+    Mockito.when(a.getVal(1l)).thenReturn(0L);
+    s.ser();
+}}
+   # can not mock, need change code, I also faced the same problem
+   # from: https://stackoverflow.com/questions/68331008/mockito-test-case-not-working-when-mocking-a-method#:~:text=The%20reason%20why%20it%20is,not%20using%20the%20mocked%20one.

@@ -6,12 +6,20 @@ procedure        CDS600057
 Testable         CDS600052            CDS600056
                  (split big method)   (split line to method)
 
-Use real         CDS600055            CDS600065
-code             (overall)            (light weight class)
 
-                 CDS600066           CDS600067             CDS600068   ^_^    CDS600069  ^_^
-                 (mock file/dir      (mock file content    (do not mock       (can do a bit
-                  ops)                reading ops)          file system)       IO and overall)
+
+Use real         CDS600055            CDS600065
+code             (within            (light weight class)
+(cant inject      cohesion
+mock)             domain)
+
+
+Use real         CDS600066           CDS600067             CDS600068   ^_^    CDS600069  ^_^
+code             (mock file/dir      (mock file content    (do not mock       (can do a bit
+(cant mock)       ops)                reading ops)          file system)       IO and overall)
+
+Need change      CDS
+Code to test
 
 Private          CDS600053
 method
