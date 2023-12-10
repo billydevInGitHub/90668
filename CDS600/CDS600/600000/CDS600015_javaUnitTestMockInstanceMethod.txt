@@ -1,6 +1,9 @@
 @Mock
-SUTClass sutObject
+SUTClass sutObject;
+or
+sutObject=mock(new SUBClass);
      # we are mocking up this instance
+         create instance is needed, we can also spy it
 
 Mockito.doReturn(mockResult).when(subObject).methodOfSutObject()
      # so "methodOfSutObject" is mocked up

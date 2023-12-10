@@ -1,0 +1,12 @@
+FileWriter file = new FileWriter("foo.txt");
+BufferedWriter bf = new BufferedWriter(file);
+bf.write("foobar");
+bf.close();
+      # efficiency
+      ===
+        BufferedWriter is more efficient if you
+
+        have multiple writes between flush/close
+        the writes are small compared with the buffer size.
+      ===||
+          # from: https://stackoverflow.com/questions/12350248/java-difference-between-filewriter-and-bufferedwriter

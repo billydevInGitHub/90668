@@ -1,0 +1,22 @@
+import org.junit.jupiter.api.function.Executable;
+
+private void helperMethodOfStaticMock(Executable executable) throws Throwable{
+ try(MockedStatic<SomeClassWithStaticMethod> testSomeClassWithStaticMethod=Mockito.mockStatic(SomeClassWithStaticMethod.class)){
+               # I guess we can put not only one class into this try-with-resource statement
+     testSomeClassWithStaticMethod.when(
+         ()->SomeClassWithStaticMethod.someStaticMethod(INPUT_PARAMETER))
+         .thenReturn(_someReturnObject);
+         doReturn(someoutput).when(_someReturnObject).callOtherMethod();
+         executable.execute();
+ }
+}
+        # this is the "framework" method which can be called by each test
+
+@Test
+public void someTest(){
+        helperMethodOfStaticMock(()->{
+             # original unit test code which will use static method (mocked
+        }
+}
+      # totally figured out by myself
+

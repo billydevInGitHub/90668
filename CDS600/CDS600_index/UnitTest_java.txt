@@ -1,60 +1,75 @@
-=== Overall
+=== How to do Unit test
 procedure        CDS600057
 
 
-=== Make SUT testable
-Testable         CDS600052            CDS600056
-                 (split big method)   (split line to method)
+=== Unit test patterns
+A Testable
+  (typical) 
+
+                  CDS600053
+                  (private
+                   method)
 
 
+B Use real         CDS600055            CDS600065
+  code             (within             (light weight class)
+  (cant inject      cohesion
+  mock)             domain)
 
-Use real         CDS600055            CDS600065
-code             (within            (light weight class)
-(cant inject      cohesion
-mock)             domain)
+
+C Use real         CDS600066           CDS600067
+  code             (mock file/dir      (mock file content
+ (cant mock)       ops)                reading ops)
+
+                   CDS600068   ^_^    CDS600069  ^_^
+                   (do not mock       (can do a bit
+                   file system)       IO and overall)
 
 
-Use real         CDS600066           CDS600067             CDS600068   ^_^    CDS600069  ^_^
-code             (mock file/dir      (mock file content    (do not mock       (can do a bit
-(cant mock)       ops)                reading ops)          file system)       IO and overall)
+D Need change      CDS600052            CDS600056                CDS600138
+  Code to test     (split big method)   (split line to method)   (change private
+                                                                  to default)
+                   CDS600137 ^_^
+                   (instance created
+                    in method)
 
-Need change      CDS
-Code to test
-
-Private          CDS600053
-method
+E Do IntTest
 
 === Mock and test preparation
 
-tmpDir           CDS600023
-                 (setup test env)
+mock static      CDS600019              CDS600060             CDS600061             CDS600139
+                (mock static method)   (mock method with     (mock method with     (avoid boiler
+                                        no param)             param)                plate code)
 
 
-mock static      CDS600019              CDS600060             CDS600061
-                (mock static method)   (mock method with     (mock method with
-                                        no param)             param)
 
-mock instance     CDS600015            CDS600070
+mock instance    CDS600015            CDS600070
                  (mock instance)       (mock database)
 
-spy instance      CDS600016
+spy instance     CDS600016
                  (spy instance)
 
-manipulate        CDS600072
-arguments         (test info
-                   in logger)
 
-argument           CDS600017
-matcher            (eq)
 
-lenient           CDS600018
-                  (simple example)
+argument         CDS600017
+matcher          (eq, any)
 
-mockBackend       CDS600030
-                  (to test webclient)
+manipulate       CDS600072
+arguments        (change
+                  argument)
 
-annotation        CDS600029
-input             (example)
+lenient          CDS600018
+                 (simple example)
+
+mockBackend      CDS600030
+                 (to test webclient)
+
+annotation       CDS600029
+input            (example)
+
+
+tmpDir           CDS600023
+                 (setup test env)
 
 === Assert
 

@@ -1,4 +1,6 @@
 https://stackoverflow.com/questions/49799275/can-i-change-a-private-methods-visibility-in-order-to-unit-test-them
     # also: https://softwareengineering.stackexchange.com/questions/100959/how-do-you-unit-test-private-methods
-    # basically not need to test private method, can put in a class to test
+    # basically not need to test private method, if that private method is too complicated, can put in a class to test
+         # https://softwareengineering.stackexchange.com/questions/100959/how-do-you-unit-test-private-methods
+               Agreed, private method is just implementation details
     # Peter suggest, sometimes we can change private to default level

@@ -7,7 +7,7 @@ Check
                (exists check       (exists chk
                with Files)           with File)
 
-  isDirecto    CDS600010
+  isDirectoy    CDS600010
                (is directory
                or not)
 

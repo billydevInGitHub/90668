@@ -1,0 +1,2 @@
+Seems we can use the real filesystem instead of mocking it
+   # from: https://softwareengineering.stackexchange.com/questions/358355/whats-the-correct-way-to-test-code-which-performs-io

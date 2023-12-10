@@ -2,6 +2,7 @@ public class AService {
 
 public void ser(){
     A a = new A();
+            # instance created within the method to be tested difficult to mock
     boolean d = a.getVal(1L) > 0;
     if(d){
         System.out.println("Inside If");
@@ -27,4 +28,6 @@ public void test(){
     s.ser();
 }}
    # can not mock, need change code, I also faced the same problem
+        # I think the solution is using the injection instead of "new"
+               # could be constructor injection or method parameter injection !!!
    # from: https://stackoverflow.com/questions/68331008/mockito-test-case-not-working-when-mocking-a-method#:~:text=The%20reason%20why%20it%20is,not%20using%20the%20mocked%20one.

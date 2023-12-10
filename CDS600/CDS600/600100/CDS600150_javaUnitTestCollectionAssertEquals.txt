@@ -1,0 +1,9 @@
+@Test
+public void someTest(){
+      assertEquals(someList, otherList);
+        # eventually will call List equals method
+            # https://www.geeksforgeeks.org/list-equals-method-in-java-with-examples/
+                   # List equals will check each element
+}
+      # from Jupitor API Assertions
+

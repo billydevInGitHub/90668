@@ -1,0 +1,39 @@
+===Overall
+
+read
+
+
+write        CDS600155        CDS600156
+             (list all        (list 4
+             ways)             ways)
+
+=== read text
+
+small file    CDS600152
+              (all bytes
+               to String)
+
+big file      CDS
+
+
+
+
+
+=== read byte
+
+
+
+
+=== write text
+
+quick     CDS600157
+common    (Files write
+           String to
+           file)
+
+basic     CDS600158
+          (use
+           FileWriter)
+
+
+=== write byte

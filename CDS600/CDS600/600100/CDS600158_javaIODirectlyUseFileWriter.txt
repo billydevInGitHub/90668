@@ -1,0 +1,6 @@
+FileWriter file = new FileWriter("foo.txt");
+file.write("foobar");
+file.close();
+    # write basically accept String or charset per API
+            also accept int, but "The character to be written is contained in the 16 low-order bits of the given integer value"
+    # from: https://stackoverflow.com/questions/12350248/java-difference-between-filewriter-and-bufferedwriter

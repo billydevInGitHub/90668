@@ -1,0 +1,3 @@
+When we test target method of the subject, we need "mock or spy" the other methods called by the method to be tested
+    then we need make the private method to package default, so we can :  doReturn(xxx),when(xxx).doSth()
+           #

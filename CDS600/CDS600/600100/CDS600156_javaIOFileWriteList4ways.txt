@@ -1,0 +1,8 @@
+FileWriter,
+BufferedWriter,
+java 7 Files
+    # Internally it’s using OutputStream to write byte array into file.
+           so it is also FileOutputStream, it took byteArray
+FileOutputStream to write a file in Java.
+
+    # from: https://www.digitalocean.com/community/tutorials/java-write-to-file

@@ -1,0 +1,7 @@
+PrintWriter is used to write formatted text,
+FileOutputStream to write binary data,
+DataOutputStream to write primitive data types,
+RandomAccessFile to write to a specific position,
+FileChannel to write faster in larger files
+Files.write ???
+    # from: https://www.baeldung.com/java-write-to-file

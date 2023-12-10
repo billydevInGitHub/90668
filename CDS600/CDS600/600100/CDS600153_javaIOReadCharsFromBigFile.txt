@@ -1,0 +1,6 @@
+return new BufferedReader(new InputStreamReader(_inputStream))
+          .lines()
+          .collect(Collectors.toList());
+             # can get line by line
+             # https://stackoverflow.com/questions/7376647/what-is-the-difference-between-javas-bufferedreader-and-inputstreamreader-class
+                    shows BufferedReader in most of time reading from memory, so it is more efficient

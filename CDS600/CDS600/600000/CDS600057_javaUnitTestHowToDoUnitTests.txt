@@ -2,6 +2,7 @@
 2 check the whole procedure of the method
     Anything called out by this method should use mock
     Check all scenarios of this method execution including exception etc.
+         # prepare the target (create object or spy the object)
          # prepare the mock up data etc.
          # decide use real code (file system)
 

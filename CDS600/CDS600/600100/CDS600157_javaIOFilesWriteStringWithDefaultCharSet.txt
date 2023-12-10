@@ -1,0 +1,4 @@
+Files.write(targetFilePath, someString.getBytes())
+        # String getBytes using system default charset
+        # Files write actually use OutputStream
+             check: https://www.digitalocean.com/community/tutorials/java-write-to-file

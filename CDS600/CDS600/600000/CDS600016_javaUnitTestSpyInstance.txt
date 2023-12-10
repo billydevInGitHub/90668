@@ -2,6 +2,8 @@ _subject=Mockito.spy(new SubjectToTest())
 doReturn(someResult).when(_subject).methodOfSubject()
       # when we are unit test one methods of sut, other method  could be mock, then spy is used here
          I think the implementation of spy is "interception of method" instead of totally replace the object
+             # when we inject other mock objects into spy object, these objects need to be spy as well
+                  (make sense because I spy still using original code )
       # check online:
          ===
          Why use spy instead of mock?

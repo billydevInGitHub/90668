@@ -1,1 +1,1 @@
-  # good examples here: https://www.baeldung.com/mockito-mock-static-methods
+  # good examples here: https:S//www.baeldung.com/mockito-mock-static-methods

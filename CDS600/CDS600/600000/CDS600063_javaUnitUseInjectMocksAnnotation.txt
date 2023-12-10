@@ -27,3 +27,4 @@ public class MyDictionary {
     # from: https://www.baeldung.com/mockito-annotations
     # seems with this we do not need to "new" a SUT (injecting mock object into SUT), still need new but does need
         have a constructor injection
+             # seems this might work with "field injection", how about the instance created in the middle of method
