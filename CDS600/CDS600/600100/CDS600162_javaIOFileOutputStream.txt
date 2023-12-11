@@ -1,0 +1,21 @@
+/**
+ * Use Streams when you are dealing with raw data
+ * @param data
+ */
+private static void writeUsingOutputStream(String data) {
+    OutputStream os = null;
+    try {
+        os = new FileOutputStream(new File("/Users/pankaj/os.txt"));
+        os.write(data.getBytes(), 0, data.length());
+                 # write byte array
+    } catch (IOException e) {
+        e.printStackTrace();
+    }finally{
+        try {
+            os.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+    # from: https://www.digitalocean.com/community/tutorials/java-write-to-file

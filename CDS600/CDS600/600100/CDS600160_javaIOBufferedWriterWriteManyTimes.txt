@@ -1,0 +1,31 @@
+    /**
+     * Use BufferedWriter when number of write operations are more
+     * It uses internal buffer to reduce real IO operations and saves time
+     * @param data
+     * @param noOfLines
+     */
+private static void writeUsingBufferedWriter(String data, int noOfLines) {
+    File file = new File("/Users/pankaj/BufferedWriter.txt");
+    FileWriter fr = null;
+    BufferedWriter br = null;
+    String dataWithNewLine=data+System.getProperty("line.separator");
+               # this property looks interesting
+    try{
+        fr = new FileWriter(file);
+        br = new BufferedWriter(fr);
+        for(int i = noOfLines; i>0; i--){
+            br.write(dataWithNewLine);
+                    # BufferedWriter makes more sense when we write to the file many times
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }finally{
+        try {
+            br.close();
+            fr.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+    # from: https://www.digitalocean.com/community/tutorials/java-write-to-file

@@ -1,0 +1,15 @@
+@Test
+public void whenWritingToSpecificPositionInFile_thenCorrect()
+  throws IOException {
+    int data1 = 2014;
+    int data2 = 1500;
+
+    writeToPosition(fileName, data1, 4);
+    assertEquals(data1, readFromPosition(fileName, 4));
+
+    writeToPosition(fileName2, data2, 4);
+    assertEquals(data2, readFromPosition(fileName, 4));
+}
+    # To test our functions, let’s write an integer, edit it, and finally read it back:
+        see also CDS600168, CDS600169
+    # from: https://www.baeldung.com/java-write-to-file

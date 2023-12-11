@@ -1,0 +1,14 @@
+ String content = "This is the content to write into file\n";
+
+ // If the file doesn't exists, create and write to it
+	// If the file exists, truncate (remove all content) and write to it
+ try (FileWriter writer = new FileWriter("app.log");
+      BufferedWriter bw = new BufferedWriter(writer)) {
+                      # try with resource, we do not need to close
+     bw.write(content);
+
+ } catch (IOException e) {
+     System.err.format("IOException: %s%n", e);
+ }
+
+    # from: https://mkyong.com/java/how-to-write-to-file-in-java-bufferedwriter-example/

@@ -23,17 +23,52 @@ big file      CDS
 
 
 
+Random Access         CDS600169
+                      (read from
+                       offset)
+
 
 === write text
 
-quick     CDS600157
-common    (Files write
-           String to
-           file)
+quick              CDS600157
+common             (Files write
+                    String to
+                    file)
 
-basic     CDS600158
-          (use
-           FileWriter)
+basic              CDS600158            CDS600161
+                   (use                 (FileWriter
+                    FileWriter)          full code)
 
+buffered           CDS600159             CDS600160           CDS600163     CDS600165
+writer             (buffered             (bufferedWriter     (new code     (new code
+                    writer                write many          no need       append
+                    efficient)            times)              close)        mode)
+
+all types
+of data
 
 === write byte
+
+quick              CDS600157
+common             (alias,
+                    Files write)
+
+basic              CDS600162
+                   (FileOutputStream)
+
+buffered
+
+
+all types          CDS600166
+of data            (PrintWriter
+                    print different
+                    data type)
+
+RandomAccess       CDS600168
+                   (write with
+                    offset)
+
+
+Large File
+
+=== Special write

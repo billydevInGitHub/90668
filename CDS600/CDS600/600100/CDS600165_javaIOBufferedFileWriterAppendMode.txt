@@ -1,0 +1,13 @@
+// If the file exists, append to it
+String content = "This is the content to write into file\n";
+try (FileWriter writer = new FileWriter("app.log", true);
+	 BufferedWriter bw = new BufferedWriter(writer)) {
+
+	bw.write(content);
+
+} catch (IOException e) {
+	System.err.format("IOException: %s%n", e);
+}
+
+    # from: https://mkyong.com/java/how-to-write-to-file-in-java-bufferedwriter-example/
+       also mentioned old style code, simiar to our CDS600159 CDS600160

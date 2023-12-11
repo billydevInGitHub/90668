@@ -1,0 +1,12 @@
+private int readFromPosition(String filename, long position)
+  throws IOException {
+    int result = 0;
+    RandomAccessFile reader = new RandomAccessFile(filename, "r");
+    reader.seek(position);
+    result = reader.readInt();
+    reader.close();
+    return result;
+}
+    # write and edit inside an existing file rather than just writing to a completely new file or appending to an existing one.
+      RandomAccessFile enables us to write at a specific position in the file given the offset — from the beginning of the file — in bytes.
+    # from: https://www.baeldung.com/java-write-to-file

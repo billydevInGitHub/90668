@@ -1,0 +1,23 @@
+    /**
+     * Use FileWriter when number of write operations are less
+     * @param data
+     */
+private static void writeUsingFileWriter(String data) {
+    File file = new File("/Users/pankaj/FileWriter.txt");
+    FileWriter fr = null;
+    try {
+        fr = new FileWriter(file);
+        fr.write(data);
+               # only write one time, or not frequently
+    } catch (IOException e) {
+        e.printStackTrace();
+    }finally{
+        //close resources
+        try {
+            fr.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+    # from: https://www.digitalocean.com/community/tutorials/java-write-to-file

@@ -1,0 +1,2 @@
+https://www.reddit.com/r/NoStupidQuestions/comments/8evgto/whats_the_difference_between_bufferedoutputstream/?rdt=45808
+      # can compare with Files.read/write which might not have the buffer

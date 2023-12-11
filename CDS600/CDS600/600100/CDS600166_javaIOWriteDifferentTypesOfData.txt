@@ -1,0 +1,20 @@
+@Test
+public void givenWritingStringToFile_whenUsingPrintWriter_thenCorrect()
+  throws IOException {
+    FileWriter fileWriter = new FileWriter(fileName);
+    PrintWriter printWriter = new PrintWriter(fileWriter);
+    printWriter.print("Some String");
+    printWriter.printf("Product name is %s and its price is %d $", "iPhone", 1000);
+              # printWriter is higher level writer
+    printWriter.close();
+}
+Copy
+The resulting file will contain:
+
+Some String
+Product name is iPhone and its price is 1000$
+    # from: https://www.baeldung.com/java-write-to-file
+      ===
+           Note how we’re not only writing a raw String to a file, but also some formatted text with the printf method.
+           We can create the writer using FileWriter, BufferedWriter, or even System.out.
+      ===||

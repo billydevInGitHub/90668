@@ -8,5 +8,6 @@ bf.close();
 
         have multiple writes between flush/close
         the writes are small compared with the buffer size.
+            # so I think it can write to the memory
       ===||
           # from: https://stackoverflow.com/questions/12350248/java-difference-between-filewriter-and-bufferedwriter
