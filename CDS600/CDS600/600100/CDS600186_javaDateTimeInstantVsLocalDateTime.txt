@@ -1,0 +1,17 @@
+Instant and LocalDateTime are two entirely different animals:
+
+One represents a moment, the other does not.
+
+Instant
+     represents a moment, a specific point in the timeline.
+
+LocalDateTime
+     represents a date and a time-of-day. But lacking a time zone or offset-from-UTC, this class cannot represent a moment.
+     It represents potential moments along a range of about 26 to 27 hours, the range of all time zones around the globe.
+     A LocalDateTime value is inherently ambiguous.
+
+     # my understanding is: LocalDateTime is a "relative time" to one timezone while instant is an "absolute time"
+             # LocalDateTime is important because people use them a lot, because when people talking about time, they usually
+               have a "common sense" timezone
+
+     # check: https://stackoverflow.com/questions/32437550/whats-the-difference-between-instant-and-localdatetime

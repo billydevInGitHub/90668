@@ -1,0 +1,15 @@
+def sku = []
+for (def (String a, int b) = ['AA', 1000]; b < 1010; a++, b++) {
+            # the first assignment looks cool
+            # a++ seems do the String increase
+}
+    sku << "$a$b"
+}
+println sku
+Results:
+
+[AA1000, AB1001, AC1002, AD1003, AE1004, AF1005, AG1006, AH1007, AI1008, AJ1009]
+    # this might be better than "collect" or "each"
+    # from: https://www.djamware.com/post/6198c4165b9095440ad39c45/groovy-tutorial-loop-examples#xtimes-loop
+
+

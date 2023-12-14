@@ -1,13 +1,20 @@
-=== Creating
+=== Creating Stream (seems all collection and map convert to stream first)
+
 Convert to
 Stream
     array to      CDS600075
     stream        (File[] to
                    stream)
 
+    map to        CDS600180
+    stream        (map entrySet
+                   to stream)
+
     OtherStream   CDS600086
     to stream     (int range
                    to Stream)
+
+
 
 === Iterate through
 syntax          CDS600078      CDS600079
@@ -24,10 +31,12 @@ mapping        CDS600076         CDS600077          CDS600079
                 to upper case)    to default)        hell)
 
 
-               CDS600075          CDS600091
-               (compare with      (alias,example
-                forEach)           display map key
-                                   and value)
+               CDS600075            CDS600091
+               (compare with        (alias,example
+                forEach,can          display map key
+                not change           and value)
+                outside lambda)
+
 forEach        CDS600083
                (use complicated
                 lambda )
@@ -51,13 +60,19 @@ largest       (get second          (another way
 
 === Sorting and compare
 
-sorting                         CDS600085
-                                (extract and
-                                 convert
-                                 then compare)
+sorting        CDS600085            CDS600182
+               (extract and         (compare by
+                convert              map key)
+                then compare)
 
-=== Map convert to List
+=== batch ops
 
-toList     CDS600091
-          (convert to
-           List)
+=== Result conversion
+
+toList              CDS600091
+from map            (convert to
+                    List)
+
+toImmutableMap      CDS600181
+from map            (convert to
+                     another Map)

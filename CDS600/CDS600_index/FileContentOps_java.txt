@@ -56,7 +56,10 @@ common             (alias,
 basic              CDS600162
                    (FileOutputStream)
 
-buffered
+buffered           CDS600171                 CDS600195
+                   (Buffered                 (alias,
+                    OutputStream              GZipOutputStream
+                    vs CDS600157)             using Files)
 
 
 all types          CDS600166
@@ -69,6 +72,16 @@ RandomAccess       CDS600168
                     offset)
 
 
-Large File
+Large File         CDS600172                  CDS600173
+                   (Use FileChannel           (About
+                    for large files)           FileChannel)
 
 === Special write
+
+TempFile           CDS600175                 CDS600176
+                   (create tmp               (delete tmp
+                    file)                     file)
+
+Lock file          CDS600177
+                   (lock before
+                    writing)

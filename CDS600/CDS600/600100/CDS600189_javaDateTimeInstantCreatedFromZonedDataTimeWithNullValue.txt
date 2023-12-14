@@ -1,0 +1,2 @@
+Instant instant=someZonedDateTime==null?ZonedDateTime.ofInstant(Instant.ofEpocMilli(0), ZoneId.of("America/Edmonton"));
+    # when instant usually can not be null, we can use the above logic

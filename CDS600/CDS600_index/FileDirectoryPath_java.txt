@@ -1,6 +1,6 @@
 
 
-=== File Ops
+=== File System Ops
 
 Check
   exists       CDS600001            CDS600006
@@ -14,8 +14,17 @@ Check
   name         CDS600011
                (chk name)
 
+  time get     CDS600191
+               (get File
+                lastModified
+                time)
+  time set     CDS600200
+               (change lastModified
+                time)
+
 Create         CDS600002
                (create directory)
+
 Copy           CDS600003
                (copy file)
 
@@ -23,7 +32,21 @@ Remove
 
 list files
 
-=== Create File instance
+
+search files    CDS600201
+                (search and
+                 check patterns)
+
+zip files      CDS600195
+               (use JDK to
+                zip)
+
+tar files      CDS600195
+               (alias, use
+                apache common
+                to tar files)
+
+=== File Class Ops
 
 constructor    CDS600007
                (path to string
@@ -33,14 +56,14 @@ convert        CDS600008
                (path directly
                to File)
 
-=== Path Ops
+=== Path Class Ops
 
 Connect        CDS600000                CDS600005
                (connect with String)    (connect with another
                                          path filename)
 get String
 
-=== Create Path instance
+
 
 constructor
 

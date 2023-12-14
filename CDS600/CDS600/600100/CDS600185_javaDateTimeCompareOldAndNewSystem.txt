@@ -1,0 +1,3 @@
+New one is better
+     # check: https://stackoverflow.com/questions/32437550/whats-the-difference-between-instant-and-localdatetime
+                # with detailed comparison  231214-1-CDS600  S001 , seems LocalDateTime in new system  is totally a new thing

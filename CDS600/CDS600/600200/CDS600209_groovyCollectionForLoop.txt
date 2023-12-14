@@ -1,0 +1,14 @@
+def cars = ["BMW", "Mercedes Benz", "Volvo", "Chevrolet", "Ford"]
+              # seems groovy does not need concerte collection type
+for (int i = 0; i < cars.size(); i++) {
+    println cars[i]
+}
+Results:
+BMW
+Mercedes Benz
+Volvo
+Chevrolet
+Ford
+    # from: https://www.djamware.com/post/6198c4165b9095440ad39c45/groovy-tutorial-loop-examples#xtimes-loop
+
+

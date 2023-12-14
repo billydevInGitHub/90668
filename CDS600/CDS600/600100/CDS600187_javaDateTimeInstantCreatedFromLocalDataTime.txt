@@ -1,0 +1,4 @@
+default Instant toInstant(ZoneOffset offset)
+    # from: Interface ChronoLocalDateTime<D extends ChronoLocalDate>
+        LocalDateTime implements this interface
+        # it makes sense that LocalDateTime need ZoneOffset to convert to instant

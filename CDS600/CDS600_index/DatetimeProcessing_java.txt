@@ -1,0 +1,64 @@
+
+=== Old DateTime and New ones
+
+           CDS600185
+           (good basic
+            comparison)
+
+
+
+=== creation
+
+create                 CDS600178
+LocalDateTime          (LocalDateTime
+                        now)
+
+create                 CDS600196
+ZonedDateTime          (created from
+                        Instant)
+
+instant                CDS600186
+                       (compare with
+                        LocalDateTime)
+
+instant                CDS600187            CDS600188             CDS600189        CDS600190
+creation               (created from        (created from         (created         (created from
+                        LocalDateTime)       ZonedDateTime)        with Null)       absolute value)
+
+                       CDS600192
+                       (converted from
+                        FileTime)
+
+=== display
+
+
+
+=== parse
+
+
+
+=== interval and compare
+
+Interval               CDS600179
+Calculation            (LocalDateTime
+                        between)
+
+Compare                CDS600193
+                       (compare instant)
+
+Time shift             CDS600199
+LocalDateTime          (minus minutes)
+
+
+Time shift             CDS600197                   CDS600198
+ZonedDateTime          (minus seconds)             (truncated to
+                                                    seconds)
+
+
+
+
+
+
+
+
+

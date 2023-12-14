@@ -1,0 +1,7 @@
+ConcurrentHashMap someHashMap=new ConcurrentHashMap() ....
+
+someHashMap.entrySet().stream().filter(entry->entry.getValue() >8)
+       # Map we can choose
+             entrySet(),  unique
+             keySet(),    unique
+             values(),    not unique

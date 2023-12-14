@@ -1,0 +1,21 @@
+@Test
+public void whenTryToLockFile_thenItShouldBeLocked()
+  throws IOException {
+    RandomAccessFile stream = new RandomAccessFile(fileName, "rw");
+    FileChannel channel = stream.getChannel();
+
+    FileLock lock = null;
+    try {
+        lock = channel.tryLock();
+                  # I think this is good for multiple threading
+    } catch (final OverlappingFileLockException e) {
+        stream.close();
+        channel.close();
+    }
+    stream.writeChars("test lock");
+    lock.release();
+
+    stream.close();
+    channel.close();
+}
+    # from: https://www.baeldung.com/java-write-to-file

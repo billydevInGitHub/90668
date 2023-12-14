@@ -1,2 +1,15 @@
-https://www.reddit.com/r/NoStupidQuestions/comments/8evgto/whats_the_difference_between_bufferedoutputstream/?rdt=45808
+===
+   First of all, BOS wraps another output stream - every byte you write to the BOS will eventually be written to the underlying output stream, which could be a FileOutputStream, a ByteArrayOutputStream, or others.
+
+   Meanwhile, FOS is "standalone" - it writes directly to a file. It doesn't have an underlying output stream.
+
+   BOS stores the written bytes in a temporary buffer and flushes it when it is filled up, or when you call the flush method. Flushing simply writes the contents of the buffer to the underlying stream. This makes it more efficient, instead if writing each byte you only write once you've accumulated enough of them.
+
+   FOS on the other hand might have an internal buffering mechanism, but you have no control over it other than the flush method.
+
+   In most cases you don't need a BOS. You only need it if writing to the output stream creates a bottleneck.
+          # I think this explains why we do not see much buffered output stream
+===||
+
+  # From: https://www.reddit.com/r/NoStupidQuestions/comments/8evgto/whats_the_difference_between_bufferedoutputstream/?rdt=45808
       # can compare with Files.read/write which might not have the buffer

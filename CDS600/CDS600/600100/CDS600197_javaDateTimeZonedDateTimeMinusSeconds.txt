@@ -1,0 +1,2 @@
+ZonedDateTime.now(ZoneId.of("America/Edmonton")).minusSeconds(5).toInstant()
+      # Both LocalDateTime and ZonedDateTime has these time shift methods

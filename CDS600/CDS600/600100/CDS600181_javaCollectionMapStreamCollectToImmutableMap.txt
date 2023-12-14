@@ -1,0 +1,6 @@
+someMap.entrySet()
+   .stream()
+   .filter(entry -> entry.getValue() >8)
+   .collect(ImmutableMap.toImmutableMap(Map.entry::getKey,
+                                        Map.entry::getValue));
+                       #

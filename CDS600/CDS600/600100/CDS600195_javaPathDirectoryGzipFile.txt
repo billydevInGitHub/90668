@@ -1,0 +1,26 @@
+OutputStream outputStream=Files.newOutputStream(targetGzippedFilePath);
+BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
+GZIPOutputStream gzipCompressorOutputStream = new GZIPOutputStream(bufferedOutputStream));
+         # GZIPOutputStream is from jdk
+TarArchiveOutputStream tarArchiveOutputStream = new TarArchiveOutputStream(gzipCompressorOutputStream);
+tarArchiveOutputStream.setBigNumberMode(TarArchiveOutputStream.BIGNUMBER_POSIX);
+tarArchiveOutputStream.setLongFileMode(TarArchiveOutputStream.LONGFILE_POSIX);
+
+...
+Path targetFile=sourceDirectory.relativize(file);
+try{
+   TarArchiveEntry tarEntry=new TararchiveEntry(file.toFile(),targetFile.toString());
+               # targetFile might be relative path, need further check
+   tarArchiveOutputStream.putArchiveEntry(tarEntry);
+               # archiveStream need an entry, this is special
+   Files.copy(file, tarArchiveOutputStream);
+   tarArchiveOutputStream.closeArchiveEntry();
+}catch(IOException e){
+  System.err.printf("Unable to tar.gz %s%n%s%n", file, e);
+  throw e;
+}
+
+tarArchiveOutputStream.finish()
+    # overall is within a Files.walkFileTree(xxx)
+    # TarArchiveOutputStream from Apache common:
+       gradle:   implementation 'org.apache.commons:commons-compress:1.21'

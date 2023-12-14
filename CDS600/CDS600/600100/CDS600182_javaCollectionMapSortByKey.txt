@@ -1,0 +1,8 @@
+someMap.entrySet()
+   .stream()
+   .filter(entry -> entry.getValue() >8)
+   .sorted(Map.Entry.comparingByKey())
+   .collect(ImmutableMap.toImmutableMap(Map.entry::getKey,
+                                        Map.entry::getValue));
+                       # Map.Entry.comparingByKey() return a Comparator
+                             stream.sorted() accept an Comparator

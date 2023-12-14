@@ -8,15 +8,29 @@ collection
 === Iterate through
 syntax     CDS
 
-filter
+filter     CDS600202        CDS600206        CDS600207
+           (find first      (can return      (use closure)
+            element)         null)
+
+           CDS600203        CDS600205        CDS600208
+           (find all        (find all        (use closure)
+            matched)         cast to list)
 
 mapping     CDS600130       CDS600131       CDS600132             CDS600133*    CDS600135*
             (all plus       (use closure    (collect              (syntax      (collection
              one)            to multiply)    Object collection)    sugar)       plus closure)
 
-forEach
+each
 
-for loop
+for loop   CDS600209       CDS600210        CDS600211
+           (classic        (insert comma    (Multi assignment
+            for loop)       in loop)         for loop)
+
+for in loop
+      todo:   completed things in CDS600211
+              https://stackoverflow.com/questions/36481872/groovy-each-vs-collect
+              https://dzone.com/articles/loops-performance-in-groovy
+
 
 === reduce and group
 
@@ -37,6 +51,6 @@ sorting
 
 collate      CDS
 
-=== Map convert to List
+=== Result conversion (ex. Map convert to List)
 
 toList

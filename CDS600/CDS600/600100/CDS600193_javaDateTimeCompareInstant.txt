@@ -1,0 +1,3 @@
+someInstant.isBefore(anotherInstant)
+    # also support isAfter()
+    # As Instant is absolute time, it makes sense to do the comparison

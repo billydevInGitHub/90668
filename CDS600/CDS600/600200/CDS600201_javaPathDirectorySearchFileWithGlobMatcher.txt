@@ -1,0 +1,30 @@
+public static final List<String> IGNORED_PATTERN=new ArrayList<>(Arrays.asList("glob:TEST-*.{xml,txt}","glob:classInformation.txt"));
+
+Files.walkFileTree(sourceDirectory, new SimpleFileVisitor<Path>(){
+    @Override
+    public  FileVisitResult visitFile(Path file, BasicFileAttributes attributes) throws IOException{
+         if(attributes.isSymbolicLink()){
+             return FileVisitorResult.CONTINUE;
+         }
+
+         FileSystem fs=FileSystems.gerDefault();
+            for(String pattern:IGNORED_PATTERN){
+               PathMatcher matcher = fs.getPathMatcher(pattern);
+               Path name=file.getFileName();
+               if(matcher.matches(name)){
+                  //ignore this file processing
+               }
+            }
+            //do sthing here
+            return FileVisitorResult.CONTINUE;
+    }
+        @Override
+        public  FileVisitResult visitFile(Path file,IOException exc){
+               return FileVisitorResult.CONTINUE;
+        }
+}
+
+    # can do this within a file visitor
+    # need to collect more patterns
+
+

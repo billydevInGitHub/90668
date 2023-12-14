@@ -1,0 +1,14 @@
+for (int i = 1, j = 10; i < j; i++, j--) {
+    println(i + ', ' + j)
+}
+Results:
+
+1, 10
+2, 9
+3, 8
+4, 7
+5, 6
+    # idea is simple and direct
+    # from: https://www.djamware.com/post/6198c4165b9095440ad39c45/groovy-tutorial-loop-examples#xtimes-loop
+
+

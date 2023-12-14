@@ -1,0 +1,2 @@
+https://www.baeldung.com/java-filechannel
+    # seems good for large files as well as threading (see CDS600177)

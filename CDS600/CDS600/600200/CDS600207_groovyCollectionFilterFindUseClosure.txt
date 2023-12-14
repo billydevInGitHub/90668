@@ -1,0 +1,9 @@
+def numbers = [2, 3, 1, 4]
+def even = { it % 2 == 0}
+def greaterThan2 = { it > 2 }
+println numbers.find(even) // 2
+println numbers.find(greaterThan2) // 3
+    # use closure, it is flexible
+    # from: https://blog.nareshak.com/groovy-collections-1/
+
+

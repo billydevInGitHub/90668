@@ -1,0 +1,2 @@
+ZonedDateTime.now(ZoneId.of("America/Edmonton")).minusSeconds(5).truncatedTo(ChronoUnit.SECONDS)
+      # orginal could be milliseconds tuff
