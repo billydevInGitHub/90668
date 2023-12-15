@@ -20,19 +20,36 @@ mapping             CDS600130       CDS600131       CDS600132             CDS600
                     (all plus       (use closure    (collect              (syntax      (collection
                      one)            to multiply)    Object collection)    sugar)       plus closure)
 
-each
+mapping/each       CDS600226
+comparison         (mapping return
+                    new collection)
+
+each               CDS600222
+                   (of Object
+                    Array)
+each with          CDS600223
+index              (of Object
+                    Array)
+
+times loop         CDS600225
+                   (of Object
+                    Array)
 
 for loop           CDS600209       CDS600210        CDS600211
                    (classic        (insert comma    (Multi assignment
                     for loop)       in loop)         for loop)
 
-for in loop        CDS600212       CDS600215        CDS600216           CDS600217      CDS600218
-                   (of Objects     (of String       (of consecutive     (of Map)       (of Map
-                    List)           List)            numbers)                           values)
-
+for-in loop        CDS600212       CDS600215        CDS600216           CDS600217      CDS600218     CDS600219
+                   (of Objects     (of String       (of consecutive     (of Map)       (of Map       (Loop of
+                    List)           List)            numbers)                           values)       char in
+                                                                                                      String)
+while loop         CDS600220
+                   (of Array)
+do-while loop      CDS600221
+                   (of Array)
 
       todo:   completed things in CDS600211
-              https://stackoverflow.com/questions/36481872/groovy-each-vs-collect
+              https://blog.mrhaki.com/2009/09/groovy-goodness-looping-in-different.html
               https://dzone.com/articles/loops-performance-in-groovy
 
 

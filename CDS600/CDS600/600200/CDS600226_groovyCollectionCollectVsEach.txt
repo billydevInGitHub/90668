@@ -1,0 +1,35 @@
+Example: iterating over the following list (fromJson.secrets):
+[[floors:10, street:emaseS, url:http://plywoodpeople.com/wp-content/uploads/2012/03/kermit_the_frog.jpg], [floors:2, street:emaseS, url:http://36.media.tumblr.com/tumblr_lp9bg9Lh2x1r0h9bqo1_500.jpg], [floors:2, street:yawdaorB, url:https://montclairdispatch.com/wp-content/uploads/2013/07/broadway1.jpg], [floors:5, street:emaseS, url:AAA], [floors:2, street:yawdaorB, url:AAA], [floors:6, street:albmaR aL, url:AAA], [floors:1, street:teertS llaW, url:AAA], [floors:6, street:daoR yebbA, url:AAA], [floors:3, street:teertS llaW, url:AAA], [floors:4, street:dlirehstoR, url:AAA]]
+
+each:
+
+reversed_streets = fromJson.secrets.each {
+    it.street = it.street.reverse()
+    it
+}
+
+collect:
+
+reversed_streets = fromJson.secrets.collect {
+    it.street = it.street.reverse()
+    it
+}
+
+
+
+each is used for side effects (which is your example) and returns the original
+       # side effects probably means does not return new stuff
+collect is used to create something new (e.g. like an eager map in Java or other languages)
+       # can compare with CDS600075
+In your example: each returns the input to each. Your code there manipulates it.street in place.
+So you get back your original list, where each street got reversed. With the collect you create a new list with the manipulated items.
+So the apparent result is the same, but the difference is that you created a new container, but still your original has been tampered with.
+       # I think
+
+
+
+
+
+    # from: https://stackoverflow.com/questions/36481872/groovy-each-vs-collect
+
+

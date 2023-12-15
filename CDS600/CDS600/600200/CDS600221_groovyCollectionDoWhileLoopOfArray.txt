@@ -1,0 +1,19 @@
+def cars = ["BMW", "Mercedez Benz", "Volvo"]
+def x = 0
+
+do {
+    println cars[x]
+    x++
+} while(cars.size() > x)
+         # again, size() worked for both array and collection I think
+Result:
+
+Ezoic
+
+BMW
+Mercedez Benz
+Volvo
+
+    # from: https://www.djamware.com/post/6198c4165b9095440ad39c45/groovy-tutorial-loop-examples#xtimes-loop
+
+

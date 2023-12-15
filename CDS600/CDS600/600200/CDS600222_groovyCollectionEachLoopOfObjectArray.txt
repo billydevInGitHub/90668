@@ -1,0 +1,26 @@
+@groovy.transform.Canonical
+class Cars {
+    String brand = ""
+    String type = ""
+    Integer price = 0
+}
+
+List<Cars> cars = [
+    [brand: "BMW", type: "750i", price: 300000],
+    [brand: "Mercedes Benz", type: "B600", price: 120000],
+    [brand: "Volvo", type: "S230", price: 98000]
+]
+
+cars.each {
+    println "$it.brand $it.type -> $it.price"
+           # has implicit parameter it
+}
+Result:
+
+BMW 750i -> 300000
+Mercedes Benz B600 -> 120000
+Volvo S230 -> 98000
+    # we may need compare each loop with map(collect) and other "for loop"
+    # from: https://www.djamware.com/post/6198c4165b9095440ad39c45/groovy-tutorial-loop-examples#xtimes-loop
+
+

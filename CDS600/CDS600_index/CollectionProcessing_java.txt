@@ -17,62 +17,70 @@ Stream
 
 
 === Iterate through
-syntax          CDS600078      CDS600079
-               (type          (alias:
-               inference)      semicolon
-                               hell)
+syntax                 CDS600078      CDS600079
+                      (type          (alias:
+                      inference)      semicolon
+                                      hell)
 
-filter         CDS600080        CDS600081      CDS600082
-              (simple filter   (filter out    (use a regex
-               out string)      one element)   matcher class)
+filter                CDS600080        CDS600081      CDS600082
+                     (simple filter   (filter out    (use a regex
+                      out string)      one element)   matcher class)
 
-mapping        CDS600076         CDS600077          CDS600079
-               (basic mapping    (set list          (semicolon
-                to upper case)    to default)        hell)
+mapping               CDS600076         CDS600077          CDS600079
+                      (basic mapping    (set list          (semicolon
+                       to upper case)    to default)        hell)
 
 
-               CDS600075            CDS600091
-               (compare with        (alias,example
-                forEach,can          display map key
-                not change           and value)
-                outside lambda)
+                     CDS600091
+                     (alias,example
+                      display map key
+                      and value)
 
-forEach        CDS600083
-               (use complicated
-                lambda )
+
+mapping/forEach      CDS600075
+comparison           (compare with
+                      forEach,map can
+                      not change
+                      outside lambda)
+
+
+
+forEach                CDS600083
+                       (use complicated
+                        lambda )
 
 for loop
 
 === reduce and group
 
-concatenate    CDS600087             CDS600088
-               (concatenate          (join with
-                stream element        separator)
-                together)
+concatenate           CDS600087             CDS600088
+                      (concatenate          (join with
+                       stream element        separator)
+                       together)
 
-max            CDS600095
-              (get max
-               value)
+max                     CDS600095
+                       (get max
+                        value)
 
-second         CDS600096            CDS600097
-largest       (get second          (another way
-               largest)             with no limit)
+second                 CDS600096            CDS600097
+largest               (get second          (another way
+                       largest)             with no limit)
 
 === Sorting and compare
 
-sorting        CDS600085            CDS600182
-               (extract and         (compare by
-                convert              map key)
-                then compare)
+sorting               CDS600085            CDS600182
+                      (extract and         (compare by
+                       convert              map key)
+                       then compare)
 
 === batch ops
 
 === Result conversion
 
-toList              CDS600091
-from map            (convert to
-                    List)
+toList                 CDS600091
+from map               (convert to
+                       List)
 
-toImmutableMap      CDS600181
-from map            (convert to
-                     another Map)
+toImmutableMap         CDS600181
+from map               (convert to
+                        another Map)
