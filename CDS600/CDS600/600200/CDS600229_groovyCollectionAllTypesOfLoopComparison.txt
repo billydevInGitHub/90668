@@ -1,0 +1,2 @@
+https://dzone.com/articles/loops-performance-in-groovy
+    # this is good article, it provides a way on how to compare different types of loop in groovy

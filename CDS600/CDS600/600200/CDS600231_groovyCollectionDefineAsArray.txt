@@ -1,0 +1,7 @@
+def numbersArray = numbers as int[]
+assert numbersArray.class == int[]
+def namesArray = ['Raj', 'Reena', 'John'] as String[]
+assert namesArray.class == String[]
+     # so int[], String[] is a "class"
+
+     # https://blog.nareshak.com/groovy-collections-1/

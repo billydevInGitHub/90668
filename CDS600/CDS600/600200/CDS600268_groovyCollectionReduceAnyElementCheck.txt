@@ -1,0 +1,5 @@
+def numbers = [3, 2, 1, 4]
+println numbers.any { it > 3 } // true
+println numbers.any { it < 0 } // false
+
+   # from: https://blog.nareshak.com/groovy-collections-1/

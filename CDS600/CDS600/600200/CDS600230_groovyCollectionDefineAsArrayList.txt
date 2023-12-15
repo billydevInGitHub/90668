@@ -1,0 +1,7 @@
+def numbers = [3, 2, 4, 1]
+def developers = ['Raj', 'Reena', 'John']
+assert numbers.class == java.util.ArrayList
+assert developers.class == ArrayList
+def emptyList = []
+     # seems by default is ArrayList
+     # https://blog.nareshak.com/groovy-collections-1/

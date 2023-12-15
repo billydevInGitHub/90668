@@ -1,0 +1,23 @@
+class Outlet{
+	String name
+	String city
+	String state
+
+	String toString(){ name }
+}
+
+def outlets = [
+	new Outlet(name: 'Outlet1', city: 'Bengaluru', state: 'KA'),
+	new Outlet(name: 'Outlet2', city: 'Mumbai', state: 'MH'),
+	new Outlet(name: 'Outlet3', city: 'Mangalore', state: 'KA'),
+	new Outlet(name: 'Outlet4', city: 'Bengaluru', state: 'KA')
+]
+
+def outletGroup = outlets.groupBy({it.state}, {it.city})
+                # here we have 2 levels of group by
+println outletGroup
+// [KA:[Bengaluru:[Outlet1, Outlet4], Mangalore:[Outlet3]], MH:[Mumbai:[Outlet2]]]
+
+
+
+    # from: https://blog.nareshak.com/groovy-collections-2/

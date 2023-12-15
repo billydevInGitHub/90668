@@ -1,0 +1,4 @@
+println numbers.every { it > 0 } // true
+println numbers.every { it % 2 == 0 } // false
+
+   # from: https://blog.nareshak.com/groovy-collections-1/

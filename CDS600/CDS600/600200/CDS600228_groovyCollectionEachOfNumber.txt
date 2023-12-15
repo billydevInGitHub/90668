@@ -1,0 +1,19 @@
+// Result variable for storing loop results.
+def result = ''
+      # defined outside the closure
+// Closure to fill result variable with value.
+def createResult = {
+    if (!it) {  // A bit of Groovy truth: it == 0 is false
+        result = '0'
+    } else {
+        result += it
+    }
+}
+
+// Ranges are lists as well.
+(0..4).each(createResult)
+        # pay attention to the bracket
+assert '01234' == result
+
+      # from: https://blog.mrhaki.com/2009/09/groovy-goodness-looping-in-different.html
+

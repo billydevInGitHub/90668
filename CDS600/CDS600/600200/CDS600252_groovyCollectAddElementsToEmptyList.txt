@@ -1,0 +1,6 @@
+def list = []
+list << 1
+list.add("Apple")
+assertTrue(list == [1, "Apple"])
+
+   # from: https://www.baeldung.com/groovy-lists

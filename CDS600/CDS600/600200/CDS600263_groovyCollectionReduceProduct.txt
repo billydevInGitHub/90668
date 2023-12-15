@@ -1,0 +1,8 @@
+def numbers = [1, 2, 3, 4]
+def product = { result, number ->
+	result * number
+}
+println numbers.inject(product) // 24
+    #
+
+    # from: https://blog.nareshak.com/groovy-collections-1/

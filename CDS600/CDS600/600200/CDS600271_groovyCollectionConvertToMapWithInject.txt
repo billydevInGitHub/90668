@@ -1,0 +1,21 @@
+class Person {
+    String username
+    String email
+}
+def persons = [
+    new Person(username:'mrhaki', email: 'email@host.com'),
+    new Person(username:'hubert', email: 'other@host.com')
+]
+
+// Convert list to a map where the key is the value of
+// username property of Person and the value is the email
+// property of Person. We inject an empty map as the starting
+// point for the result.
+def map = persons.inject([:]) { result, person ->
+    result[person.username] = person.email
+    result
+}
+assert [mrhaki: 'email@host.com', hubert: 'other@host.com'] == map
+    # begin from empty map looks cool
+
+    # https://blog.mrhaki.com/2009/09/groovy-goodness-using-inject-method.html

@@ -1,0 +1,5 @@
+def numbers = [1, 2, 3,4,5]
+println numbers.remove(1) // 2 - removes item at index 1
+              # not the first element but the second one
+println numbers // [1, 3, 4, 5]
+     # from: https://blog.nareshak.com/groovy-collections-1/

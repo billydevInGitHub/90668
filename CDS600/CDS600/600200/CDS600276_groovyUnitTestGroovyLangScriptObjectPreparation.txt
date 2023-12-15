@@ -1,0 +1,25 @@
+Data:  groovy.lang.Script
+           # this is a real object inside the test framework
+
+
+
+        Process:
+          In: lesfurests BasePipelineTest.groovy loadScript() method
+              # it will call helper to check if it is initialized
+                then call helper.loadScript(xxx) method
+              (1) Use groovy.util.GroovyScriptEngine to get
+                             # I think this engine will do parsing and compiling
+                   java.lang.Class scriptClass
+                             # java build-in Class with Runtime info
+              (2) Create real Runtime class of groovy.lang.Script using reflection
+              (3) use lesfurets InterceptingGCL ( a class extended from GroovyClassLoader) to inject
+                   test framework implementation into the real Runtime object
+                        # test Framework can run test code
+
+        Data:
+            Test data and closure prepared for the lesfurets framework
+
+
+
+
+       Process:

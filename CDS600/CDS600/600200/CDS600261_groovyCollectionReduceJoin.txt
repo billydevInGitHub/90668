@@ -1,0 +1,5 @@
+def developers = ['Raj', 'Reena', 'John']
+println developers.join(", ")
+// Raj, Reena, John
+
+    # from: https://blog.nareshak.com/groovy-collections-1/

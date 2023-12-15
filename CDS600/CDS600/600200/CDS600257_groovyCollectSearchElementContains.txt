@@ -1,0 +1,4 @@
+def list = ['a', 'b', 'c']
+list.contains('a')
+    # this should be true
+    # from: https://www.baeldung.com/groovy-collections-find-elements

@@ -1,0 +1,10 @@
+def list = []
+list << 1
+list.add("Apple")
+assertTrue(list == [1, "Apple"])
+list[2] = "Box"
+list[4] = true
+assertTrue(list == [1, "Apple", "Box", null, true])
+       # the position we did not set, it is null by default
+
+   # from: https://www.baeldung.com/groovy-lists

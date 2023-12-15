@@ -1,9 +1,53 @@
 === Creating
+
+define ArrayList           CDS600230            CDS600237
+which is default           (ArrayList           (use constructor)
+                           as default)
+
+default Set is             CDS600232
+LinkedHashSet              (as Set)
+
+Define LinkedList          CDS600233
+                           (as Linked
+                            List)
+
+define Array               CDS600231
+                           (define Array)
+
+use range                  CDS600235
+                           (define with
+                            range)
+use clone                  CDS600236
+                           (use clone)
+
 Convert to
 collection
     array to
 
     OtherStream
+
+
+=== Working with elements
+
+add element             CDS600238              CDS600239             CDS600252
+                        (add element)          (another way)         (add to empty
+                                                                      List)
+set/add/update          CDS600253              CDS600255
+element                 (set empty             (update
+                         position)              element)
+
+get element             CDS600250
+                        (2 ways)
+
+remove element          CDS600251
+                        (remove from
+                         position)
+
+search element     (see below Iterate through, filter)
+
+                        CDS600256           CDS600257         CDS600258
+                        (indexOf            (contains         (use IN
+                         element)            element)          operator)
 
 === Iterate through
 syntax             CDS
@@ -24,9 +68,9 @@ mapping/each       CDS600226
 comparison         (mapping return
                     new collection)
 
-each               CDS600222
-                   (of Object
-                    Array)
+each               CDS600222           CDS600228
+                   (of Object          (each with
+                    Array)              closure)
 each with          CDS600223
 index              (of Object
                     Array)
@@ -34,6 +78,9 @@ index              (of Object
 times loop         CDS600225
                    (of Object
                     Array)
+
+upto               CDS600227
+                   (with closure)
 
 for loop           CDS600209       CDS600210        CDS600211
                    (classic        (insert comma    (Multi assignment
@@ -48,19 +95,43 @@ while loop         CDS600220
 do-while loop      CDS600221
                    (of Array)
 
-      todo:   completed things in CDS600211
-              https://blog.mrhaki.com/2009/09/groovy-goodness-looping-in-different.html
-              https://dzone.com/articles/loops-performance-in-groovy
+all types of       CDS600229
+loop comparison    (comparison)
 
 
 === reduce and group
 
-concatenate
+concatenate         CDS600261
+                    (reduce join)
 
-max
+sum                 CDS600259
+                    (reduce sum)
 
+max/min             CDS600260               CDS600265               CDS600267
+                    (reduce max/min)        (reduce max             (with Comparator)
+                                             of first char)
 second
 largest
+
+inject              CDS600262                CDS600263             CDS600266
+                    (reduce add              (reduce product)      (reduce with
+                     up )                                           default value
+                                                                    and closure)
+                    CDS600270                 CDS600271
+                    (reduce with              (convert object
+                     traditional               list to map)
+                     way)
+
+
+element             CDS600268                CDS600269
+check               (reduce check            (reduce check
+                     any element)             every element)
+
+
+group               CDS600272                CDS600273
+                    (number array            (object array
+                     group by)                group by
+                                              2 layers)
 
 === Sorting and compare
 

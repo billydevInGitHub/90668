@@ -1,0 +1,5 @@
+def setOfNumbers = [1, 2, 3, 1] as Set
+println setOfNumbers // [1, 2, 3]
+assert setOfNumbers.class == LinkedHashSet
+
+     # https://blog.nareshak.com/groovy-collections-1/

@@ -1,0 +1,3 @@
+INPUT_LIST.inject("") { result, it -> result + it }
+    # compared with CDS600263, here we use default value together with closure
+    # from: https://wjw465150.github.io/blog/Groovy/my_data/Java8/Java_8_lambdas_vs._Groovy_closures_(part_1_of_2).htm

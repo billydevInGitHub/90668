@@ -14,6 +14,7 @@ Stream
     to stream     (int range
                    to Stream)
 
+=== Working with elements
 
 
 === Iterate through
@@ -53,18 +54,23 @@ for loop
 
 === reduce and group
 
+
 concatenate           CDS600087             CDS600088
                       (concatenate          (join with
                        stream element        separator)
                        together)
 
-max                     CDS600095
-                       (get max
-                        value)
+sum
+
+max/min               CDS600095
+                      (get max
+                       value)
 
 second                 CDS600096            CDS600097
 largest               (get second          (another way
                        largest)             with no limit)
+
+inject
 
 === Sorting and compare
 

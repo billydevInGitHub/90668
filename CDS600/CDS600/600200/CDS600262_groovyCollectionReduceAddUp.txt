@@ -1,0 +1,11 @@
+def numbers = [1, 2, 3, 4]
+println numbers.inject(0){result, number ->
+	result + number
+} // 10
+    #  "0"
+      ===
+        While implementing sum, we have provided a default value 0. So even if numbers was an empty collection,
+        we would have got the result 0.
+      ===||
+
+    # from: https://blog.nareshak.com/groovy-collections-1/

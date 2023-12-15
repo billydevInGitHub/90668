@@ -1,0 +1,15 @@
+=== Jenkins Unit test special
+
+
+
+
+=== Frameworks
+
+        CDS600275
+        (subject under
+         test)
+
+        CDS600276
+        (Script object
+         injected in
+         SUT)

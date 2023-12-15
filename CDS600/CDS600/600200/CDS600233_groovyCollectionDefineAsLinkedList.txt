@@ -1,0 +1,5 @@
+def numbers = [3, 2, 4, 1]
+def numbersLinkedList = numbers as LinkedList
+assert numbersLinkedList.class == LinkedList
+
+     # https://blog.nareshak.com/groovy-collections-1/

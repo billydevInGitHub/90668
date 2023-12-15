@@ -1,0 +1,5 @@
+def numbers = [3, 2, 1, 4]
+println numbers.min() // 1
+println numbers.max() // 4
+
+    # from: https://blog.nareshak.com/groovy-collections-1/

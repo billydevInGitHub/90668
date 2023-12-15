@@ -1,0 +1,3 @@
+INPUT_LIST.max { it.charAt(0) }
+     # seems we use curly bracket when we pass in concrete operations, use round bracket when pass in closure
+     # from:https://wjw465150.github.io/blog/Groovy/my_data/Java8/Java_8_lambdas_vs._Groovy_closures_(part_2_of_2).htm

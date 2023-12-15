@@ -1,0 +1,6 @@
+def list =[1, "Apple", 80, "App"]
+list[1] = "Box"
+list.set(2,90)
+assertTrue(list == [1, "Box", 90,  "App"])
+
+   # from: https://www.baeldung.com/groovy-lists

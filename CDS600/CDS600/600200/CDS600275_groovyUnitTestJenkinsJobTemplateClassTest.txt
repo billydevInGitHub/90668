@@ -1,0 +1,32 @@
+Data:  testable subject: _subjectToTest is an instance of a "Jenkins template class"
+        # For real jenkins job running:
+          This  "Jenkins template class" has groovy.lang.Script injected
+          this template class is configured in job configuration, Pipeline Script part as:
+            ===
+               node("someJenkinsNode"){
+                  withEnv(someEnvMap){
+                     SomeTemplate someTemplate= new SomeTemplate( this);
+                     someTemplate.callMethod();
+                  }
+               }
+            ===||
+                # so when Jenkins parse this script, it will inject stuff into "this"
+                # this is
+        # For test of the template class, we need prepare the groovy.lang.Script as well
+
+
+        Process:
+          (1) In  SomeTemplateTest.groovy extend JenkinsBaseUnitTest class
+           then in setup:
+                 groovy.lang.Script _scriptContextForTest=loadScript("DummyScriptContxt.groovy")
+                 # all test preparation will be injected into _scriptContextForTest
+          (2) _subjectToTest=new SomeTemplate(_scriptContextForTest)
+                     # _subjectToTest is our SUT
+                     # we can use groovy language metaClass to inject stuff into _subjectToTest
+
+
+        Data:
+            1 TemplateClass source code
+            2 ClassPath with TestFramework lib
+            3 test data in setup() method of TemplateClassTestClass
+            5 Well prepared groovy.lang.Script object injected in and prepared by the Jenkins test  framework  CDS600276

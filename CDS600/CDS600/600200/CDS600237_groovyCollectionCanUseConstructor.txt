@@ -1,0 +1,3 @@
+ArrayList arrList = [1,2,3]
+def copyList = new ArrayList(arrList)
+     # from: https://www.baeldung.com/groovy-lists

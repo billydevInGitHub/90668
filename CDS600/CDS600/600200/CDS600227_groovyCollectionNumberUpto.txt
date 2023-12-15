@@ -1,0 +1,26 @@
+// Result variable for storing loop results.
+def result = ''
+      # defined outside the closure
+// Closure to fill result variable with value.
+def createResult = {
+    if (!it) {  // A bit of Groovy truth: it == 0 is false
+        result = '0'
+    } else {
+        result += it
+    }
+}
+
+// Classic for loop.
+for (i = 0; i < 5; i++) {
+    createResult(i)
+       # this is just for comparison
+}
+assert '01234' == result
+
+// Using int.upto(max).
+0.upto(4, createResult)
+      # upto also take a closure as parameter
+assert '01234' == result
+
+      # from: https://blog.mrhaki.com/2009/09/groovy-goodness-looping-in-different.html
+
