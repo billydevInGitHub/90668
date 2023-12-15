@@ -1,0 +1,16 @@
+def map = ['BMW': 300000, 'Mercedez Benz': 200000, 'Volvo': 90000]
+       # attention: how we expression map
+
+for ( m in map ) {
+    println "$m.key -> $m.value"
+          # how we get key and value in map , similar to objects
+}
+Result:
+
+BMW -> 300000
+Mercedez Benz -> 200000
+Volvo -> 90000
+
+    # from: https://www.djamware.com/post/6198c4165b9095440ad39c45/groovy-tutorial-loop-examples#xtimes-loop
+
+

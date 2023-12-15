@@ -1,0 +1,15 @@
+def map2 = ['BMW': 300000, 'Mercedez Benz': 200000, 'Volvo': 90000]
+
+for ( m2 in map2.values() ) {
+                  # how to get values of map
+    println m2
+}
+Result:
+
+300000
+200000
+90000
+
+    # from: https://www.djamware.com/post/6198c4165b9095440ad39c45/groovy-tutorial-loop-examples#xtimes-loop
+
+

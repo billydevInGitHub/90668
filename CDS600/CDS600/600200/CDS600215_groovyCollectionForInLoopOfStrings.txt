@@ -1,0 +1,13 @@
+def carNameArray = ["BMW", "Mercedez Benz", "Volvo"]
+        # Array and List have similar way to expression
+for (car in carNameArray) {
+    println car
+}
+Result:
+
+BMW
+Mercedez Benz
+Volvo
+    # from: https://www.djamware.com/post/6198c4165b9095440ad39c45/groovy-tutorial-loop-examples#xtimes-loop
+
+

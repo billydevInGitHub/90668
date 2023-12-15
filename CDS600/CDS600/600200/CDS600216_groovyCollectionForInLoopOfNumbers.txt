@@ -1,0 +1,16 @@
+for ( i in 0..5 ) {
+           # how to express consecutive numbers
+    println "Line number: $i"
+}
+Result:
+
+Line number: 0
+Line number: 1
+Line number: 2
+Line number: 3
+Line number: 4
+Line number: 5
+
+    # from: https://www.djamware.com/post/6198c4165b9095440ad39c45/groovy-tutorial-loop-examples#xtimes-loop
+
+
