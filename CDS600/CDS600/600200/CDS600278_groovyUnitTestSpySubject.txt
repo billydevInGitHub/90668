@@ -1,0 +1,2 @@
+_subject.metaClass.someMethod { someReturnObjectForThatMethod }
+     # use groovy metaClass to inject/intercept the method return, similar to spy in Mockito

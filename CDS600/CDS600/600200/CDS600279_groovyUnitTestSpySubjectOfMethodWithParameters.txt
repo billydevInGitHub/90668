@@ -1,0 +1,5 @@
+_subject.metaClass.someMethodWithParameter {
+    String strParm,
+    List<String> listParam -> someReturnObject
+ }
+     # use groovy metaClass to inject/intercept the method return, similar to spy in Mockito

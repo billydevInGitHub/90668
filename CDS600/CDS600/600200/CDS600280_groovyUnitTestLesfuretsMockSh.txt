@@ -1,0 +1,6 @@
+PipelineTestHelper helper
+     # helper is initialized in BasePipelineTest.groovy
+helper.addShMock(_subject.getSomeScript(), "someStdOutMsg", 0)
+     # here exit code is 0
+     # we get the script from subject, this might not be perfect ???
+         getSomeScript() is kind of private/protected method

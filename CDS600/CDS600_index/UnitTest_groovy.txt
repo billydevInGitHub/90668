@@ -1,15 +1,49 @@
 === Jenkins Unit test special
 
 
+=== Unit test patterns
+
+
+=== Mock and test preparation
+
+mock static
+
+
+mock instance
+
+
+mock instance              CDS600280
+within lesfurets           (mockSh)
+framework
+
+
+spy instance               CDS600278                CDS600279
+                           (metaClass to            (metaClass to
+                            spy subject              spy subject
+                            of simple                of method
+                            method)                  with parm)
+
+
+
+
+=== Assert
+
+
+=== Annotation
 
 
 === Frameworks
 
-        CDS600275
-        (subject under
-         test)
+lesfurests        CDS600275
+                  (subject under
+                   test)
 
-        CDS600276
-        (Script object
-         injected in
-         SUT)
+                  CDS600276
+                  (Script object
+                   injected in
+                   SUT)
+
+
+Mockito           CDS600277
+                  (Mockito mock
+                   groovy)

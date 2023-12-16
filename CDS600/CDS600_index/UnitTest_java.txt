@@ -10,30 +10,35 @@ A Testable
                   (private
                    method)
 
-
-B Use real         CDS600055            CDS600065
-  code             (within             (light weight class)
-  (cant inject      cohesion
-  mock)             domain)
-
-
-C Use real         CDS600066           CDS600067
+B Use real         CDS600066           CDS600067
   code             (mock file/dir      (mock file content
- (cant mock)       ops)                reading ops)
-
+ (difficult        ops)                reading ops)
+  to mock)
                    CDS600068   ^_^    CDS600069  ^_^
                    (do not mock       (can do a bit
                    file system)       IO and overall)
 
-
-D Need change      CDS600052            CDS600056                CDS600138
+C Need change      CDS600052            CDS600056                CDS600138
   Code to test     (split big method)   (split line to method)   (change private
                                                                   to default)
                    CDS600137 ^_^
                    (instance created
                     in method)
 
+D Use real         CDS600055            CDS600065
+  code             (within             (light weight class)
+  (cant inject      cohesion
+   mock)             domain)
+
+
+
+
+
 E Do IntTest
+  (difficult
+   to mock,but
+   still need
+   overall test)
 
 === Mock and test preparation
 
