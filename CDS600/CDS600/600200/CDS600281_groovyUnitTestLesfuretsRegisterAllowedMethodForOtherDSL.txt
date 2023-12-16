@@ -1,0 +1,10 @@
+PipelineTestHelper helper
+     # helper is initialized in BasePipelineTest.groovy
+ArrayList listOfFiles = []
+helper.registerAllowedMethod("SOME_DSL", [String], {
+        String fileName->listOfFiles.add(fileName)
+        true
+             # this is the return of closure
+}
+        # When Script "execute" to  SOME_DSL, as  the closure is injected into Script, so will be executed
+            Check CDS600275  CDS600276 for details

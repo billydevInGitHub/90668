@@ -6,16 +6,21 @@
 
 === Mock and test preparation
 
-mock static
-
+mock static              CDS600282
+                         (mock static
+                          method)
 
 mock instance
 
 
-mock instance              CDS600280
-within lesfurets           (mockSh)
-framework
+mock instance              CDS600280        CDS600281
+within lesfurets           (mockSh)         (register DSL
+framework                                    as closure)
 
+                           CDS600283
+                           (prepare
+                            subject under
+                            test)
 
 spy instance               CDS600278                CDS600279
                            (metaClass to            (metaClass to

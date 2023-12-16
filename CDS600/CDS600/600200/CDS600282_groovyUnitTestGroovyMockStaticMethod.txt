@@ -1,0 +1,20 @@
+injectStaticMethod(SomeUtilClass, "someStaticMethod", {
+            String strParam, Script scriptContext-> someReturnValue
+})
+       # this way we can inject into static method
+         ===
+            void injectStaticMethod(Class aClass, String nameOfMethod, Closure closureToInject){
+                 _staticClassModified.add(aClass)
+                         # _staticClassModified is a HashSet defined in "baseClass" to testClass
+                           so testClass can use them directly
+                         # _staticClassModified is mainly for "setting metaClass back" in @AfterEach
+                              @AfterEach
+                              void doAfter(){
+                                  _staticClassModified.each{
+                                      _staticClassModified.metaClassRegistry.setMetaClass(it, null)
+                                               # we recovered the changed metaClass
+                                  }
+                              }
+                 aClass.metaClass.static."${nameOfMethod}" = closureToInject
+            }
+         ===||

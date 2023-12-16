@@ -1,0 +1,16 @@
+class SomeJenkinsTest extends JenkinsUnitTest{
+                 # JenkinsUnitTest extends BasePipelineTest
+    @Override
+    @BeforeEach
+    void setup() throws Exception{
+      super.setup()
+      addEnvVar("SOME_ENV_VARIABLE_NAME",  "Variable value")
+             # injected into Script by test framework
+      _scriptObject=loadScript("path/to/ScriptContextCode.groovy")
+             # this is the object to be injected by the test framework
+      _subject = new SomeTemplateClass(_scriptObject)
+             # not only TmemplateClass but also other "helper" or "tool" class which use "script"
+               will also use lesfurets test framework
+             # this is the place where subject is connected to the "Script object" which is the center of Framework
+    }
+}

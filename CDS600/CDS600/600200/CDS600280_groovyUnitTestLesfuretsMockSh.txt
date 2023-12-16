@@ -1,6 +1,8 @@
 PipelineTestHelper helper
      # helper is initialized in BasePipelineTest.groovy
 helper.addShMock(_subject.getSomeScript(), "someStdOutMsg", 0)
-     # here exit code is 0
+     # here exit code is 0, when DSL "execute to here", test framework know how to proceed
      # we get the script from subject, this might not be perfect ???
          getSomeScript() is kind of private/protected method
+            #perfect solution is in test the script name is hard coded, but lots of typing
+             and when the script name changed, test will fail
