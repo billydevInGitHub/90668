@@ -1,0 +1,7 @@
+Mockito do mocking better than Groovy metaClass
+     # groovy closure is also a convenient way to do the mock,
+     # problems when using groovy metaClass
+           static might have thread issue
+           Mockito provided more features than metaClass like spy, argument captor etc.
+
+Lesfurets framework has something to deal with the DSL while mockito does not have this feature ;

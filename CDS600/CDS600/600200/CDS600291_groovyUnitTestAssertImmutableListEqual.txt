@@ -1,0 +1,7 @@
+assert  ImmutableList.of("Value1","Value2") == actualReturnedImmutableList
+      # groovy == works for both number and Collection
+        check: https://ajurasz.github.io/2019-10-27-equals-operator-in-groovy/#:~:text=In%20Groovy%20%3D%3D%20translates%20to,which%20is%20useful%20to%20know.
+           ===
+              In Groovy == translates to a.compareTo(b)==0, if they are Comparable, and a.equals(b) otherwise.
+           ===||
+              # check the formal documentation: https://docs.groovy-lang.org/latest/html/documentation/#_behaviour_of_code_code

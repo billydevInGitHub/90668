@@ -80,8 +80,12 @@ tmpDir           CDS600023
 
 null assert       CDS600031        CDS600050
                   (assert null)   (not null)
-empty assert      CDS600036
-                  (assert empty)
+
+empty assert      CDS600036        CDS600290
+                  (assert          (alias,
+                   set empty)       assert string
+                                    empty)
+
 exception         CDS600032         CDS600039
 assert            (assert throw)    (setup exception)
 

@@ -1,0 +1,3 @@
+assert  someString.isEmpty()
+     # length zero, I guess null will return false
+

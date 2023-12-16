@@ -1,0 +1,16 @@
+@Mock
+Jenkins mockJenkinsWithMockito
+@Mock
+Job  mockJobWithMockito
+
+
+injectStaticMethod(JenkinsUtilClass, "getJenkins", {mockJenkinsWithMockito})
+          # running in setup, so we inject mockJenkinsWithMockito into Subject
+
+
+Mockito.doReturn(mockJobWithMockito).when(mockJenkinsWithMockito).getItemByFullName(jobName)
+         # those Jenkins api implementation are not groovy code, we can not inject then
+           then we can use Mockito mocking to mimic them
+
+
+

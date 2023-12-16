@@ -1,0 +1,7 @@
+assertThat(helper.getCallStack().join("\n"), Matchers.stringContainsInOrder(
+      "JenkinsDSLCall1",
+      "JenkinsDSLCall2",
+      "JenkinsDSLCall3"
+      )
+           # this is the goodness of the framework, it remembered "DSL" calls
+

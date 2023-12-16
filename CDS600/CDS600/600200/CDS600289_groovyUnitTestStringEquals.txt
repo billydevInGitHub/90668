@@ -1,0 +1,12 @@
+assert  strA == strB
+    # https://stackoverflow.com/questions/9682206/groovy-different-results-on-using-equals-and-on-a-gstringimpl
+        seems:
+        ===
+          In Java == means equality of primitive types or identity for objects.
+          In Groovy == means equality in all cases. It translates to a.compareTo(b) == 0,
+          when evaluating equality for Comparable objects, and a.equals(b) otherwise.
+          To check for identity (reference equality), use the is method: a.is(b).
+          From Groovy 3, you can also use the === operator (or negated version): a === b (or c !== d).
+        ===||
+           # we need take a look at the above
+

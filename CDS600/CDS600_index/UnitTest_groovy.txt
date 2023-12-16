@@ -1,5 +1,8 @@
 === Jenkins Unit test special
 
+use mockito
+or groovy
+metaClass
 
 === Unit test patterns
 
@@ -10,17 +13,9 @@ mock static              CDS600282
                          (mock static
                           method)
 
-mock instance
-
-
-mock instance              CDS600280        CDS600281
-within lesfurets           (mockSh)         (register DSL
-framework                                    as closure)
-
-                           CDS600283
-                           (prepare
-                            subject under
-                            test)
+mock instance            CDS600285
+                         (inject mock,
+                          mock method)
 
 spy instance               CDS600278                CDS600279
                            (metaClass to            (metaClass to
@@ -28,10 +23,54 @@ spy instance               CDS600278                CDS600279
                             of simple                of method
                             method)                  with parm)
 
+mock instance              CDS600280        CDS600281
+within lesfurets           (mockSh)         (register DSL
+framework                                    as closure)
+(mock Script
+ Object)                   CDS600283
+                           (prepare
+                            subject under
+                            test)
 
+
+mock Jenkins              CDS600286
+framework class           (third party
+(mock third                lib API mock
+ party lib)                using mockito)
 
 
 === Assert
+
+null assert
+
+empty assert           CDS600290
+                       (String empty)
+
+exception              CDS600292
+assert                 (Assert Exception)
+
+single result           CDS600289
+assert                  (compare
+                         String)
+
+json assert             CDS600293
+                        (Jenkins plugin
+                         lib)
+
+file content
+assert
+
+collection             CDS600291
+result assert          (compare
+                        Collection)
+argument
+captor
+
+
+call stack              CDS600288
+                        (lesfurets
+                         callstack
+                         check)
 
 
 === Annotation

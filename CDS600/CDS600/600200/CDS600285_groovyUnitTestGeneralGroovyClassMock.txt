@@ -1,0 +1,15 @@
+SomeGroovyClass someMockGroovyClass= new SomeGroovyClass();
+
+_subject.metaClass.getSomeGroovyClass {
+      return someMockGroovyClass
+           # this is the way how mockClass injected into the testing system
+}
+
+someMockGroovyClass.metaClass.someMethod{
+            # this is doing the  mock setup like doReturn..when stuff
+    String param1, String param2->
+          someOutSideMap.put("k1", param1)
+          someOutSideMap.put("k2", param2)
+}
+
+

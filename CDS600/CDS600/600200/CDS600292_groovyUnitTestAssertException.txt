@@ -1,0 +1,6 @@
+Exception thrown = Assertions.assertThrows(SomeException.class, {
+    ->
+    subject.callMethodUnderTest()
+}
+
+assert  "some exception info" == thrown.getMessage()

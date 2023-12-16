@@ -1,0 +1,5 @@
+JSONObject  jsonA
+JSONObject  jsonB
+assert jsonA == jsonB
+    # JSONObject is from:   json-lib-2.4-jenkins-3.jar
+      net.sf.json
