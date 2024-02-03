@@ -1,5 +1,6 @@
 Arrays.stream(someStringArray)
  .collect(name->name.trim())
  .max(Comparator.naturalOrder())
-       # naturalOrder() return Comparator with a static method, static method in interface seems similar to default method, but can not be override
+       # naturalOrder() return Comparator with a static method, static method in interface seems similar to default method, but can not
+         be override
        # from Jenkins groovy code

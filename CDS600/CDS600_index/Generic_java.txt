@@ -1,0 +1,4 @@
+todo:
+https://docs.oracle.com/javase/tutorial/java/generics/types.html
+https://www.baeldung.com/java-generics
+https://www.geeksforgeeks.org/generics-in-java/

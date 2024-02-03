@@ -1,0 +1,9 @@
+If you really want to create an array rather than a list use either
+
+String[] names = ["lucas", "Fred", "Mary"]
+             # this looks more like Java
+or
+
+def names = ["lucas", "Fred", "Mary"].toArray()
+
+      # from: https://stackoverflow.com/questions/2290002/array-of-strings-in-groovy

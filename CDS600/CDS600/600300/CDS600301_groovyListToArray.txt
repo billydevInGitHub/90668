@@ -1,0 +1,10 @@
+// Convert ArrayList to array object.
+def otherArray = strList as String[]
+assert otherArray instanceof String[]
+     # from: https://wjw465150.github.io/blog/Groovy/my_data/Goodness/Base-Working%20with%20Arrays.htm
+
+def numbersArray = numbers as int[]
+assert numbersArray.class == int[]
+def namesArray = ['Raj', 'Reena', 'John'] as String[]
+assert namesArray.class == String[]
+    # from: https://blog.nareshak.com/groovy-collections-1/

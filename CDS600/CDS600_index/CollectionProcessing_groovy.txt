@@ -1,5 +1,10 @@
 === Creating
 
+array                      CDS600329           CDS600300
+                           (define Array)      (another ways
+                                                to define
+                                                array) 
+
 define ArrayList           CDS600230            CDS600237
 which is default           (ArrayList           (use constructor)
                            as default)
@@ -20,11 +25,11 @@ use range                  CDS600235
 use clone                  CDS600236
                            (use clone)
 
-Convert to
-collection
-    array to
 
-    OtherStream
+
+
+
+
 
 
 === Working with elements
@@ -32,9 +37,14 @@ collection
 add element             CDS600238              CDS600239             CDS600252
                         (add element)          (another way)         (add to empty
                                                                       List)
-set/add/update          CDS600253              CDS600255
-element                 (set empty             (update
-                         position)              element)
+
+                        CDS600319
+                        (add element
+                         using plus sign) 
+
+set/add/update          CDS600253              CDS600255            CDS600331
+element                 (set empty             (update              (new syntax
+                         position)              element)             to set element) 
 
 get element             CDS600250
                         (2 ways)
@@ -44,7 +54,7 @@ remove element          CDS600251
                          position)
 
 search element     (see below Iterate through, filter)
-
+(basic position) 
                         CDS600256           CDS600257         CDS600258
                         (indexOf            (contains         (use IN
                          element)            element)          operator)
@@ -107,9 +117,14 @@ concatenate         CDS600261
 sum                 CDS600259
                     (reduce sum)
 
-max/min             CDS600260               CDS600265               CDS600267
-                    (reduce max/min)        (reduce max             (with Comparator)
+max/min             CDS600260               CDS600265
+                    (reduce max/min)        (reduce max
                                              of first char)
+
+                     CDS600267              CDS600312
+                     (with general          (max,with costom
+                      Comparator)            Comparator)  
+
 second
 largest
 
@@ -135,14 +150,54 @@ group               CDS600272                CDS600273
 
 === Sorting and compare
 
-sorting
+sorting           CDS600306                 CDS600307
+                  (sort, original           (sort, original
+                   list sorted)              list not sorted)
 
+                  CDS600308                  CDS600309                CDS600311
+                  (sort, Comparable          (sort,object array       (sort using comparator
+                   object array)              use Comparator)          with multiple compare) 
+
+                  CDS600310                  CDS600315                CDS600316
+                  (sort object array         (advanced sorting        (combined example
+                   using sortable             by first char            with filtering
+                   annotation)                reverse order)           mapping,sorting unique)
 
 
 === batch ops
 
-collate      CDS
+merge             CDS600317             CDS600318            CDS600320
+                  (addAll of            (list add using      (list add using
+                   another list)         plus sign)           addition assignment
+                                                              operator)
+                                                              
+collate           CDS600321             CDS600322            CDS600323         CDS600325
+                  (simple collate)      (more ops            (2 steps          (collate remove
+                                         after collation)     collate)          remainder) 
+
+flatten           CDS600322
+                  (alias, simple
+                   flatten)
+
 
 === Result conversion (ex. Map convert to List)
 
-toList
+List             CDS600301
+toArray          (list to
+                  array) 
+
+Map              CDS600300
+toList           (map to
+                  list)
+
+List             CDS600305
+toLinkedList     (ArrayList to
+                  LinkedList)              
+
+List             CDS600302
+toMap            (list to
+                  map)
+
+List             CDS600303
+toSet            (list to
+                  set) 

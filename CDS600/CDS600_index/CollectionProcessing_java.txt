@@ -81,6 +81,13 @@ sorting               CDS600085            CDS600182
 
 === batch ops
 
+flatten               CDS600326
+                      (fatten ops)
+
+sublist               CDS600327                  CDS600328
+                      (remove sublist            (remove range
+                       from ArrayList)            method maybe
+                                                  better) 
 === Result conversion
 
 toList                 CDS600091

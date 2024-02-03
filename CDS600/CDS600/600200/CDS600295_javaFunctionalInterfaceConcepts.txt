@@ -1,0 +1,2 @@
+https://www.geeksforgeeks.org/functional-interfaces-java/
+    # concept is clear but examples are not very good

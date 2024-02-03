@@ -1,0 +1,9 @@
+def numbers = [1, 2, 3]
+numbers.addAll([4,5])
+println numbers // [1, 2, 3, 4, 5]
+
+def moreNumbers = [6, 7] as Integer[]
+numbers.addAll(moreNumbers)
+println numbers // [1, 2, 3, 4, 5, 6, 7]
+    # seems always add to the end
+    # from: https://blog.nareshak.com/groovy-collections-1/

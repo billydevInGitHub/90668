@@ -1,0 +1,9 @@
+if(someString!=null){
+   List<String> result = someString.split("\\r?\\n")
+                         .flatten()
+                         .findAll{it !=null && it.toString().trim() !=""}      # filtering can use closure, use {} java lambda use ()
+                         .collect{ it.toString().trim()}
+                         .sort()
+                         .unique()
+}
+          # we need combine stuff together

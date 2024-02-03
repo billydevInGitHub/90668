@@ -1,0 +1,7 @@
+// Don't include remainder in result.
+// Default a remainder is included in the result.
+boolean remainder = false
+assert letters.collate(3, remainder) == [['a', 'b', 'c'], ['d', 'e', 'f']]
+assert letters.collate(3, 2, remainder) == [['a', 'b', 'c'], ['c', 'd', 'e'], ['e', 'f', 'g']]
+         # result look neat
+         # from: https://blog.mrhaki.com/2012/04/groovy-goodness-collate-list-into-sub.html

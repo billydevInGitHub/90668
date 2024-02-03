@@ -1,0 +1,4 @@
+def strArray = new String[3]
+assert strArray instanceof String[]
+
+    # from: https://wjw465150.github.io/blog/Groovy/my_data/Goodness/Base-Working%20with%20Arrays.htm

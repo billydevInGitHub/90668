@@ -1,0 +1,17 @@
+def numbers = 1..10
+
+def batches = numbers.collate(3)
+println batches
+// [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]
+       # CDS600321 has done this
+
+def doubledBatch = batches.collect { it.collect { it * 2}}
+println doubledBatch
+// [[2, 4, 6], [8, 10, 12], [14, 16, 18], [20]]
+     # can do mapping on top of collation
+
+def doubledNumbers = doubledBatch.flatten()
+             # seems flatten is reverse of collation
+println doubledNumbers
+// [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+         # from: https://blog.nareshak.com/groovy-collections-2/

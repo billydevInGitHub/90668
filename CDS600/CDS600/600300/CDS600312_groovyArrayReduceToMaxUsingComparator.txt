@@ -1,0 +1,10 @@
+def strList = ["na", "ppp", "as"]
+assertTrue(strList.max() == "ppp")
+              # by default
+
+Comparator minc = {a,b -> a == b? 0: a < b? -1 : 1}
+def numberList = [3, 2, 0, 7]
+assertTrue(numberList.min(minc) == 0)
+        # use custom comparator
+
+        # from: https://www.baeldung.com/groovy-lists

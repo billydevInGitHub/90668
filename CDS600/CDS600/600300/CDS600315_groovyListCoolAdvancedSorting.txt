@@ -1,0 +1,7 @@
+INPUT_LIST.sort(false){(it as String).charAt(0)}.reverse(false)
+      # Here’s the Groovy version of sorting a List of Strings according to the first characters of each String in reverse order:
+      # The two boolean parameters with value false will make sure sorting is executed on a copy of the list, not on the original.
+
+      # At the moment, #sort(…) breaks type inference, thus it must be casted to String explicitly. This is a known bug.
+
+     # from: https://wjw465150.github.io/blog/Groovy/my_data/Java8/Java_8_lambdas_vs._Groovy_closures_(part_2_of_2).htm

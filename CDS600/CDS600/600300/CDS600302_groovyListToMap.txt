@@ -1,0 +1,20 @@
+class Employee{
+	String employeeNumber
+	String name
+}
+
+def employees = [
+	new Employee(employeeNumber: '101', name: 'Raj'),
+	new Employee(employeeNumber: '102', name: 'Reema'),
+	new Employee(employeeNumber: '103', name: 'Anil')
+]
+
+def employeeByNumber = employees.collectEntries {
+	[it.employeeNumber, it]
+}
+println employeeByNumber
+// [101:Employee@6e20b53a, 102:Employee@71809907, 103:Employee@3ce1e309]
+println employeeByNumber."102".name
+// Reema
+      # collectEntries can convert List to Map
+      # from: https://blog.nareshak.com/groovy-collections-2/

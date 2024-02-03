@@ -1,0 +1,6 @@
+Comparator mc = {a,b -> a == b? 0: a < b? 1 : -1}
+        # this comparator looks cool
+def list = [1,2,1,0]
+list.sort(mc)
+assertTrue(list == [2,1,1,0])
+     # from: https://www.baeldung.com/groovy-lists

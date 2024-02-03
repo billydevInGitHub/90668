@@ -1,0 +1,5 @@
+1 When JDK upgrade, junit can find code difference in source code level
+
+2 review and optimize code
+
+3 keep core business logic, good for refactoring

@@ -1,0 +1,19 @@
+def strArray = new String[3]
+assert strArray instanceof String[]
+strArray[0] = 'mrhaki'
+strArray.putAt(1, 'Groovy')  // New syntax.
+                        # this is the new way
+strArray[2] = 'Java'
+
+assert 'mrhaki' == strArray.getAt(0)  // Just another way to get a value.
+assert 'Groovy' == strArray[1]
+assert 'Java' == strArray[-1]  // Negative indeces allowed.
+                             # cool !!!
+
+assert ['mrhaki', 'Groovy'] == strArray[0..1]  // We can use ranges.
+                             # range looks cool
+assert ['mrhaki', 'Java'] == strArray[0, 2]
+                            # this  even not have explanation
+assert 3 == strArray.length  // Normal length property for arrays.
+assert 3 == strArray.size()  // Groovy adds size() method as well.
+       #from: https://wjw465150.github.io/blog/Groovy/my_data/Goodness/Base-Working%20with%20Arrays.htm

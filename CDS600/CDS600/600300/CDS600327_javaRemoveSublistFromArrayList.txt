@@ -1,0 +1,31 @@
+import java.util.ArrayList;
+public class RemovingSubList {
+   public static void main(String[] args){
+      //Instantiating an ArrayList object
+      ArrayList<String> list = new ArrayList<String>();
+      list.add("JavaFX");
+      list.add("Java");
+      list.add("WebGL");
+      list.add("OpenCV");
+      list.add("OpenNLP");
+      list.add("JOGL");
+      list.add("Hadoop");
+      list.add("HBase");
+      list.add("Flume");
+      list.add("Mahout");
+      list.add("Impala");
+      System.out.println("Contents of the Array List: \n"+list);
+      //Removing the sub list
+      list.subList(4, 9).clear();
+            # might need do a test, seems clean happens in the original list
+      System.out.println("Contents of the Array List after removing the sub list: \n"+list);
+   }
+}
+
+Output
+Contents of the Array List:
+[JavaFX, Java, WebGL, OpenCV, OpenNLP, JOGL, Hadoop, HBase, Flume, Mahout, Impala]
+Contents of the Array List after removing the sub list:
+[JavaFX, Java, WebGL, OpenCV, Mahout, Impala]
+
+      # from: https://www.tutorialspoint.com/how-to-remove-a-sublist-from-an-arraylist-in-java

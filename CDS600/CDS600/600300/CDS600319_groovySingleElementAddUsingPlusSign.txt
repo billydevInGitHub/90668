@@ -1,0 +1,6 @@
+def original = [1, 2, 3]
+def newList = original + 4
+println newList // [1, 2, 3, 4]
+println original // [1, 2, 3]
+     # Groovy also provides - operator, which can be used to create a collection with few elements removed from the original collection.
+     # from: https://blog.nareshak.com/groovy-collections-1/

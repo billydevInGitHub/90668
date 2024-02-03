@@ -1,3 +1,10 @@
+=== Advantages of JUnit
+
+good points      CDS600299
+                 (advantages
+                  of Unit test)
+
+
 === How to do Unit test
 procedure        CDS600057
 

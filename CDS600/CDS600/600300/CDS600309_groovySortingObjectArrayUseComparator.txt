@@ -1,0 +1,27 @@
+import groovy.transform.ToString
+
+@ToString
+class Person implements Comparable<Person>{
+	String name
+	int age
+
+	int compareTo(Person another){
+		name <=> another.name
+	}
+}
+
+def people = [
+	new Person(name: 'Mark', age: 30),
+	new Person(name: 'Raj', age: 25),
+	new Person(name: 'Ajay', age: 35),
+	new Person(name: 'Mark', age: 20)
+]
+
+def ageComparator = { Person one, Person another ->
+	one.age <=> another.age
+}
+println people.sort(false, ageComparator)
+// [Person(Mark, 20), Person(Raj, 25), Person(Mark, 30), Person(Ajay, 35)]
+
+      # original list should not change
+      # from: https://blog.nareshak.com/groovy-collections-2/

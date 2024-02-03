@@ -1,0 +1,7 @@
+assertTrue(list == [1, "Apple", "Box", null, true])
+def list2 = [1,2]
+list += list2
+list += 12
+assertTrue(list == [1, 6.0, "Apple", "Box", null, true, 1, 2, 12])
+
+    # from: https://www.baeldung.com/groovy-lists

@@ -1,0 +1,32 @@
+import groovy.transform.*
+
+@ToString
+@Sortable
+class Person {
+	String name
+	int age
+}
+
+def people = [
+	new Person(name: 'Mark', age: 30),
+	new Person(name: 'Raj', age: 25),
+	new Person(name: 'Ajay', age: 35),
+	new Person(name: 'Mark', age: 20)
+]
+
+println people.sort(false)
+// [Person(Ajay, 35), Person(Mark, 20), Person(Mark, 30), Person(Raj, 25)]
+
+      # If you using Groovy 2.4 or above, this can be simpler. By applying groovy.transform.Sortable annotation on the class, you get
+          Comparable implementation automatically.
+        Since we declared name first and then age, sorting will also follow that order. Had we declared age before name, the auto
+          generated comparator would consider age first and then name. You could influence the Comparable implementation by specifying
+          includes or excludes attributes with Sortable annotation.
+
+          Additionally, if you want to sort by age alone, Sortable AST generates a comparator for that as well. Since Person class has
+          name and age defined, you would get comparatorByName and comparatorByAge methods, which return comparators for fields name and
+          age respectively.
+
+          println people.sort(false, Person.comparatorByAge())
+      # original list should not change
+      # from: https://blog.nareshak.com/groovy-collections-2/

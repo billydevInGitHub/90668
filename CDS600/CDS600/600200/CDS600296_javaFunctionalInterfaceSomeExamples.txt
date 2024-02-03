@@ -1,0 +1,3 @@
+https://www.baeldung.com/java-8-functional-interfaces
+     # provide some examples as client/framework separated
+     # we should use our JWT example and put into CDS

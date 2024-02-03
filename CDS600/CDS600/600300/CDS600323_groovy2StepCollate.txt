@@ -1,0 +1,4 @@
+// Step through original list with
+// 2 steps and collate.
+assert letters.collate(3, 2) == [['a', 'b', 'c'], ['c', 'd', 'e'], ['e', 'f', 'g'], ['g']]
+     # from: https://blog.mrhaki.com/2012/04/groovy-goodness-collate-list-into-sub.html

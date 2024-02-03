@@ -1,0 +1,7 @@
+def list1 = [1, 2, 3]
+def list2 = [4, 5, 6]
+def combined = list1 + list2
+println list1
+println list2
+println combined
+      # from: https://blog.nareshak.com/groovy-collections-1/
