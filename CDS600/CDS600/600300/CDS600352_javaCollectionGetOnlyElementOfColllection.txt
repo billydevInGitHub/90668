@@ -1,0 +1,3 @@
+Iterables.getOnlyElement(xxx)
+      # I think if not only element will throw exception , yes
+      # Guava 31.0.1 has this API

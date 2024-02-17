@@ -66,13 +66,20 @@ max/min               CDS600095
                       (get max
                        value)
 
+                      CDS600339
+                      (alias,
+                       reduce with
+                       Collections
+                       tool) 
+
+
 second                 CDS600096            CDS600097
 largest               (get second          (another way
                        largest)             with no limit)
 
 inject
 
-=== Sorting and compare
+=== Sorting and compare and reverse
 
 sorting               CDS600085            CDS600182
                       (extract and         (compare by
@@ -87,7 +94,15 @@ flatten               CDS600326
 sublist               CDS600327                  CDS600328
                       (remove sublist            (remove range
                        from ArrayList)            method maybe
-                                                  better) 
+                                                  better)
+
+=== Tools and utilities
+
+                     CDS600352
+                     (get only
+                      element of
+                      Collection)                                                   
+
 === Result conversion
 
 toList                 CDS600091

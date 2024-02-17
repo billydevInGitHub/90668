@@ -1,0 +1,15 @@
+def strArray = new String[3]
+        # explicitly define as a string
+assert strArray instanceof String[]
+        # assert
+strArray[0] = 'mrhaki'
+strArray.putAt(1, 'Groovy')  // New syntax.
+        # looks like map
+strArray[2] = 'Java'
+
+
+assert 'Java' == strArray.min { it.size() }
+      # key here
+      # I think when do the reducing, not only by element "natural order" can also do some conversion first
+
+      # from: https://blog.mrhaki.com/2009/09/groovy-goodness-working-with-arrays.html#:~:text=Groovy%20supports%20arrays%20just%20like,the%20way%20we%20initialize%20arrays.

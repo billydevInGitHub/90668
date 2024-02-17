@@ -1,0 +1,210 @@
+=== Creating
+
+map                     CDS600336
+                        (create
+                         simple
+                         map) 
+
+
+
+define ArrayList
+which is default
+
+
+default Set is
+LinkedHashSet
+
+Define LinkedList
+
+
+
+define Array
+
+
+use range
+
+
+use clone
+
+
+
+
+
+
+
+
+
+=== Working with elements
+
+add element
+
+
+
+
+
+
+
+set/add/update
+element
+
+
+get element
+
+
+remove element
+
+
+
+search element
+(basic position) 
+
+
+
+
+=== Iterate through
+syntax
+
+filter
+
+
+
+
+
+
+
+mapping
+(2 ways
+ collect
+ each)
+
+
+
+
+mapping/each
+comparison
+
+
+each
+
+
+
+each with
+index
+
+
+times loop
+
+
+
+upto
+
+
+for loop
+
+
+
+for-in loop
+
+
+
+while loop
+
+do-while loop
+
+
+all types of
+loop comparison
+
+
+=== reduce and group
+
+concatenate
+
+
+sum
+
+
+max/min
+
+
+
+
+
+
+
+second
+largest
+
+inject
+
+
+
+
+
+
+
+
+
+element
+check
+
+
+
+group
+
+
+
+
+=== Sorting and compare and reverse
+
+sorting
+
+
+
+
+
+
+
+
+
+
+
+
+
+=== batch ops
+
+merge
+
+
+
+
+collate
+
+
+
+flatten
+
+
+
+
+=== Result conversion (ex. Map convert to List)
+
+List
+toArray
+
+
+Map
+toList
+
+
+List
+toLinkedList
+
+
+List
+toMap
+
+
+List
+toSet
+

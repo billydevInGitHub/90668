@@ -53,7 +53,7 @@ remove element          CDS600251
                         (remove from
                          position)
 
-search element     (see below Iterate through, filter)
+search element     (see also below Iterate through, filter)
 (basic position) 
                         CDS600256           CDS600257         CDS600258
                         (indexOf            (contains         (use IN
@@ -62,17 +62,23 @@ search element     (see below Iterate through, filter)
 === Iterate through
 syntax             CDS
 
-filter             CDS600202        CDS600206        CDS600207
-                   (find first      (can return      (use closure)
-                    element)         null)
+filter             CDS600202        CDS600206        CDS600207        CDS600335
+                   (find first      (can return      (use closure)    (find element
+                    element)         null)                             with regex) 
 
-                   CDS600203        CDS600205        CDS600208
-                   (find all        (find all        (use closure)
-                    matched)         cast to list)
+                   CDS600203        CDS600205        CDS600208        CDS600337
+                   (find all        (find all        (use closure)    (find all
+                    matched)         cast to list)                     in map array
+                                                                       use closure)
 
 mapping             CDS600130       CDS600131       CDS600132             CDS600133*    CDS600135*
-                    (all plus       (use closure    (collect              (syntax      (collection
-                     one)            to multiply)    Object collection)    sugar)       plus closure)
+(2 ways             (all plus       (use closure    (collect              (syntax      (collection
+ collect             one)            to multiply)    Object collection)    sugar)       plus closure)
+ each)
+                    CDS600332
+                    (reverse
+                     string
+                     mapping)
 
 mapping/each       CDS600226
 comparison         (mapping return
@@ -81,9 +87,10 @@ comparison         (mapping return
 each               CDS600222           CDS600228
                    (of Object          (each with
                     Array)              closure)
-each with          CDS600223
-index              (of Object
-                    Array)
+
+each with          CDS600333           CDS600223
+index              (of regular         (of Object
+                    Array)              Array)
 
 times loop         CDS600225
                    (of Object
@@ -117,14 +124,21 @@ concatenate         CDS600261
 sum                 CDS600259
                     (reduce sum)
 
-max/min             CDS600260               CDS600265
-                    (reduce max/min)        (reduce max
-                                             of first char)
+size count          CDS600351
+                    (size count) 
 
-                     CDS600267              CDS600312
-                     (with general          (max,with costom
-                      Comparator)            Comparator)  
+max/min             CDS600260               CDS600265               CDS600338
+                    (reduce max/min)        (reduce max             (reduce string
+                                             of first char)          array by size) 
 
+                    CDS600267              CDS600312
+                     (with general          (max,with custom
+                      Comparator)            Comparator)
+
+                    CDS600339
+                    (reduce with
+                     Collections
+                     tool) 
 second
 largest
 
@@ -148,7 +162,7 @@ group               CDS600272                CDS600273
                      group by)                group by
                                               2 layers)
 
-=== Sorting and compare
+=== Sorting and compare and reverse
 
 sorting           CDS600306                 CDS600307
                   (sort, original           (sort, original
@@ -158,10 +172,15 @@ sorting           CDS600306                 CDS600307
                   (sort, Comparable          (sort,object array       (sort using comparator
                    object array)              use Comparator)          with multiple compare) 
 
-                  CDS600310                  CDS600315                CDS600316
-                  (sort object array         (advanced sorting        (combined example
-                   using sortable             by first char            with filtering
-                   annotation)                reverse order)           mapping,sorting unique)
+                  CDS600310                   CDS600316
+                  (sort object array          (combined example
+                   using sortable              with filtering
+                   annotation)                 mapping,sorting unique)
+
+                   CDS600315                  CDS600350
+                   (advanced sorting          (reverse
+                    by first char              array) 
+                    reverse order)
 
 
 === batch ops

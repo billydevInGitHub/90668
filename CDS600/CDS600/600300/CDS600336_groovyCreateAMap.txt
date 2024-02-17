@@ -1,0 +1,14 @@
+def foo = [bar: 'baz']
+      # simple map
+
+def foo = [:]
+      # similar to:    Object foo = new java.util.LinkedHashMap();
+
+def emptyMap = [:]
+assert emptyMap.size() == 0
+emptyMap.foo = 5
+assert emptyMap.size() == 1
+assert emptyMap.foo == 5
+
+      # from:    https://stackoverflow.com/questions/22865107/what-does-mean-in-groovy#:~:text=%5B%3A%5D%20is%20shorthand%20notation%20for%20creating%20a%20Map.&text=%5B%3A%5D%20creates%20an%20empty%20Map.
+

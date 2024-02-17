@@ -1,0 +1,2 @@
+assert ['ikahrm', 'yvoorG', 'avaJ'] == strArray.collect { it.reverse() }
+   # from: https://blog.mrhaki.com/2009/09/groovy-goodness-working-with-arrays.html#:~:text=Groovy%20supports%20arrays%20just%20like,the%20way%20we%20initialize%20arrays.
