@@ -1,3 +1,10 @@
+=== Creating
+
+literal array               CDS600362
+to list                     (Arrays.asList
+                             to create list)
+
+
 === Creating Stream (seems all collection and map convert to stream first)
 
 Convert to
@@ -112,3 +119,4 @@ from map               (convert to
 toImmutableMap         CDS600181
 from map               (convert to
                         another Map)
+

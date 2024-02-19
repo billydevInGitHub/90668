@@ -1,3 +1,9 @@
+=== Advantages of JUnit test
+
+good points      CDS600299
+                 (alias,advantages
+                  of Unit test)
+
 === Jenkins Unit test special
 
 use mockito

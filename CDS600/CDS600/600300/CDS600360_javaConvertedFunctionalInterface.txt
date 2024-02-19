@@ -1,0 +1,13 @@
+class Test {
+    public static void main(String args[])
+    {
+
+        // lambda expression to create the object
+        new Thread(() -> {
+            System.out.println("New thread created");
+        }).start();
+                # this is actually "framework" version of code
+                    new Tread(xxx).start() is the framework, whatever lambada passed in will be executed
+    }
+}
+     # from: https://www.geeksforgeeks.org/functional-interfaces-java/   CDS600295

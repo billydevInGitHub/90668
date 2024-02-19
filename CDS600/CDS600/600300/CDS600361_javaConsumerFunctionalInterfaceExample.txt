@@ -1,0 +1,14 @@
+import java.util.function.Consumer;
+
+public class Test {
+    public static void main(String args[])
+    {
+        useConsumer(value-> System.out.println("impl:"+value));
+    }
+
+    public static void useConsumer(Consumer consumer) {
+        consumer.accept("inputValue");
+    }
+}
+     # this is "framework version" of example, so the framework already provided the value,
+       only need a consumer to process it

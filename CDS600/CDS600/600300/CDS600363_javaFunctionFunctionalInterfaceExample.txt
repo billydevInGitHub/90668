@@ -1,0 +1,23 @@
+Map<String, Integer> stringLength = new HashMap<>();
+stringLength.put("John", 5);
+assertEquals((long)stringLength.computeIfAbsent("John", s -> s.length()), 5);
+     As we can see, the key “John” has a non-null mapping present, and it returns the value 5.
+     If our mapping function was used, we’d expect the function to return the length of 4.
+
+Map<String, Integer> stringLength = new HashMap<>();
+assertEquals((long)stringLength.computeIfAbsent("John", s -> s.length()), 4);
+assertEquals((long)stringLength.get("John"), 4);
+Copy
+Since the key “John” isn’t present, it computes the value by passing the key as a parameter to the mappingFunction.
+
+   # I think this is very useful when we put things into Map and we also have a rule to calculate the map
+   # from: https://www.baeldung.com/java-map-computeifabsent
+        # see also: https://www.baeldung.com/java-8-functional-interfaces
+
+   # functional interface definition:
+        R apply(T t)
+        Applies this function to the given argument.
+        Parameters:
+        t - the function argument
+        Returns:
+        the function result

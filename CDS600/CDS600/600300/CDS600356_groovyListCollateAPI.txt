@@ -1,0 +1,13 @@
+Collates this iterable into sub-lists of length size. Example:
+
+def list = [ 1, 2, 3, 4, 5, 6, 7 ]
+def coll = list.collate( 3 )
+assert coll == [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7 ] ]
+Parameters:
+size - the length of each sub-list in the returned list
+Returns:
+a List containing the data collated into sub-lists
+Since:
+2.4.0
+      # from: https://groovy-lang.org/gdk.html
+         compared with MultiMap , collate form naturally according to the elements order

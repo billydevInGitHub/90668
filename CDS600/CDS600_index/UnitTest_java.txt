@@ -1,4 +1,4 @@
-=== Advantages of JUnit
+=== Advantages of JUnit test
 
 good points      CDS600299
                  (advantages

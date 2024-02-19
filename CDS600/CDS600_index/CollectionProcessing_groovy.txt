@@ -198,6 +198,13 @@ flatten           CDS600322
                   (alias, simple
                    flatten)
 
+=== Tools and utilities
+
+                     CDS600352
+                     (alias,get only
+                      element of
+                      Collection)
+
 
 === Result conversion (ex. Map convert to List)
 
@@ -219,4 +226,10 @@ toMap            (list to
 
 List             CDS600303
 toSet            (list to
-                  set) 
+                  set)
+
+=== Tools and utilities and Advanced data structure
+
+              CDS600356
+              (groovy list
+               collate API)

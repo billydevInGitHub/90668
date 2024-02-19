@@ -1,5 +1,10 @@
 1 When JDK upgrade, junit can find code difference in source code level
+     # because unit test went through most important code in this repo
 
 2 review and optimize code
+     # several times I found code issues
 
 3 keep core business logic, good for refactoring
+
+5 for those dynmic type languages, unit test can help catch the runtime errors
+    # see CDS600358,  errors of dynamic typing might happen in runtime ( compile time can not find the errors)

@@ -193,9 +193,9 @@ List
 toArray
 
 
-Map
-toList
-
+Map              CDS600300
+toList           (alias,map to
+                  list)
 
 List
 toLinkedList
@@ -207,4 +207,9 @@ toMap
 
 List
 toSet
+
+=== Tools and utilities and Advanced data structure
+
+            CDS600353
+            (guava MultiMap
 

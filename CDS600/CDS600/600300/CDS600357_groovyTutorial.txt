@@ -1,0 +1,16 @@
+https://www.tutorialspoint.com/groovy/groovy_overview.htm
+      #  list groovy features:
+         Support for both static and dynamic typing.
+                # see CDS600358
+         Support for operator overloading.
+                # can collect more examples including my using of "+"
+         Native syntax for lists and associative arrays.
+                # why not map
+         Native support for regular expressions.
+         Native support for various markup languages such as XML and HTML.
+         Groovy is simple for Java developers since the syntax for Java and Groovy are very similar.
+                # groovy is extension of java, that means java source code is "valid" in groovy
+                        so groovy has more "syntax" than java
+         You can use existing Java libraries.
+                # I think they both compiled to byte code, in byte code level they are the same
+         Groovy extends the java.lang.Object.

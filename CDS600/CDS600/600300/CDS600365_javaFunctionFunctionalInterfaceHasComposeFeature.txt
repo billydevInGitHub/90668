@@ -1,0 +1,15 @@
+The Function interface also has a default compose method that allows us to combine several functions into one and execute them sequentially:
+
+Function<Integer, String> intToString = Object::toString;
+          # this way to take lambda out cool
+Function<String, String> quote = s -> "'" + s + "'";
+
+Function<Integer, String> quoteIntToString = quote.compose(intToString);
+          # compose is a "default" method so it applies to instance
+          # mainly feature is to compose 2 lambda together
+
+assertEquals("'5'", quoteIntToString.apply(5));
+          # here we can see "the framework" call the functional interface
+The quoteIntToString function is a combination of the quote function applied to a result of the intToString function.
+
+     # from:  https://www.baeldung.com/java-8-functional-interfaces

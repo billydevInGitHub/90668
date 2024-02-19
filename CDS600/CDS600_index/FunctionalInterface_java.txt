@@ -1,3 +1,27 @@
 === Concept
-       CDS600295         CDS600296             CDS600297
-       (concepts)        (a bit examples)      (good tips)
+                                CDS600295         CDS600296             CDS600297
+                                (concepts)        (a bit examples)      (good tips)
+
+
+===examples
+
+original interface             CDS600360        (need more examples of Comparable, ActionListener, Callable examples here ) 
+converted to                   (runnable
+func interface                  functional
+                                interface) 
+
+four main kinds of
+func interface
+    -consumer                   CDS600361
+                                (consumer
+                                 functional
+                                 interface)
+
+    -predicate                  CDS600362
+                                (predicate
+                                 example)
+
+    -function                   CDS600363              CDS600365
+                                (function              (function
+                                 example)               func interface
+                                                        compose) 

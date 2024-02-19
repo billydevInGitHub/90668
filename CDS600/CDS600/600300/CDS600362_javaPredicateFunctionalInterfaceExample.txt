@@ -1,0 +1,15 @@
+List<String> names = Arrays.asList("Angela", "Aaron", "Bob", "Claire", "David");
+
+List<String> namesWithA = names.stream()
+  .filter(name -> name.startsWith("A"))
+  .collect(Collectors.toList());
+
+        # again this is framework version, the filter and collect is the framework
+          implementation, the filter provide something like an element, need a result ^_^
+          so here we can not see the interface method was called because we did not
+          provide the part that framework call the functional interface
+
+        # interface definition:
+            boolean test(T t)
+               # so it accepts an element and gives the result
+                 we can only see the test method called when framework call interface !!

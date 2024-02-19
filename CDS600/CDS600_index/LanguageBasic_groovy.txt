@@ -1,0 +1,16 @@
+=== documentation
+
+general             CDS600355
+                    (groovy API
+                     Doc)
+
+tutorial            CDS600357                   CDS600359
+                    (groovy tutorial            (groovy official
+                     from tutorial               doc)
+                     point)
+
+=== overview
+                    CDS600358
+                    (dynamic
+                     typing)
+
