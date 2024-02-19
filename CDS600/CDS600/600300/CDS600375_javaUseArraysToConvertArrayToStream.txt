@@ -1,0 +1,6 @@
+public static <T, G> List<G> fromArrayToList(T[] a, Function<T, G> mapperFunction) {
+    return Arrays.stream(a)
+      .map(mapperFunction)
+      .collect(Collectors.toList());
+}
+    # use tool Arrays.stream do the convertion

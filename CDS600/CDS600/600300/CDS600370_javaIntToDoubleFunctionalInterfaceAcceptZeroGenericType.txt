@@ -1,0 +1,4 @@
+@FunctionalInterface
+public interface IntToDoubleFunction
+
+       # this is from API, we can see no generic type accepted

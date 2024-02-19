@@ -208,6 +208,8 @@ flatten           CDS600322
 
 === Result conversion (ex. Map convert to List)
 
+
+
 List             CDS600301
 toArray          (list to
                   array) 

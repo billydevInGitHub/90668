@@ -1,0 +1,24 @@
+@FunctionalInterface
+public interface ShortToByteFunction {
+    byte applyAsByte(short s);
+         # so no generic defined in interface
+}
+
+public byte[] transformArray(short[] array, ShortToByteFunction function) {
+    byte[] transformedArray = new byte[array.length];
+    for (int i = 0; i < array.length; i++) {
+        transformedArray[i] = function.applyAsByte(array[i]);
+    }
+    return transformedArray;
+}
+       # this is the "framework" method where we can see the interface method is called !!
+
+short[] array = {(short) 1, (short) 2, (short) 3};
+byte[] transformedArray = transformArray(array, s -> (byte) (s * 2));
+                                 # see the "callback" implementation, return type is primitive and input is primitive
+
+byte[] expectedArray = {(byte) 2, (byte) 4, (byte) 6};
+assertArrayEquals(expectedArray, transformedArray);
+      # this is where "framework" method is called and "callback" lambda is provided
+
+      # from: https://www.baeldung.com/java-8-functional-interfaces

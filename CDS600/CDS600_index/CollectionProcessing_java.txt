@@ -9,9 +9,9 @@ to list                     (Arrays.asList
 
 Convert to
 Stream
-    array to      CDS600075
-    stream        (File[] to
-                   stream)
+    array to      CDS600075                 CDS600375
+    stream        (File[] to                (Arrays.stream()
+                   stream)                   to convert)
 
     map to        CDS600180
     stream        (map entrySet
@@ -111,6 +111,10 @@ sublist               CDS600327                  CDS600328
                       Collection)                                                   
 
 === Result conversion
+
+stream to              CDS600381
+List                   (stream to
+                        List)
 
 toList                 CDS600091
 from map               (convert to

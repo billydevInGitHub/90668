@@ -1,0 +1,15 @@
+public <T extends Number> List<T> fromArrayToList(T[] a) {
+          # seems the parameter type can be defined in the beg
+
+
+
+    ...
+}
+
+    # from: https://www.baeldung.com/java-generics
+
+       but in java API, there is :
+         <R> Stream<R> map(Function<? super T,? extends R> mapper)
+                  # seems parameter type can also accept generic type　
+
+

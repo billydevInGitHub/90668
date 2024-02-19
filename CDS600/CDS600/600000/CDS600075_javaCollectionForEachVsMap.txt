@@ -2,7 +2,7 @@
         Set<Path> collectionMap = new HashSet<>();
 
 
-        Stream.of(Paths.get("/Users/billy/billydev231026/60000").toFile().listFiles())
+        Stream.of(Paths.get("/Users/billy/billydev231026/60000").toFile().listFiles())    # use Stream.of to do the conversion
                 .filter(file -> file.getName().matches(".*"))
                 .forEach(it -> collectionForEach.add(it.toPath()));
 

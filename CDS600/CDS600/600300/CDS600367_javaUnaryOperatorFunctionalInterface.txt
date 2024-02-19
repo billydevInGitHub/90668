@@ -1,0 +1,22 @@
+public class GFG {
+    public static void main(String args[])
+    {
+
+        // Instantiate the UnaryOperator interface
+        UnaryOperator<Boolean>
+            op = UnaryOperator.identity();
+
+        // Apply identify() method
+        System.out.println(op.apply(true));
+    }
+}
+Output:
+true
+This method returns a UnaryOperator which takes in one value and returns it. The returned UnaryOperator does not perform any operation on
+    its only value. Syntax:
+static  UnaryOperator identity()
+           # this is the extra method for unary operator interface
+Parameters: This method does not take in any parameter. Returns: A UnaryOperator which takes in one value and returns it.
+           # interesting thing is : its return is a functional interface , similar to andThen and compose
+                      # still need a bit more time to understand the usage of those methods
+        # from: https://www.geeksforgeeks.org/unaryoperator-interface-in-java/

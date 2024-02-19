@@ -1,0 +1,19 @@
+Map<String, Integer> salaries = new HashMap<>();
+salaries.put("John", 40000);
+salaries.put("Freddy", 30000);
+salaries.put("Samuel", 50000);
+
+salaries.replaceAll((name, oldValue) ->
+  name.equals("Freddy") ? oldValue : oldValue + 10000);
+
+      # good to know map has this method
+        Api:
+           default void replaceAll(BiFunction<? super K,? super V,? extends V> function)
+                          # the actual method has generic format, input is super of sth, output is extend sth
+                              need a bit more undertanding of this "super" stuff
+               The default implementation is equivalent to, for this map:
+
+                for (Map.Entry<K, V> entry : map.entrySet())
+                    entry.setValue(function.apply(entry.getKey(), entry.getValue()));
+                          # here we see how "framework call the functional api"
+      # from: https://www.baeldung.com/java-8-functional-interfaces

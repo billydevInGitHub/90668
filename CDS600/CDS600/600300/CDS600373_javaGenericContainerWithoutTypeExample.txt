@@ -1,0 +1,4 @@
+List list = new LinkedList();
+list.add(new Integer(1));
+Integer i = list.iterator().next();
+     # complain in last line as the List container does not have a type 

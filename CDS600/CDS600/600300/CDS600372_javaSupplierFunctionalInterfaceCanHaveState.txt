@@ -1,0 +1,19 @@
+Another use case for the Supplier is defining logic for sequence generation. To demonstrate it, let’s use a static Stream.generate method to create a Stream of Fibonacci numbers:
+
+int[] fibs = {0, 1};
+Stream<Integer> fibonacci = Stream.generate(() -> {
+    int result = fibs[1];
+    int fib3 = fibs[0] + fibs[1];
+    fibs[0] = fibs[1];
+    fibs[1] = fib3;
+    return result;
+});
+Copy
+The function that we pass to the Stream.generate method implements the Supplier functional interface. Notice that to be useful as a
+generator, the Supplier usually needs some sort of external state. In this case, its state comprises the last two Fibonacci sequence
+numbers.
+
+To implement this state, we use an array instead of a couple of variables because all external variables used inside the lambda have
+to be effectively final.
+     # use array instead of variable, very intereting
+     # from: https://www.baeldung.com/java-8-functional-interfaces

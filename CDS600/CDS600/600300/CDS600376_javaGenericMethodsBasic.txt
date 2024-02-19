@@ -1,0 +1,41 @@
+public <T> List<T> fromArrayToList(T[] a) {
+    return Arrays.stream(a).collect(Collectors.toList());
+}
+   # <T> is the generic type, this is needed even the method return void
+       I think <T> is not for the return, but for the definition of the method
+
+public static <T, G> List<G> fromArrayToList(T[] a, Function<T, G> mapperFunction) {
+           # <T,G> is type parameters before the return type of the method declaration
+                can have different type parameters separated by ","
+           # type parameters can be bounded
+    return Arrays.stream(a)
+      .map(mapperFunction)
+                 # the framework keep passing the functional interface to next level
+                 # check Map api doc:
+                     <R> Stream<R> map(Function<? super T,? extends R> mapper)
+                         # I guess anything extends happened probably will be put into a container of type R
+                                 or will call a method of type R
+                           I guess anything super T might construct a type T container to accommodate any T type
+                                 or T's subclasses
+      .collect(Collectors.toList());
+           # method body is just normal
+}
+ We’re passing a function that converts an array with the elements of type T to list with elements of type G.
+
+
+An example would be to convert Integer to its String representation:
+
+@Test
+public void givenArrayOfIntegers_thanListOfStringReturnedOK() {
+    Integer[] intArray = {1, 2, 3, 4, 5};
+    List<String> stringList
+      = Generics.fromArrayToList(intArray, Object::toString);
+
+    assertThat(stringList, hasItems("1", "2", "3", "4", "5"));
+}
+Note that Oracle recommendation is to use an uppercase letter to represent a generic type and to choose a more descriptive letter to
+     represent formal types. In Java Collections, we use T for type, K for key and V for value.
+
+
+
+     # from: https://www.baeldung.com/java-generics

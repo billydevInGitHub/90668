@@ -1,0 +1,19 @@
+The Supplier functional interface is yet another Function specialization that does not take any arguments. We typically use it for lazy generation of values. For instance, let’s define a function that squares a double value. It will not receive a value itself, but a Supplier of this value:
+
+public double squareLazy(Supplier<Double> lazyValue) {
+    return Math.pow(lazyValue.get(), 2);
+                # "framework" need the value, implementation supply it
+}
+Copy
+This allows us to lazily generate the argument for invocation of this function using a Supplier implementation. This can be useful if the generation of the argument takes a considerable amount of time. We’ll simulate that using Guava’s sleepUninterruptibly method:
+
+Supplier<Double> lazyValue = () -> {
+    Uninterruptibles.sleepUninterruptibly(1000, TimeUnit.MILLISECONDS);
+    return 9d;
+};
+
+Double valueSquared = squareLazy(lazyValue);
+        # lazy looks interesting, it means it is possible now to do the lazy load
+              because we can intercept the implementation of the supplier
+
+       # from: https://www.baeldung.com/java-8-functional-interfaces

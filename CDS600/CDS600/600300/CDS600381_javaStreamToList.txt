@@ -1,0 +1,5 @@
+
+List<String> result = Stream.of(Locale.getISOCountries()).collect(Collectors.toList());
+
+
+    # from: https://www.baeldung.com/java-stream-to-list-collecting

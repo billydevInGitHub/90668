@@ -2,3 +2,39 @@ todo:
 https://docs.oracle.com/javase/tutorial/java/generics/types.html
 https://www.baeldung.com/java-generics
 https://www.geeksforgeeks.org/generics-in-java/
+     # list some advantages of generic stuff
+
+
+=== need of generic (scenario where generic is needed)
+
+                CDS600373
+                (container
+                 without
+                 type)
+
+=== Generic methods
+
+                CDS600376
+                (basic of
+                 generic
+                 methods)
+
+=== Bounded generics
+
+                CDS600377
+                (upper bound
+                 type）
+
+                CDS600378
+                (multiple
+                 bound)
+
+=== Wild card in generics
+
+                CDS600379
+                (problem to
+                 solve)
+
+=== Type eraser
+                CDS600380
+                (type eraser)

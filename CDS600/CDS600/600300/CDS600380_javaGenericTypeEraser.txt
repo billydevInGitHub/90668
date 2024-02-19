@@ -1,0 +1,25 @@
+Generics were added to Java to ensure type safety. And to ensure that generics won’t cause overhead at runtime, the compiler
+applies a process called type erasure on generics at compile time.
+        # I think generic is just compile time stuff (to make sure type safe in compile time), it should never reached runtime
+
+Type erasure removes all type parameters and replaces them with their bounds or with Object if the type parameter is unbounded.
+This way, the bytecode after compilation contains only normal classes, interfaces and methods, ensuring that no new types are
+produced. Proper casting is applied as well to the Object type at compile time.
+      #
+
+examples:
+public <T> List<T> genericMethod(List<T> list) {
+    return list.stream().collect(Collectors.toList());
+}
+
+With type erasure, the unbounded type T is replaced with Object:
+
+// for illustration
+public List<Object> withErasure(List<Object> list) {
+    return list.stream().collect(Collectors.toList());
+}
+
+// which in practice results in
+public List withErasure(List list) {
+    return list.stream().collect(Collectors.toList());
+}

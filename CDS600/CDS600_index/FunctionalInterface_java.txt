@@ -24,4 +24,23 @@ func interface
     -function                   CDS600363              CDS600365
                                 (function              (function
                                  example)               func interface
-                                                        compose) 
+                                                        compose)
+
+    -bi-function                CDS600366
+                                (bi-function
+                                 example)
+
+    -unary operator             CDS600367
+                                (unary operator
+                                 example)
+                                 
+    -binary operator            (to be added)
+
+    -primitive function         CDS600368                   CDS600369                       CDS600370
+     specializations            (short to                   (IntFunction                    (IntToDoubleFunction
+                                 byte primitive              only accept                     accept zero generic
+                                 function)                   one generic type)               type)
+
+    -Supplier                   CDS600371                   CDS600372
+                                (supplier                   (supplier implementation
+                                 example)                    can have state) 
