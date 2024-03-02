@@ -1,0 +1,12 @@
+For example, take this code:
+
+if (!map.containsKey(key))
+   return map.put(key, value);
+else
+   return map.get(key);
+In a multi-thread environment, this is a race condition. You have to use the ConcurrentHashMap.putIfAbsent(K key, V value)
+   and pay attention to the return value, which tells you if the put operation was successful or not. Read the docs for
+   more details.
+
+
+       # from: https://stackoverflow.com/questions/14947723/is-concurrenthashmap-totally-safe

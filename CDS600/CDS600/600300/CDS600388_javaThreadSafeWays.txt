@@ -1,0 +1,1 @@
+https://www.baeldung.com/java-thread-safety#:~:text=Unlike%20their%20synchronized%20counterparts%2C%20concurrent,Map%20at%20the%20same%20time.

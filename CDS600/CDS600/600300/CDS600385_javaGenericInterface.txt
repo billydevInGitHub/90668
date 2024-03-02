@@ -1,0 +1,13 @@
+
+public  interface   InterfaceB <T extends DTOInterface> {
+    public Object methodName (T dto);
+}
+
+
+public class ImplementationB implements InterfaceB<DTOImplementation> {
+    public Object methodName(DTOImplementation dto) {
+        return null;
+        }
+}
+     # the following link also gives an example which does not meet the geneeric interface requirements
+     # from: https://stackoverflow.com/questions/19179984/java-generics-generic-parameter-defined-at-method-level-vs-interface-level

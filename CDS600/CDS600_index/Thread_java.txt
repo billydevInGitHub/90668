@@ -1,0 +1,44 @@
+=== thread generation and management
+
+Executor framework      CDS600390
+create                  (overall executor
+                         frameworks)
+
+                        CDS600391
+                        (single thread
+                         executor)
+
+Use of executor         CDS600392
+framework               (assign runnable
+                         task to Executor)
+
+                        CDS600393                  CDS600395             CDS600396
+                        (assign callable           (invoke any of        (invoke all of
+                         task to Executor)          callable list)        callable list)
+
+shutdown executor
+
+
+
+=== thread safe
+                 CDS600388
+                 (java thread
+                  safe ways)
+
+                 (need list thread unsafe scenarios)
+
+
+=== non-blocking synchronization
+
+CAS              CDS600387                 CDS600389
+                 (CAS in concurrent        (disadvantage
+                  hashmap)                  of locks)
+
+
+
+=== AQS and locks
+
+
+
+
+=== Mutex and sync

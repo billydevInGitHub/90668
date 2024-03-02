@@ -1,0 +1,11 @@
+ExecutorService executor = Executors.newSingleThreadExecutor();
+      # from: https://www.geeksforgeeks.org/what-is-java-executor-framework/
+
+
+      #   public static ExecutorService newSingleThreadExecutor() {
+              return new FinalizableDelegatedExecutorService
+                  (new ThreadPoolExecutor(1, 1,
+                                          0L, TimeUnit.MILLISECONDS,
+                                          new LinkedBlockingQueue<Runnable>()));
+          }
+          # from: https://github.com/openjdk-mirror/jdk7u-jdk/blob/master/src/share/classes/java/util/concurrent/Executors.java#L133

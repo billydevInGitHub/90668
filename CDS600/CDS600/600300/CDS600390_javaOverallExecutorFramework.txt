@@ -1,0 +1,11 @@
+SingleThreadExecutor
+FixedThreadPool(n)+
+CachedThreadPool
+ScheduledExecutor
+
+
+      # from: https://www.geeksforgeeks.org/what-is-java-executor-framework/
+
+
+      todo: https://stackoverflow.com/questions/3281269/why-is-there-no-scheduled-cached-thread-pool-provided-by-the-java-executors-clas
+                # consider those feature of the pool

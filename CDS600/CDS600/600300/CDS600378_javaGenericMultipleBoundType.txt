@@ -3,7 +3,5 @@ A type can also have multiple upper bounds:
 <T extends Number & Comparable>
 If one of the types that are extended by T is a class (e.g. Number), we have to put it first in the list of bounds.
       # class first then interface
-
-
-Otherwise, it will cause a compile-time error.
+        Otherwise, it will cause a compile-time error.
      # from:https://www.baeldung.com/java-generics

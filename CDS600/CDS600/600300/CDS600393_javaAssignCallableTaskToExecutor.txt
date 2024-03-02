@@ -1,0 +1,9 @@
+Callable<String> callableTask = () -> {
+    TimeUnit.MILLISECONDS.sleep(300);
+    return "Task's execution";
+};
+
+
+executorService.execute(runnableTask);
+   # return a Future type
+   # from: https://www.baeldung.com/java-executor-service-tutorial

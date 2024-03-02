@@ -1,0 +1,11 @@
+List<Callable<String>> callableTasks = new ArrayList<>();
+callableTasks.add(callableTask);
+callableTasks.add(callableTask);
+callableTasks.add(callableTask);
+
+String result = executorService.invokeAny(callableTasks);
+   # invokeAny() assigns a collection of tasks to an ExecutorService, causing each to run, and returns the result of
+     a successful execution of one task (if there was a successful execution):
+          # it return the concrete type, not a Future
+
+   # from: https://www.baeldung.com/java-executor-service-tutorial

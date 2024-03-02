@@ -1,9 +1,13 @@
 todo:
 https://docs.oracle.com/javase/tutorial/java/generics/types.html
-https://www.baeldung.com/java-generics
+https://www.baeldung.com/java-generics    CDS600382
 https://www.geeksforgeeks.org/generics-in-java/
      # list some advantages of generic stuff
 
+=== documents
+               CDS600382
+               (baeldung
+                general)
 
 === need of generic (scenario where generic is needed)
 
@@ -11,6 +15,16 @@ https://www.geeksforgeeks.org/generics-in-java/
                 (container
                  without
                  type)
+
+=== Generic class
+                CDS600386
+                (generic
+                 class)
+
+=== Generic interface
+                CDS600385
+                (generic
+                 interface)
 
 === Generic methods
 
@@ -38,3 +52,5 @@ https://www.geeksforgeeks.org/generics-in-java/
 === Type eraser
                 CDS600380
                 (type eraser)
+
+=== Primitive data type

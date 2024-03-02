@@ -1,0 +1,8 @@
+List<Callable<String>> callableTasks = new ArrayList<>();
+callableTasks.add(callableTask);
+callableTasks.add(callableTask);
+callableTasks.add(callableTask);
+
+List<Future<String>> futures = executorService.invokeAll(callableTasks);
+   # return list of Future
+   # from: https://www.baeldung.com/java-executor-service-tutorial

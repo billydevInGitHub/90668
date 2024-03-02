@@ -111,6 +111,9 @@ sublist               CDS600327                  CDS600328
                       Collection)                                                   
 
 === Result conversion
+array to               CDS600376
+List                   (alias, array
+                        to List)
 
 stream to              CDS600381
 List                   (stream to
