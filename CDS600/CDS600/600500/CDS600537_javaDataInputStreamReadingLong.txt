@@ -1,0 +1,5 @@
+new DataInputStream(
+    new BufferedInputStream(
+        new FileInputStream(new File(input_file))))
+
+         # from: https://stackoverflow.com/questions/5599616/reading-a-binary-file-in-java

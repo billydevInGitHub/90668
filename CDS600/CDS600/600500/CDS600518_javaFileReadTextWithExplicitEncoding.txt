@@ -1,0 +1,24 @@
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ReadFile_FileReader_Read_Encoding {
+  public static void main(String [] pArgs) throws IOException {
+    String fileName = "c:\\temp\\sample-10KB.txt";
+    FileInputStream fileInputStream = new FileInputStream(fileName);
+                              # so far only support binary
+    //specify UTF-8 encoding explicitly
+    try (InputStreamReader inputStreamReader =
+      new InputStreamReader(fileInputStream, "UTF-8")) {
+                              # now able to read chars
+      int singleCharInt;
+      char singleChar;
+      while((singleCharInt = inputStreamReader.read()) != -1) {
+        singleChar = (char) singleCharInt;
+                              # read char always use int, then cast to char
+        System.out.print(singleChar); //display one character at a time
+      }
+    }
+  }
+}
+        # from: https://funnelgarden.com/java_read_file/

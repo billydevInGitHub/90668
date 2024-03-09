@@ -1,0 +1,13 @@
+@Test
+void whenWritingToTextFileUsingPrintWriterPrintln_thenTextMatches() throws IOException {
+    String result = "I'm going to Alabama\nAlabama is a state in the US\n";
+    try (PrintWriter pw = new PrintWriter("alabama.txt");) {
+        pw.println("I'm going to Alabama");
+        pw.println("Alabama is a state in the US");
+    }
+    Path path = Paths.get("alabama.txt");
+    String actualData = new String(Files.readAllBytes(path));
+    assertEquals(result, actualData);
+}
+        # println can not write formatted text
+        # from： https://www.baeldung.com/java-printwriter-filewriter-difference#:~:text=The%20primary%20purpose%20of%20a,to%20a%20file%20or%20console.

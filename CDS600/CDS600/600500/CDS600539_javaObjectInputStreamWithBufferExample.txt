@@ -1,0 +1,29 @@
+import java.io.*;
+
+class Main {
+    public static void main (String[] args) throws IOException {
+
+        String fileName="out.bin";
+        BufferedOutputStream bufferedOutputStream=new BufferedOutputStream(new FileOutputStream(fileName));
+        bufferedOutputStream.write(2000);
+        bufferedOutputStream.write(3000);
+        bufferedOutputStream.write(4000);
+        bufferedOutputStream.close();
+        System.out.println("Done Writing");
+        BufferedInputStream bufferedInputStream=new BufferedInputStream(new FileInputStream(fileName));
+        System.out.println(bufferedInputStream.read());
+        System.out.println(bufferedInputStream.read());
+        System.out.println(bufferedInputStream.read());
+        System.out.println("Done Reading");
+        bufferedOutputStream.close();
+
+    }
+}
+Output:
+
+Done Writing
+208
+184
+160
+Done Reading
+        # from: https://www.codersarts.com/post/java-read-write-binary-files

@@ -1,0 +1,21 @@
+@Test
+public void givenWritingToFile_whenUsingDataOutputStream_thenCorrect()
+  throws IOException {
+    String value = "Hello";
+    FileOutputStream fos = new FileOutputStream(fileName);
+    DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
+    outStream.writeUTF(value);
+            # support other data types, writeInt(int v)--4 bytes
+    outStream.close();
+
+    // verify the results
+    String result;
+    FileInputStream fis = new FileInputStream(fileName);
+    DataInputStream reader = new DataInputStream(fis);
+    result = reader.readUTF();
+    reader.close();
+
+    assertEquals(value, result);
+}
+
+        # from: https://www.baeldung.com/java-write-to-file

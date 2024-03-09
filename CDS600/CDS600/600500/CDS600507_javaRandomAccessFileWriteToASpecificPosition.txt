@@ -1,0 +1,10 @@
+private void writeToPosition(String filename, int data, long position)
+  throws IOException {
+    RandomAccessFile writer = new RandomAccessFile(filename, "rw");
+    writer.seek(position);
+    writer.writeInt(data);
+    writer.close();
+}
+      # RandomAccessFile enables us to write at a specific position in the file given the offset — from the beginning of the file — in bytes.
+            # so it is binary operation
+      #from:  https://www.baeldung.com/java-write-to-file

@@ -1,0 +1,15 @@
+@Test
+void whenWritingToTextFileUsingPrintWriterPrintf_thenTextMatches() throws IOException {
+    String result = "Dreams from My Father by Barack Obama";
+    File file = new File("dream.txt");
+    try (PrintWriter pw = new PrintWriter(file);) {
+        String author = "Barack Obama";
+        pw.printf("Dreams from My Father by %s", author);
+        assertTrue(!pw.checkError());
+    }
+    try (BufferedReader reader = new BufferedReader(new FileReader(file));) {
+        String actualData = reader.readLine();
+        assertEquals(result, actualData);
+    }
+}
+        # from： https://www.baeldung.com/java-printwriter-filewriter-difference#:~:text=The%20primary%20purpose%20of%20a,to%20a%20file%20or%20console.

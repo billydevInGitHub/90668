@@ -1,0 +1,19 @@
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+
+public class ReadFile_Files_ReadAllBytes {
+  public static void main(String [] pArgs) throws IOException {
+    String fileName = "c:\\temp\\sample-10KB.txt";
+    File file = new File(fileName);
+
+    byte [] fileBytes = Files.readAllBytes(file.toPath());
+    char singleChar;
+    for(byte b : fileBytes) {
+      singleChar = (char) b;
+                  # I think as input is txt file, this cast makes some sense
+      System.out.print(singleChar);
+    }
+  }
+}
+         #  from: https://funnelgarden.com/java_read_file/

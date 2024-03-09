@@ -1,0 +1,13 @@
+@Test
+public void whenWriteToTmpFile_thenCorrect() throws IOException {
+    String toWrite = "Hello";
+    File tmpFile = File.createTempFile("test", ".tmp");
+    FileWriter writer = new FileWriter(tmpFile);
+    writer.write(toWrite);
+    writer.close();
+
+    BufferedReader reader = new BufferedReader(new FileReader(tmpFile));
+    assertEquals(toWrite, reader.readLine());
+    reader.close();
+}
+        # from: https://www.baeldung.com/java-write-to-file

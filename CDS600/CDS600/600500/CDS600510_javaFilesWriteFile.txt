@@ -1,0 +1,19 @@
+@Test
+public void givenUsingJava7_whenWritingToFile_thenCorrect()
+  throws IOException {
+    String str = "Hello";
+
+    Path path = Paths.get(fileName);
+    byte[] strToBytes = str.getBytes();
+
+    Files.write(path, strToBytes);
+
+    String read = Files.readAllLines(path).get(0);
+    assertEquals(str, read);
+}
+    #  Using the Files class, we can create, move, copy, and delete files and directories. It can also be used to read and write to a file:
+          # I think this is a convenient way or tool to do File related operations
+          # I think it should use default encoding, so actually it is both bytes and text writing
+    #  Use Files class from Java 1.7 to write files, internally uses OutputStream
+                 # from:   https://www.digitalocean.com/community/tutorials/java-write-to-file   CDS600156
+    # from: https://www.baeldung.com/java-write-to-file

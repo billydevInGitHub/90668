@@ -3,5 +3,5 @@ FileOutputStream to write binary data,
 DataOutputStream to write primitive data types,
 RandomAccessFile to write to a specific position,
 FileChannel to write faster in larger files
-Files.write ???
+Files.write ???   see CDS600156
     # from: https://www.baeldung.com/java-write-to-file

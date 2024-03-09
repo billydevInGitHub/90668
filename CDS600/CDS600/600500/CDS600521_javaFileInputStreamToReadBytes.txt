@@ -1,0 +1,23 @@
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+public class ReadFile_FileInputStream_Read {
+  public static void main(String [] pArgs) throws FileNotFoundException, IOException {
+    String fileName = "c:\\temp\\sample-10KB.txt";
+    File file = new File(fileName);
+
+    try (FileInputStream fileInputStream = new FileInputStream(file)) {
+      int singleCharInt;
+      char singleChar;
+
+      while((singleCharInt = fileInputStream.read()) != -1) {
+                       # looks like read as int, but actually read only one byte, so in this example txt file must be ascii file
+        singleChar = (char) singleCharInt;
+        System.out.print(singleChar);
+      }
+    }
+  }
+}
+      # from: https://funnelgarden.com/java_read_file/

@@ -1,0 +1,8 @@
+String str = "Hello";
+    BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+    writer.write(str);
+          # can only write String, int value of char, char array
+
+    writer.close();
+         # buffered writer used here but not its feature
+         #from: https://www.baeldung.com/java-write-to-file

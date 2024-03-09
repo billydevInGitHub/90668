@@ -1,0 +1,8 @@
+In general, a Writer sends its output immediately to the underlying character or byte stream. Unless prompt output is required, it is advisable to wrap a BufferedWriter around any Writer whose write() operations may be costly, such as FileWriters and OutputStreamWriters. For example,
+
+ PrintWriter out
+   = new PrintWriter(new BufferedWriter(new FileWriter("foo.out")));
+
+will buffer the PrintWriter's output to the file. Without buffering, each invocation of a print() method would cause characters to be converted into bytes that would then be written immediately to the file, which can be very inefficient.
+
+     # from: https://docs.oracle.com/javase%2F7%2Fdocs%2Fapi%2F%2F/java/io/BufferedWriter.html#:~:text=PrintWriter%20out%20%3D%20new%20PrintWriter(new,which%20can%20be%20very%20inefficient.

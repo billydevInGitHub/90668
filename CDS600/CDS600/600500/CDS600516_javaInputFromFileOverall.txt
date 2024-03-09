@@ -1,0 +1,3 @@
+List all ways with performance test
+
+   # from: https://funnelgarden.com/java_read_file/

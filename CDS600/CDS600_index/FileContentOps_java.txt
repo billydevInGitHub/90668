@@ -1,87 +1,200 @@
-===Overall
+===Overall   documentation
 
-read
-
+read         CDS600516
+             (Input from
+              File overall) 
 
 write        CDS600155        CDS600156
              (list all        (list 4
-             ways)             ways)
+              ways)             ways)
 
-=== read text
+examples                   -------String-----------------------------------------------char---------integer-------boolean--------float-------
 
-small file    CDS600152
-              (all bytes
-               to String)
+output binary
+   -FileOutputStream         CDS600397
+                            （FileOutputStream
+                              write string)
 
-big file      CDS
+                             CDS600162
+                             (FileOutputStream)
 
+   -BufferedOutput            CDS600171                 CDS600195
+    Stream                    (Buffered                 (alias,
+                               OutputStream              GZipOutputStream
+                               vs CDS600157)             using Files)
 
+                             CDS600539
+                             (alias, with
+                              buffer faster)
 
+                           -------String-----------------------------------------------char---------integer-------boolean--------float-------
 
+   -DataOutputStream         CDS600398
+                             (DataOutputStream
+                              write string)
 
-=== read byte
+   -RandomAccessFile         CDS600507                 CDS600168
+                             (RandomAccessFile         (write with
+                              write to a                offset)
+                              specific position)
 
+                           -------String-----------------------------------------------char---------integer-------boolean--------float-------
+   -FileChannel of           CDS600508              CDS600509
+    NIO                      (FileChannel           (advantages
+                              write file)            of FileChannel)
 
-
-Random Access         CDS600169
-                      (read from
-                       offset)
-
-
-=== write text
-
-quick              CDS600157
-common             (Files write
-                    String to
-                    file)
-
-basic              CDS600158            CDS600161
-                   (use                 (FileWriter
-                    FileWriter)          full code)
-
-buffered           CDS600159             CDS600160           CDS600163     CDS600165
-writer             (buffered             (bufferedWriter     (new code     (new code
-                    writer                write many          no need       append
-                    efficient)            times)              close)        mode)
-
-all types
-of data
-
-=== write byte
-
-quick              CDS600157
-common             (alias,
-                    Files write)
-
-basic              CDS600162
-                   (FileOutputStream)
-
-buffered           CDS600171                 CDS600195
-                   (Buffered                 (alias,
-                    OutputStream              GZipOutputStream
-                    vs CDS600157)             using Files)
+                             CDS600172                  CDS600173
+                             (Use FileChannel           (About
+                              for large files)           FileChannel)
 
 
-all types          CDS600166
-of data            (PrintWriter
-                    print different
-                    data type)
+                             CDS600515                 CDS600177
+                             (FileChannel              (lock before
+                              do file lock)             writing)
 
-RandomAccess       CDS600168
-                   (write with
-                    offset)
+   -Files                    CDS600510                  CDS600157
+                             (Files write               (alias,
+                              to File                    Files write)
+                              default encoding)
 
 
-Large File         CDS600172                  CDS600173
-                   (Use FileChannel           (About
-                    for large files)           FileChannel)
+output text
+   -FileWriter               CDS600399              CDS600505
+                             (FileWriter            (Pure FileWriter
+                              write String)          example)
 
-=== Special write
+                             CDS600512              CDS600175                 CDS600176
+                             (FileWrite to          (create tmp               (delete tmp
+                              temp File)             file)                     file)
 
-TempFile           CDS600175                 CDS600176
-                   (create tmp               (delete tmp
-                    file)                     file)
+                            CDS600158            CDS600161
+                            (use                 (FileWriter
+                             FileWriter)          full code)
 
-Lock file          CDS600177
-                   (lock before
-                    writing)
+
+   -BufferedWriter           CDS600500
+                             (BufferedWriter
+                              write String)
+
+                             CDS600159             CDS600160           CDS600163     CDS600165
+                             (buffered             (bufferedWriter     (new code     (new code
+                              writer                write many          no need       append
+                              efficient)            times)              close)        mode)
+
+
+                           -------String-----------------------------------------------char---------integer-------boolean--------float-------
+   -PrinterWriter            CDS600501              CDS600502                                       CDS600503
+                             (PrintWriter           (PrintWriter                                    (PrintWriter
+                              support new            support formatted                               support formatted
+                              line)                  text)                                           decimal)
+
+                             CDS600511                                                             CDS600166
+                             (Formatter                                                            (PrintWriter
+                              chars)                                                                print different
+                                                                                                    data type)
+   -All together             CDS600506
+                             (PrintWriter
+                              BufferedWriter
+                              FileWriter
+                              together)
+
+   -Files                    CDS600157
+                             (Files write
+                              String to
+                              file)
+
+
+                           -------String-----------------------------------------------char---------integer-------boolean--------float-------
+=== read files
+
+reading bytes               CDS600521                 CDS600525
+   - FileInputStream        (FileInputStream          (FileInputStream
+                             read bytes)               read first 8 bytes)
+
+                            CDS600522                 CDS600523
+                            (FileInputStream          (FileInputStream
+                             read binary               copy chunk
+                             file copy all)            binary file)
+
+                           -------String-----------------------------------------------char---------integer-------boolean--------float-------
+
+   - BufferedInput          CDS600526                 CDS600539
+     Stream                 (BufferedInput            (alias, with
+                             Stream )                  buffer faster)
+
+
+   -DataInputStream                                                                                CDS600537
+                                                                                                   (DataInputStream
+                                                                                                    reading long)
+
+                           -------String-----------------------------------------------char---------integer-------boolean--------float-------
+
+   -ObjectInputStream         CDS600538              CDS600539
+                              (ObjectInput           (ObjectInput
+                               OutputStream           OutputStream
+                               slow example)          with buffer)                                                                                                       
+
+   - Files                  CDS600533                       CDS600152
+                            (Files read                     (all bytes
+                             all bytes)                      to String)
+
+   - RandomAccessFile        CDS600169
+                             (read from
+                              offset)
+
+
+
+reading text
+   - FileReader              CDS600517
+                             (File read txt
+                              with default
+                              encoding)
+
+   - Buffered                CDS600519
+     Reader                  (BufferedReader
+                              can read lines)
+
+                           -------String-----------------------------------------------char---------integer-------boolean--------float-------
+
+   - InputStream              CDS600518              CDS600520
+     Reader                   (File read txt         (Buffer and
+                               with explicit          InputStream
+                               encoding)              Reader together)
+
+
+
+                           -------String-----------------------------------------------char---------integer-------boolean--------float-------
+
+   - Files                  CDS600527                  CDS600528
+                            (Files read                (Files read
+                             all lines with             all lines with
+                             default encoding)          explicit encoding)
+
+                            CDS600529                  CDS600530
+                            (Files readlines           (Files readlines
+                             with lambda )              with lambda explicit
+                                                        encoding)
+                           -------String-----------------------------------------------char---------integer-------boolean--------float-------
+
+   - Scanner                CDS600531                   CDS600532
+                            (Scanner readlines          (Scanner readlines
+                             default encoding)           explicity encoding)
+
+   - Apache                 CDS600535
+     FileUtils              (Apache FileUtils
+                             readLines)
+
+                           -------String-----------------------------------------------char---------integer-------boolean--------float-------
+
+   - Guava                  CDS600536
+     Files                  (Guava Files
+                             read lines) 
+
+
+
+
+
+
+
+
+

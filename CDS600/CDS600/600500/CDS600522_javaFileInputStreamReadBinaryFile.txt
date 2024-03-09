@@ -1,0 +1,37 @@
+import java.io.*;
+/**
+ * Copy one file to another using low level byte streams,
+ * read and write a whole.at once.
+ * @author www.codejava.net
+ */
+public class CopyFilesOne {
+    public static void main(String[] args) {
+
+        if (args.length < 2) {
+            System.out.println("Please provide input and output files");
+            System.exit(0);
+        }
+
+        String inputFile = args[0];
+        String outputFile = args[1];
+
+        try (
+            InputStream inputStream = new FileInputStream(inputFile);
+            OutputStream outputStream = new FileOutputStream(outputFile);
+        ) {
+            long fileSize = new File(inputFile).length();
+                          # good to know we can get the file length
+            byte[] allBytes = new byte[(int) fileSize];
+                          # the issue here might be file too big to fit in the memory
+            int bytesRead = inputStream.read(allBytes);
+
+            outputStream.write(allBytes, 0, bytesRead);
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+}
+      # program runs faster because it reads the whole input file into an array of bytes and then write the
+           whole array of bytes to the output file
+      # from:  https://www.codejava.net/java-se/file-io/how-to-read-and-write-binary-files-in-java
