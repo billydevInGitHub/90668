@@ -2,3 +2,4 @@ default Instant toInstant()
     # from: Interface ChronoZonedDateTime<D extends ChronoLocalDate>
         ZonedDateTime implements this interface
         # it makes sense that ZonedDateTime can be directly converted to Instant
+            240323: zonedDateTime is also a moment

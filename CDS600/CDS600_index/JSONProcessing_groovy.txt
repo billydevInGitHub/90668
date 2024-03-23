@@ -1,0 +1,18 @@
+=== Documentation
+                 CDS600552
+                 (groovy JSON
+                  processing
+                  documentation)
+
+=== JsonSlurper
+                CDS600553               CDS600558
+                (basic example)         (JsonSlurper parsed
+                                         Object cast to
+                                         net.sf JSONObject) 
+
+
+=== net.sf.json-lib
+                CDS600555               CDS600559
+                (create JSON)           (net.sf Object
+                                         print to pretty
+                                         String)

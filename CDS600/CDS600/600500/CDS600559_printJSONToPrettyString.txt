@@ -1,0 +1,17 @@
+package CDS600559
+
+import net.sf.json.JSONObject
+import groovy.json.JsonBuilder
+
+class JSONObjectPrintToPrettyString {
+    static void main(String[] args) {
+        JSONObject jsonObject=new JSONObject()
+        jsonObject.accumulate("test1", "Value1")
+        jsonObject.accumulate("test2", "Value2")
+        println "not pretty string:"+jsonObject
+        println "\n pretty string"+jsonObject
+        println (new JsonBuilder(  jsonObject).toPrettyString())
+    }
+}
+      # pay attention to the case of: JsonBuilder class
+      # JSONObject seems accepted by groovy-all

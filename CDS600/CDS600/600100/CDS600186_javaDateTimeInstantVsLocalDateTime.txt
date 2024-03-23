@@ -10,8 +10,8 @@ LocalDateTime
      It represents potential moments along a range of about 26 to 27 hours, the range of all time zones around the globe.
      A LocalDateTime value is inherently ambiguous.
 
-     # my understanding is: LocalDateTime is a "relative time" to one timezone while instant is an "absolute time"
+     # my understanding is: LocalDateTime is a "relative time" to implict/default timezone while instant is an "absolute time"
              # LocalDateTime is important because people use them a lot, because when people talking about time, they usually
-               have a "common sense" timezone
+               have a "common sense" timezone,  just like CDS600185, like "the clock time on the wall"
 
      # check: https://stackoverflow.com/questions/32437550/whats-the-difference-between-instant-and-localdatetime

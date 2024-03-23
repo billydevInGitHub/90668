@@ -1,0 +1,2 @@
+static LocalDateTime	ofInstant(Instant instant, ZoneId zone)
+      # from Java Doc

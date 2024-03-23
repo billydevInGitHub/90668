@@ -1,0 +1,2 @@
+static LocalDateTime	ofEpochSecond(long epochSecond, int nanoOfSecond, ZoneOffset offset)
+      # from Java Doc

@@ -1,5 +1,4 @@
 LocalDateTime.now(ZoneId.of("America/Edmonton"));
-      #
       ===
          This will query the system clock to obtain the current date-time. Specifying the time-zone avoids dependence on the default time-zone.
          Using this method will prevent the ability to use an alternate clock for testing because the clock is hard-coded.
@@ -7,3 +6,4 @@ LocalDateTime.now(ZoneId.of("America/Edmonton"));
           # I guess this will avoid the default time-zone, I guess it might create a now time different from default one
           # what does clock mean ?
       # New understanding: actually convert an absolute time (moment or instant) to a relative time, so it needs timezone
+         240323: although we have now and timezone, end up with an ambiguous concept , the result does not have offset or timezone

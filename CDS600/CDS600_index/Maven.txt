@@ -1,0 +1,7 @@
+===
+
+repository       CDS600556        CDS600557
+                 (common          (some artifacts
+                  maven repos)     need classifier)
+
+

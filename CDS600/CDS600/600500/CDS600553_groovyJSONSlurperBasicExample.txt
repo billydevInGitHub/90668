@@ -1,0 +1,13 @@
+    @Test
+    void testJson() {
+        def jsonSlurper = new JsonSlurper()
+        def object = jsonSlurper.parseText('{ "name": "John Doe" } /* some comment */')
+
+        assert object instanceof Map
+                       # by default parse to Map
+        assert object.name == 'John Doe'
+    }
+
+
+      # code in groovy lab
+      # from: https://groovy.apache.org/blog/parsing-json-with-groovy

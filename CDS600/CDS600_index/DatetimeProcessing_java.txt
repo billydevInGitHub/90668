@@ -9,16 +9,16 @@
 
 === creation
 
-create                 CDS600178
-LocalDateTime          (LocalDateTime
-                        now)
+create                 CDS600178             CDS600565
+LocalDateTime          (LocalDateTime        (create LocalDateTime
+                        from now )            from year hour values)
 
 create                 CDS600196
 ZonedDateTime          (created from
                         Instant)
 
 instant                CDS600186
-                       (compare with
+(concept)              (compare with
                         LocalDateTime)
 
 instant                CDS600187            CDS600188             CDS600189        CDS600190
@@ -28,6 +28,21 @@ creation               (created from        (created from         (created      
                        CDS600192
                        (converted from
                         FileTime)
+                   ----------------------------------------
+LocalDateTime          CDS600560
+to absolute time       (convert LocalDateTime
+                        to ZonedDateTime)
+
+
+Absolute time          CDS600561               CDS600562
+to LocalDateTime       (convert Instant        (convert epoch seconds
+                        to LocalDateTime)       to LocalDateTime)
+
+                   ----------------------------------------
+Conversion between     CDS600563
+absolute time          (same instant
+                        different zone)
+
 
 === display
 

@@ -1,0 +1,9 @@
+class JSONSlurperParsedJSONCastToJSONObject {
+    static void main(String[] args) {
+        JSONObject jsonObject= new JsonSlurperClassic().parseText('{ \"name\": \"John Doe\" } /* some comment */') as JSONObject
+        println jsonObject
+    }
+}
+      # onCode
+      # 2 lib can inter operate with each other
+      # From our repo, we can use as JSONObject to cast to JSONOBject

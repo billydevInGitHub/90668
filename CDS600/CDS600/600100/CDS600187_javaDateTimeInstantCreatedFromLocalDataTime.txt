@@ -2,3 +2,7 @@ default Instant toInstant(ZoneOffset offset)
     # from: Interface ChronoLocalDateTime<D extends ChronoLocalDate>
         LocalDateTime implements this interface
         # it makes sense that LocalDateTime need ZoneOffset to convert to instant
+
+localDateTime.toInstant(ZoneOffset.ofHours(8))
+    # localDateTime is relative concept, when we need instant (some zone introduced), we can convert localDateTime to moment
+    #  https://stackoverflow.com/questions/52944410/convert-localdatetime-to-instant-requires-a-zoneoffset-why

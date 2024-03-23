@@ -1,4 +1,5 @@
 ChronoUnit.MINUTES.between(startDateTime, now)
+      # now is also a LocalDateTime
       # java.time.temporal.ChronoUnit
            # enum just like an interface, each value is an instance while methods are interface methods
       # two parameters could be LocalDateTime, return long in minutes

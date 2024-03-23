@@ -1,0 +1,4 @@
+https://groovy-lang.org/processing-json.html
+     # mainly this one
+        also:  https://www.tutorialspoint.com/groovy/groovy_json.htm
+               https://groovy.apache.org/blog/parsing-json-with-groovy
